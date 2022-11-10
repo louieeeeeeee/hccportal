@@ -27,29 +27,17 @@ if($_FILES["import_excel"]["name"] != '')
 		foreach(array_slice($data,1) as $row)
 		{
 			$insert_data = array(
-				':studentid'		=>	$row[0],
-				':tuitionfee'		=>	$row[1],
-				':learnandins'	=>	$row[2],
-				':regfee'				=>	$row[3],
-				':compprossfee'	=>	$row[4],
-				':guidandcouns'	=>	$row[5],
-				':schoolidfee'	=>	$row[6],
-				':studenthand'	=>	$row[7],
-				':schoolfab'		=>	$row[8],
-				':insurance'		=>	$row[9],
-				':totalass'			=>	$row[10],
-				':discount'			=>	$row[11],
-				':netass'				=>	$row[12],
-				':cashcheckpay'	=>	$row[13],
-				':balance'			=>	$row[14]
+				':studentid'	=>	$row[0],
+				':username'		=>	$row[1],
+				':lastname'		=>	$row[2],
+				':password'		=>	md5($row[3]),
+				':role'				=>	$row[4]
 			);
 
 			$query = "
-			INSERT INTO billing
-			(studentid, tuitionfee, learnandins, regfee, compprossfee, guidandcouns, schoolidfee, studenthand, schoolfab,
-			insurance, totalass, discount, netass, cashcheckpay, balance)
-			VALUES (:studentid, :tuitionfee, :learnandins, :regfee, :compprossfee, :guidandcouns, :schoolidfee, :studenthand, :schoolfab,
-			:insurance, :totalass, :discount, :netass, :cashcheckpay, :balance)
+			INSERT INTO users
+			(id, username, lastname, password, role)
+			VALUES (:studentid, :username, :lastname, :password, :role)
 			";
 
 			$statement = $connect->prepare($query);

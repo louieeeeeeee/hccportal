@@ -5,6 +5,7 @@
   <link rel="stylesheet" href="../assets/plugins/bootstrap.min.css" type="text/css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <script src="../assets/plugins/bootstrap.bundle.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
   <script src="../assets/plugins/sweetalert.min.js"></script>
   <script src="../assets/plugins/jquery.min.js"></script>
   <script src="../assets/js/scripts.js"></script>

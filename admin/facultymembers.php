@@ -40,27 +40,10 @@ if (isset($_POST['findUser'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<body onload="onLoad()">
+<body>
   <?php
     include("header.php");
   ?>
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <h4 class="modal-title">Are you sure you want to remove User <?php echo $_SESSION['userID']; ?>?</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <form method="POST">
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-            <button name="delUser" type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
   <div class="container w-75">
     <form class="row" method="POST">
       <div class="col-xl" id="tablelength" style="margin-top:4%; position:relative;">
@@ -72,12 +55,9 @@ if (isset($_POST['findUser'])) {
           <div class="col-md-1">
             <button class="btn btn-primary float-start" type="submit" name="findUser">Search</button>
           </div>
-          <div class="col-md-1">
-            <button name="btndel" type="submit" class="btn btn-danger float-start" data-bs-toggle="modal" data-bs-target="#myModal">Delete</button>
-
-          </div>
         </div>
       <br />
+      <div class="table-wrapper-scroll-y scrollbar">
         <table class="table table-striped table-dark" id="table">
           <thead>
             <tr>
@@ -85,6 +65,7 @@ if (isset($_POST['findUser'])) {
               <th scope="col" >First Name</th>
               <th scope="col" >Last Name</th>
               <th scope="col" >Email</th>
+              <th scope="col" >Action</th>
             </tr>
           </thead>
           <tbody>
@@ -96,11 +77,12 @@ if (isset($_POST['findUser'])) {
                   echo "<td>".$row['username']."</td>";
                   echo "<td>".$row['lastname']."</td>";
                   echo "<td>".$row['email']."</td>";
+                  echo "<td> <a href='userdelete.php?id=" .$row['id']. "&user=faculty' class='del-btn btn btn-danger'>Delete</a> </td>";
                   echo "</tr>";
               }
               } else {
                   echo "<tr>";
-                  echo "<td colspan='4'>";
+                  echo "<td colspan='5'>";
                   echo "<center>No Data Found.</center>";
                   echo "</td>";
                   echo "</tr>";
@@ -111,8 +93,13 @@ if (isset($_POST['findUser'])) {
           </tbody>
         </table>
       </div>
+      </div>
     </form>
   </div>
+  <?php
+    if(isset($_GET['m'])){ ?>
+    <div class="flash-data" data-flashdata="<?php echo $_GET['m'];?>"></div>
+<?php } ?>
   <script>
     if ( window.history.replaceState ) {
       window.history.replaceState( null, null, window.location.href );

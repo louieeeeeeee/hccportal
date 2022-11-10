@@ -10,7 +10,7 @@ if ($_SESSION['loggedin'] == '1') {
   echo '<script type="text/javascript">setTimeout(function () {
     swal("Welcome Admin","","success");}, 200);</script>';
   unset($_SESSION["loggedin"]);
-} 
+}
 
 //setcookie("hello", "", time()-3600);
 
@@ -79,7 +79,7 @@ $username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<body onload="onLoad()">
+<body>
   <?php
     include("header.php");
   ?>
@@ -137,7 +137,7 @@ $username = $_SESSION['username'];
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
-              
+
             </select>
           </div>
           </div>

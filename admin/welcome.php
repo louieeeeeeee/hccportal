@@ -11,7 +11,7 @@ if ($_SESSION['loggedin'] == '1') {
   echo '<script type="text/javascript">setTimeout(function () {
     swal("Welcome Super Admin","","success");}, 200);</script>';
   unset($_SESSION["loggedin"]);
-} 
+}
 
 $id = $_SESSION['theid'];
 $username = $_SESSION['username'];
@@ -21,7 +21,6 @@ $username = $_SESSION['username'];
 <!DOCTYPE html>
 <html lang="en">
 <body>
-
   <?php
     include("header.php");
   ?>

@@ -39,6 +39,14 @@ body {
   font-size:25px;
   top:-60px;
   }
+.scrollbar {
+position: relative;
+height: 300px;
+overflow: auto;
+}
+.table-wrapper-scroll-y {
+display: block;
+}
 table {
   overflow-y: hidden;
   height: 5px;

@@ -41,7 +41,7 @@ if(isset($_POST['upload'])) {
   bootstrap.min.css" type="text/css"/>
   <script src="../assets/js/bootstrap.bundle.min.js" type="text/javascript"></script>
 </head>
-<body onload="onLoad()">
+<body>
   <?php
     include("header.php");
   ?>
