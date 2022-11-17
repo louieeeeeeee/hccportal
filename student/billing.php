@@ -22,7 +22,9 @@ if ($result->num_rows > 0) {
       <?php
       include("header.php");
       ?>
+
       <div class="container" method="POST" action="" enctype="multipart/form-data">
+        <div class="h-100">
         <div class="row">
           <label class="small mb-1 fw-bold">Student ID: <?php echo $row['studentid']; ?></label>
                 <div class="col-md-6">
@@ -56,6 +58,17 @@ if ($result->num_rows > 0) {
               </div>
           </div>
         </div>
+        <div class="d-flex align-items-end flex-column">
+        <div class="row">
+          <a href="welcome.php" class="btn btn-primary btn-lg shadow mb-5">
+            <i class="fa-solid fa-angles-left"></i>
+            <b>Back</b>
+          </a>
+      </div>
+      </div>
+      </div>
+
+
       <script>
       if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );

@@ -3,75 +3,14 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
 body {
-  background: url(../images/temp.jpg) center/cover no-repeat;
+  background: url(../images/mainbg.jpg) center/cover no-repeat;
   height: 100vh;
   margin: 0;
   justify-content: center;
   font-family: Verdana, sans-serif;
   overflow: hidden;
-  animation: fadeInAnimation ease 1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* FOR ANNOUUNCEMENT */
-.scroll-left {
- height: 50px;
- overflow: hidden;
- position: relative;
- background:#2596be;
- color: white;
-}
-.scroll-left p {
- position: absolute;
- width: 100%;
- height: 100%;
- margin: 0;
- line-height: 50px;
- text-align: center;
- font-size: 25px;
- transform:translateX(100%);
- animation: scroll-left 20s linear infinite;
-}
-@keyframes scroll-left {
- 0%   {
- transform: translateX(100%);
- }
- 100% {
- transform: translateX(-100%);
- }
-}
-
-
-.btn-sq-lg {
-  width: 220px !important;
-  height: 200px !important;
-  border-radius: 25px;
-}
-#btn-sq-lg{
-  border-radius: 25px;
-  color:#2596be;
-}
-.fa-6x{
-  padding-top:35px;
-}
-#clock{
-  color:black;
-}
-.container {
-    position: relative;
-    margin: auto;
-    height: 80%;
-    width: 100%;
 }
 .form-signin {
   width: 100%;
@@ -126,13 +65,22 @@ td {
   background-color: #2596be;
   color: #FFF;
 }
-
-.navbar{
-/**  -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+.container{
+  margin-top: 100px;
+  height: 70%;
+  background: rgba(224, 225, 228, 0.7);
+  -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
   -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
   box-shadow: 1px 2px 3px rgba(0,0,0,.5);
-  height: 10%;
-  position:fixed;**/
+  border-radius: 15px;
+  margin-bottom:50px;
+}
+.navbar{
+  -moz-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  -webkit-box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  box-shadow: 1px 2px 3px rgba(0,0,0,.5);
+  height: 50px;
+  position:fixed;
 }
 
 #textOP{
@@ -142,8 +90,8 @@ td {
 #username{
   white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
   max-width: 250px;
-  font-size:20px;
 }
 
 .form-signin .checkbox {

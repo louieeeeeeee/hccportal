@@ -21,7 +21,9 @@ if(isset($_POST['submit'])) {
   <?php
     include("header.php");
   ?>
-  <div class="container w-75">
+  <div class="h-100">
+  <div class="container">
+    <div class="h-100">
     <div class="row" style="position:relative; top:10%;">
       <div class="col">
         <form class="row g-3" method="POST">
@@ -88,6 +90,15 @@ if(isset($_POST['submit'])) {
         </form>
       </div>
     </div>
+  </div>
+    <div class="d-flex align-items-end flex-column">
+    <div class="row">
+      <a href="welcome.php" class="btn btn-primary btn-lg shadow mb-5">
+        <i class="fa-solid fa-angles-left"></i>
+        <b>Back</b>
+      </a>
+  </div>
+  </div>
   </div>
   <script>
     if ( window.history.replaceState ) {

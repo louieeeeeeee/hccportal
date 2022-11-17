@@ -1,4 +1,14 @@
 $(document).ready(function(){
+
+  $('body').hide().fadeIn(200);
+    $("a").click(function(e) {
+        e.preventDefault();
+        $link = $(this).attr("href");
+        $("body").fadeOut(200,function(){
+          window.location =  $link;
+        });
+    });
+
   $('#import_excel_billing').on('submit', function(e){
     e.preventDefault();
     $.ajax({

@@ -61,9 +61,10 @@ if(isset($_POST['submit'])) {
       <?php
       include("header.php");
       ?>
-      <div class="container w-75">
-        <div class="row" style="position:relative; top:10%;">
-          <div class="col-xl-4" style="position:relative; top:17px;">
+      <div class="container">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="row">
+          <div class="col-xl-4">
             <form method="POST" action="" enctype="multipart/form-data">
               <div class="text-center">
                 <img class="img-account-profile rounded-circle mb-2" src="<?php echo $showimage ?>" width="250" height="250" alt="" onerror=this.src="../assets/images/altimg.png">
@@ -129,6 +130,15 @@ if(isset($_POST['submit'])) {
             </form>
           </div>
         </div>
+      </div>
+      <div class="d-flex align-items-end flex-column">
+      <div class="row">
+        <a href="welcome.php" class="btn btn-primary btn-lg shadow mb-5">
+          <i class="fa-solid fa-angles-left"></i>
+          <b>Back</b>
+        </a>
+    </div>
+    </div>
       </div>
       <script>
       if ( window.history.replaceState ) {
