@@ -3,7 +3,7 @@ include '../config.php';
 session_start();
 error_reporting(0);
 
-if (!isset($_SESSION['username'])) {
+if (!($_SESSION['role'] == 'Faculty')) {
   header("Location: ../index.php");
 }
 
@@ -103,7 +103,7 @@ if(isset($_POST['submit'])) {
                   <input name="email" class="form-control" type="email" value="<?php echo $row['email']; ?>" required>
                 </div>
               </div>
-             
+
               <button name="submit" type="submit" class="btn btn-primary">Save changes</button>
             </form>
           </div>

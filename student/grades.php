@@ -3,9 +3,10 @@ include '../config.php';
 session_start();
 error_reporting(0);
 
-if (!isset($_SESSION['username'])) {
-    header("Location: ../index.php");
+if (!($_SESSION['role'] == 'Student')) {
+  header("Location: ../index.php");
 }
+
 $id = $_SESSION['theid'];
 $username = $_SESSION['username'];
 if(isset($_POST['submit'])) {

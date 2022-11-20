@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <script src="../assets/plugins/bootstrap.bundle.min.js" type="text/javascript"></script>
   <script src="../assets/plugins/sweetalert.min.js"></script>
+  <script src="../assets/plugins/jquery.min.js"></script>
   <script src="../assets/js/scripts.js"></script>
 </head>
 <nav class="navbar">

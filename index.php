@@ -2,13 +2,15 @@
 include 'config.php';
 
 session_start();
+
+
 error_reporting(0);
 if (isset($_POST['btnlogin'])) {
   $userPass = md5($_POST['userPass']);
   $userID = $_SESSION['theid'];
   $sql = "SELECT * FROM users WHERE id='$userID' and password='$userPass'";
   $result = mysqli_query($conn, $sql);
-
+  echo $sql;
   if(mysqli_num_rows($result) == 1){
     $loggedinuser = mysqli_fetch_assoc($result);
     if($loggedinuser['role'] == 'Admin'){

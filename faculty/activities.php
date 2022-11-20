@@ -3,8 +3,8 @@ include '../config.php';
 session_start();
 error_reporting(0);
 
-if (!isset($_SESSION['username'])) {
-    header("Location: ../index.php");
+if (!($_SESSION['role'] == 'Faculty')) {
+  header("Location: ../index.php");
 }
 
 $id = $_SESSION['theid'];
@@ -42,7 +42,7 @@ $result = mysqli_query($conn, $sql);
       <div class="carousel-item active">
         <img src="image/mainbg.jpg" height="450" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
-         
+
         </div>
       </div>
       <?php

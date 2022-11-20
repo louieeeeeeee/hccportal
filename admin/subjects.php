@@ -3,9 +3,10 @@ include '../config.php';
 session_start();
 error_reporting(0);
 
-if (!isset($_SESSION['username'])) {
-    header("Location: ../index.php");
+if (!($_SESSION['role'] == 'Admin')) {
+  header("Location: ../index.php");
 }
+
 if ($_SESSION['loggedin'] == '1') {
   echo '<script type="text/javascript">setTimeout(function () {
     swal("Welcome Admin","","success");}, 200);</script>';

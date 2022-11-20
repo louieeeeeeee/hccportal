@@ -3,10 +3,10 @@ include '../config.php';
 session_start();
 error_reporting(0);
 
-if ($_SESSION['role'] == 'Admin') {
-}else{
+if (!($_SESSION['role'] == 'Admin')) {
   header("Location: ../index.php");
 }
+
 if ($_SESSION['loggedin'] == '1') {
   echo '<script type="text/javascript">setTimeout(function () {
     swal("Welcome Super Admin","","success");}, 200);</script>';

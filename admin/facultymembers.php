@@ -3,9 +3,10 @@ include '../config.php';
 session_start();
 error_reporting(0);
 
-if (!isset($_SESSION['username'])) {
-    header("Location: ../index.php");
+if (!($_SESSION['role'] == 'Admin')) {
+  header("Location: ../index.php");
 }
+
 $sql = "SELECT * FROM users WHERE role='Faculty'";
 $result = mysqli_query($conn, $sql);
 
