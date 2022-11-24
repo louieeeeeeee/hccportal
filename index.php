@@ -13,6 +13,7 @@ if (isset($_POST['btnlogin'])) {
   echo $sql;
   if(mysqli_num_rows($result) == 1){
     $loggedinuser = mysqli_fetch_assoc($result);
+    echo $loggedinuser['role'];
     if($loggedinuser['role'] == 'Admin'){
       $_SESSION['username'] = $loggedinuser['lastname'];
       $_SESSION['loggedin'] = "1";
@@ -21,7 +22,11 @@ if (isset($_POST['btnlogin'])) {
       $_SESSION['username'] = $loggedinuser['lastname']. ', ' .$loggedinuser['username'];
       $_SESSION['loggedin'] = "1";
       header("Location: faculty/welcome.php");
-    }
+    }elseif($loggedinuser['role'] == 'Cashier'){
+      $_SESSION['username'] = $loggedinuser['lastname']. ', ' .$loggedinuser['username'];
+      $_SESSION['loggedin'] = "1";
+      header("Location: cashier/welcome.php");
+    }   
   }else{
     echo '<script type="text/javascript">setTimeout(function () {
       swal("Invalid Password, Please Try Again!","","error");}, 200);</script>';
@@ -51,6 +56,10 @@ if (isset($_POST['login'])) {
       $_SESSION['role'] = $loggedinuser['role'];
       include 'verificationModal.php';
     }elseif($loggedinuser['role'] == 'Faculty'){
+      $_SESSION['theid'] = $loggedinuser['id'];
+      $_SESSION['role'] = $loggedinuser['role'];
+      include 'verificationModal.php';
+    }elseif($loggedinuser['role'] == 'Cashier'){
       $_SESSION['theid'] = $loggedinuser['id'];
       $_SESSION['role'] = $loggedinuser['role'];
       include 'verificationModal.php';

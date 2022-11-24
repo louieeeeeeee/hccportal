@@ -17,10 +17,10 @@ if ($_SESSION['loggedin'] == '1') {
   <html lang="en">
   <body>
     <?php
-    include("header.php");
+    include("header.php"); 
     ?>
 
-    <div class="container">
+<div class="container">
   <div class="h-100 d-flex align-items-center justify-content-center">
     <div class="row" >
       <div class="col">

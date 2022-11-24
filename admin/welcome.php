@@ -54,7 +54,7 @@ $username = $_SESSION['username'];
         <i class="fa-solid fa-file-pen fa-6x"></i><br/>
         <b><h5>Registration</h5></b>
       </a>
-      <a href="subject.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+      <a href="subjects.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
         <i class="fa-solid fa-book fa-6x"></i><br/>
         <b><h5>Subjects</h5></b>
       </a>

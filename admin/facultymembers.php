@@ -97,6 +97,14 @@ if (isset($_POST['findUser'])) {
       </div>
     </form>
   </div>
+  <div class="d-flex align-items-end flex-column">
+    <div class="row">
+      <a href="welcome.php" class="btn btn-primary btn-lg shadow mb-5">
+        <i class="fa-solid fa-angles-left"></i>
+        <b>Back</b>
+      </a>
+    </div>
+  </div>
   <?php
     if(isset($_GET['m'])){ ?>
     <div class="flash-data" data-flashdata="<?php echo $_GET['m'];?>"></div>

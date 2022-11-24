@@ -13,9 +13,6 @@ if ($_SESSION['loggedin'] == '1') {
   unset($_SESSION["loggedin"]);
 }
 
-//setcookie("hello", "", time()-3600);
-
-
 $id = $_SESSION['theid'];
 $username = $_SESSION['username'];
   $sql = "SELECT * FROM subjects";
@@ -49,11 +46,13 @@ $username = $_SESSION['username'];
     }
 
   if (isset($_POST['register'])) {
-  	$course = $_POST['course'];
-    $code = $_POST['code'];
-  	$subject = $_POST['subject'];
-    $unit = $_POST['unit'];
+    echo '<script>console.log("Your stuff here")</script>';
+    $subject = $_POST['subject'];
     $year = $_POST['year'];
+    $sem = $_POST['sem'];
+    $code = $_POST['code'];
+    $unit = $_POST['unit'];
+  	$course = $_POST['course'];
 
     $parts = $_POST['faculty'];
     $arr = explode(':', $parts);
@@ -62,8 +61,8 @@ $username = $_SESSION['username'];
     $faculty = preg_replace('/(,)(?=[^\s])/', ', ', $facultytemp);
     $facultyid = $arr[1];
 
-  			$sql = "INSERT INTO subjects (facultyid, faculty, course, code, subject, year, unit)
-  					VALUES ('$facultyid', '$faculty', '$course', '$code', '$subject', '$year', '$unit')";
+  			$sql = "INSERT INTO subjects (facultyid, course, code, subject, year, sem, unit)
+  					VALUES ('$facultyid', '$course', '$code', '$subject', '$year', '$sem', '$unit')";
   			$result = mysqli_query($conn, $sql);
   			if ($result) {
           echo "<div class='alert alert-success'><strong>Subject Succesfully Added to the System!</strong></div>";
@@ -85,18 +84,21 @@ $username = $_SESSION['username'];
     include("header.php");
   ?>
   <div class="container w-100">
-    <label class="form-label">Subjects Registration</label>
+    <label class="form-label">Subjects Registration</label><br/>
+    <button class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#registerModal"> Add Subject</button>
     <div class="row">
-      <div class="col-xl-9" id="tablelength">
-        <table class="table table-striped table-dark" id="table">
+      <div class="col-md" id="tablelength">
+        <table class="table table-striped table-dark" id="table" style="table-layout:fixed;">
           <thead>
             <tr>
-              <th scope="col" >Code</th>
-              <th scope="col" >Subject Name</th>
-              <th scope="col" >Year</th>
-              <th scope="col" >Faculty</th>
+              <th scope="col" style="width:100px;">Code</th>
+              <th scope="col" style="width:250px;">Subject Name</th>
+              <th scope="col" style="width:100px;">Year</th>
+              <th scope="col" style="width:100px;">Semester</th>
+              <th scope="col" style="width:300px;">Faculty</th>
               <th scope="col" >Course</th>
-              <th scope="col" >Unit</th>
+              <th scope="col" style="width:50px;">Unit</th>
+              <th scope="col" style="width:100px;">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -107,10 +109,14 @@ $username = $_SESSION['username'];
                   echo "<td>".$row['code']."</td>";
                   echo "<td>".$row['subject']."</td>";
                   echo "<td>".$row['year']."</td>";
+                  echo "<td>".$row['sem']."</td>";
                   echo "<td>".$row['faculty']."</td>";
                   echo "<td>".$row['course']."</td>";
                   echo "<td>".$row['unit']."</td>";
+                  echo '<td><button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#updateModal"> Update</button></td>';
                   echo "</tr>";
+                  include 'subjects_updateModal.php';
+                  include 'subjects_registerModal.php';
               }
               } else {
                   echo "<tr>";
@@ -123,70 +129,15 @@ $username = $_SESSION['username'];
           </tbody>
         </table>
       </div>
-      <div class="col-xl-3">
-          <form action="" method="POST" >
-            <div class="row">
-              <div class="col-md-8">
-            <div class="form-outline mb-4">
-              <input type="subject" name="subject" id="subject" class="form-control" placeholder="Subject Name" value="" required/>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <select name="year" class="form-select" id="year" required>
-              <option value="">Yr</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-
-            </select>
-          </div>
-          </div>
-            <div class="row" >
-              <div class="col-md-8">
-                <div class="form-outline mb-3">
-                  <input type="text" name="code" id="code" class="form-control" placeholder="Subject Code" value="" required/>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-outline mb-3">
-                  <input type="text" name="unit" id="unit" class="form-control" placeholder="Units" value="" required/>
-                </div>
-              </div>
-            </div>
-            <div class="form-outline mb-4">
-              <select name="course" class="form-select" id="course" required>
-                <option value="">Course</option>
-                <option value="BSCS">BS in Computer Science</option>
-                <option value="BSED">BS in Education</option>
-                <option value="BSCRIM">BS in Criminology</option>
-                 <option value="BSBA">BS in Business Administration</option>
-                  <option value="BSHM">BS in Hotel Management</option>
-              </select>
-            </div>
-            <div class="form-outline mb-4">
-              <select name="faculty" class="form-select" id="faculty" required>
-                <option value="">Faculty</option>
-                <?php
-                $sql = mysqli_query($conn, "SELECT * FROM users WHERE role='Faculty'");
-                while ($row = $sql->fetch_assoc()){
-                  echo "<option value=".$row['lastname'].','.$row['username'].':'.$row['id'].">" .$row['lastname'].", ".$row['username']. "</option>";
-                }
-                ?>
-              </select>
-            </div>
-            <hr />
-            <div class="d-grid gap-2 d-md-block">
-              <button class="btn btn-primary float-start" type="submit" name="update" id="update">Update</button>
-              <button class="btn btn-primary float-start" id="cancel" onclick="Cancel()">Cancel</button>
-              <button class="btn btn-primary float-start" type="submit" name="register" id="register">Register</button>
-            </div>
-          </form>
-      </div>
     </div>
   </div>
   <script>
-  function onLoad() {
+ 
+
+    if ( window.history.replaceState ) {
+      window.history.replaceState( null, null, window.location.href );
+    }
+  /**  function onLoad() {
     var register = document.getElementById("register");
     var update = document.getElementById("update");
     var cancel = document.getElementById("cancel");
@@ -194,11 +145,6 @@ $username = $_SESSION['username'];
     update.style.display = "none";
     cancel.style.display = "none";
   }
-
-    if ( window.history.replaceState ) {
-      window.history.replaceState( null, null, window.location.href );
-    }
-
     var table = document.getElementById('table');
     var selected = table.getElementsByClassName('selected');
     table.onclick = highlight;
@@ -224,7 +170,7 @@ $username = $_SESSION['username'];
       register.style.display = "block";
       update.style.display = "none";
       cancel.style.display = "none";
-    }
+    }*/ 
 
   </script>
 </body>

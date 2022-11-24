@@ -1,6 +1,5 @@
 <?php
-include '../config.php';
-include 'header.php';
+
 //import.php
 
 include '../vendor/autoload.php';
@@ -24,26 +23,44 @@ if($_FILES["import_excel"]["name"] != '')
 		unlink($file_name);
 
 		$data = $spreadsheet->getActiveSheet()->toArray();
+
 		foreach(array_slice($data,1) as $row)
 		{
-			$sql = "Select * from users WHERE id = $row[0]";
-			$result = mysqli_query($conn, $sql);
-			if(mysqli_num_rows($result) == 1){
-				
-				echo '<script type="text/javascript">setTimeout(function () {
-					swal("Duplicate ID Number: '.$row[0].'. Please Try again.","","error");}, 200);</script>';
-					return;
-			}else{
-				$sql = "INSERT INTO users (id, username, lastname, password, role)
-      			VALUES ('$row[0]' ,'$row[1]', '$row[2]', md5('".$row[3]."'), '$row[4]')";
-      		$result = mysqli_query($conn, $sql);
-			}			
+			$insert_data = array(
+				':studentid'		=>	$row[0],
+				':tuitionfee'		=>	$row[1],
+				':learnandins'	=>	$row[2],
+				':regfee'				=>	$row[3],
+				':compprossfee'	=>	$row[4],
+				':guidandcouns'	=>	$row[5],
+				':schoolidfee'	=>	$row[6],
+				':studenthand'	=>	$row[7],
+				':schoolfab'		=>	$row[8],
+				':insurance'		=>	$row[9],
+				':totalass'			=>	$row[10],
+				':discount'			=>	$row[11],
+				':netass'				=>	$row[12],
+				':cashcheckpay'	=>	$row[13],
+				':balance'			=>	$row[14]
+			);
+
+			$query = "
+			INSERT INTO billing
+			(studentid, tuitionfee, learnandins, regfee, compprossfee, guidandcouns, schoolidfee, studenthand, schoolfab,
+			insurance, totalass, discount, netass, cashcheckpay, balance)
+			VALUES (:studentid, :tuitionfee, :learnandins, :regfee, :compprossfee, :guidandcouns, :schoolidfee, :studenthand, :schoolfab,
+			:insurance, :totalass, :discount, :netass, :cashcheckpay, :balance)
+			";
+
+			$statement = $connect->prepare($query);
+			$statement->execute($insert_data);
 		}
 		$message = '<script type="text/javascript">setTimeout(function () {
-			swal("Succesfully Uploaded!","","success");});</script>';		
+	    swal("Succesfully Uploaded!","","success");}, 200);</script>';
 	}
 	else
 	{
+
 		$message = '<script type="text/javascript">setTimeout(function () {
       swal("Only .xls .csv or .xlsx file allowed","","error");}, 200);</script>';
 	}

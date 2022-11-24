@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-if (!($_SESSION['role'] == 'Admin')) {
+if (!($_SESSION['role'] == 'Cashier')) {
   header("Location: ../index.php");
 }
 ?>
@@ -14,9 +14,9 @@ if (!($_SESSION['role'] == 'Admin')) {
   <div class="container">
     <div class="h-100 d-flex align-items-center justify-content-center">
       <span id="message"></span>
-      <form method="post" id="import_excel_accounts" enctype="multipart/form-data" class="row g-3">
+      <form method="post" id="import_excel_billing" enctype="multipart/form-data" class="row g-3">
         <div class="col-12 text-center">
-          <h2><label class="form-label">Upload Users</label></h2>
+          <h2><label class="form-label">Upload Billing</label></h2>
           <input class="form-control" type="file" name="import_excel">
         </div>
         <div class="d-grid gap-2">

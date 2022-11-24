@@ -51,7 +51,9 @@ body {
  }
 }
 
-
+.modal-header {
+  background-color: #2596be;
+}
 .btn-sq-lg {
   width: 220px !important;
   height: 200px !important;
@@ -71,7 +73,7 @@ body {
     position: relative;
     margin: auto;
     height: 80%;
-    width: 100%;
+    width: auto;
 }
 .form-signin {
   width: 100%;
