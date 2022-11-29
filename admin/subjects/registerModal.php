@@ -1,0 +1,77 @@
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Subject: </h5>
+      </div>
+      <div class="modal-body">
+        <form action="" id="addUser" method="POST" >
+          <div class="container">
+              <div class="col-md pb-3">
+                <label>Subject Description: </label>
+                <input type="text" name="subject" id="addSubject" class="form-control" placeholder="Subject Description" value="" required/>
+              </div>
+              <div class="col-md pb-3">
+                <label>Faculty Assigned: </label>
+                <input list="browsers" class="form-control" placeholder="Faculty Assigned" name="browser" required/> 
+                <datalist id="browsers">
+                  <option value="Internet Explorer">
+                  <option value="Firefox">
+                  <option value="Chrome">
+                  <option value="Opera">
+                  <option value="Safari">
+                </datalist>
+              </div>
+            <div class="row pb-3">
+              <div class="col-md-6">
+                <label for="inputYear">Select a Year: </label>
+                <select id="addYear" name="year" class="form-select" required>
+                  <option value="">-- Select a Year -- </option>
+                  <option value="First Year">First Year</option>
+                  <option value="Second Year">Second Year</option>
+                  <option value="Third Year">Third Year</option>
+                  <option value="Fourth Year">Fourth Year</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="inputSem">Select a Semester: </label>
+                <select id="addSem" name="sem" class="form-select" required>
+                  <option value="">-- Select a Semester -- </option>
+                  <option value="First Semester">First Semester</option>
+                  <option value="Second Semester">Second Semester</option>
+                  <option value="Third Semester">Third Semester</option>
+                  <option value="Fourth Semester">Fourth Semester</option>
+                </select>
+              </div>
+            </div>
+            <div class="row pb-3">
+              <div class="col-md-6">
+                  <label>Subject Code: </label>
+                  <input type="text" name="code" id="addCode" class="form-control" placeholder="Subject Code" value="" required/>
+              </div>
+              <div class="col-md-6">
+                  <label>Units: </label>
+                  <input type="text" name="unit" id="addUnit" class="form-control" placeholder="Units" value="" required/>
+              </div>
+            </div>
+              <div class="col-md pb-3">
+                <label>Course: </label>
+                <select id="addCourse" name="course" class="form-select" required>
+                  <option value="">-- Select a Course -- </option>
+                  <option value="BSCS">BSCS Bachelor of Science in Computer Science</option>
+                </select>
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" name="register" class="btn btn-primary">Add Subject</button>
+            </div>
+          </div>
+        </form>
+      </div>    
+    </div>
+  </div>
+</div>  
+
+
+

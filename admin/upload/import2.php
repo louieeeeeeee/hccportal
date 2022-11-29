@@ -1,9 +1,8 @@
 <?php
-include '../config.php';
-include 'header.php';
+include '../../config.php';
 //import.php
 
-include '../vendor/autoload.php';
+include '../../vendor/autoload.php';
 
 $connect = new PDO("mysql:host=localhost;dbname=students", "root", "");
 
@@ -34,8 +33,8 @@ if($_FILES["import_excel"]["name"] != '')
 					swal("Duplicate ID Number: '.$row[0].'. Please Try again.","","error");}, 200);</script>';
 					return;
 			}else{
-				$sql = "INSERT INTO users (id, username, lastname, password, role)
-      			VALUES ('$row[0]' ,'$row[1]', '$row[2]', md5('".$row[3]."'), '$row[4]')";
+				$sql = "INSERT INTO users (userid, password, role)
+      			VALUES ('$row[0]' , md5('".$row[3]."'), '$row[4]')";
       		$result = mysqli_query($conn, $sql);
 			}			
 		}

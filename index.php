@@ -8,16 +8,15 @@ error_reporting(0);
 if (isset($_POST['btnlogin'])) {
   $userPass = md5($_POST['userPass']);
   $userID = $_SESSION['theid'];
-  $sql = "SELECT * FROM users WHERE id='$userID' and password='$userPass'";
+  $sql = "SELECT * FROM users WHERE userid='$userID' and password='$userPass'";
   $result = mysqli_query($conn, $sql);
-  echo $sql;
   if(mysqli_num_rows($result) == 1){
     $loggedinuser = mysqli_fetch_assoc($result);
     echo $loggedinuser['role'];
     if($loggedinuser['role'] == 'Admin'){
       $_SESSION['username'] = $loggedinuser['lastname'];
       $_SESSION['loggedin'] = "1";
-      header("Location: admin/welcome.php");
+      header("Location: admin/dashboard/dashboard.php");
     }elseif($loggedinuser['role'] == 'Faculty'){
       $_SESSION['username'] = $loggedinuser['lastname']. ', ' .$loggedinuser['username'];
       $_SESSION['loggedin'] = "1";
@@ -33,7 +32,7 @@ if (isset($_POST['btnlogin'])) {
 
     }
 
-  $sql = "SELECT * FROM users WHERE id='$userID'";
+  $sql = "SELECT * FROM users WHERE userid='$userID'";
   $result = mysqli_query($conn, $sql);
 
   if(mysqli_num_rows($result) == 1){
@@ -46,26 +45,26 @@ if (isset($_POST['btnlogin'])) {
 }
 if (isset($_POST['login'])) {
   $studentID = $_POST['studentID'];
-  $sql = "SELECT * FROM users WHERE id='$studentID'";
+  $sql = "SELECT * FROM users WHERE userid='$studentID'";
   $result = mysqli_query($conn, $sql);
 
   if(mysqli_num_rows($result) == 1){
     $loggedinuser = mysqli_fetch_assoc($result);
     if($loggedinuser['role'] == 'Admin'){
-      $_SESSION['theid'] = $loggedinuser['id'];
+      $_SESSION['theid'] = $loggedinuser['userid'];
       $_SESSION['role'] = $loggedinuser['role'];
       include 'verificationModal.php';
     }elseif($loggedinuser['role'] == 'Faculty'){
-      $_SESSION['theid'] = $loggedinuser['id'];
+      $_SESSION['theid'] = $loggedinuser['userid'];
       $_SESSION['role'] = $loggedinuser['role'];
       include 'verificationModal.php';
     }elseif($loggedinuser['role'] == 'Cashier'){
-      $_SESSION['theid'] = $loggedinuser['id'];
+      $_SESSION['theid'] = $loggedinuser['userid'];
       $_SESSION['role'] = $loggedinuser['role'];
       include 'verificationModal.php';
     }elseif($loggedinuser['role'] == 'Student'){
       $_SESSION['username'] = $loggedinuser['lastname']. ', ' .$loggedinuser['username'];
-      $_SESSION['theid'] = $loggedinuser['id'];
+      $_SESSION['theid'] = $loggedinuser['userid'];
       $_SESSION['role'] = $loggedinuser['role'];
       include 'verificationModal.php';
     }
@@ -78,8 +77,8 @@ if (isset($_POST['login'])) {
     ?>
     <!DOCTYPE html>
     <html lang="en">
-    <head>
-      <title>HCC Portal</title>
+    <title>HCC Portal</title>
+    <head> 
       <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
       <link href="assets/plugins/bootstrap.min.css" rel="stylesheet">
       <script src="assets/plugins/bootstrap.bundle.min.js"></script>
