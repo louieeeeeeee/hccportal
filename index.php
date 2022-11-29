@@ -12,9 +12,8 @@ if (isset($_POST['btnlogin'])) {
   $result = mysqli_query($conn, $sql);
   if(mysqli_num_rows($result) == 1){
     $loggedinuser = mysqli_fetch_assoc($result);
-    echo $loggedinuser['role'];
     if($loggedinuser['role'] == 'Admin'){
-      $_SESSION['username'] = $loggedinuser['lastname'];
+      $_SESSION['username'] = "Administrator";
       $_SESSION['loggedin'] = "1";
       header("Location: admin/dashboard/dashboard.php");
     }elseif($loggedinuser['role'] == 'Faculty'){

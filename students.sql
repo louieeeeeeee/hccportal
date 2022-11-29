@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2022 at 08:07 PM
+-- Generation Time: Nov 29, 2022 at 04:41 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.0.23
 
@@ -102,24 +102,23 @@ INSERT INTO `billing` (`billingid`, `studentid`, `tuitionfee`, `learnandins`, `r
 --
 
 CREATE TABLE `faculty` (
-  `ID` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
+  `id` int(25) NOT NULL,
+  `facultyid` int(25) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
+  `department` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `role` varchar(255) NOT NULL
+  `contact` int(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `faculty`
 --
 
-INSERT INTO `faculty` (`ID`, `username`, `lastname`, `email`, `password`, `role`) VALUES
-(6, 'admin', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin'),
-(8, 'Jerick', 'Antonino', 'antonio@yahoo.com', '098f6bcd4621d373cade4e832627b4f6', 'Faculty'),
-(10, 'JL', 'Alberto', 'alberto@yahoo.com', '098f6bcd4621d373cade4e832627b4f6', 'Faculty'),
-(11, 'Daniel', 'Ramos', 'ramos@yahoo.com', '098f6bcd4621d373cade4e832627b4f6', 'Faculty'),
-(13, 'Emmanuelle', 'Amoncio', 'amoncio@yahoo.com', '098f6bcd4621d373cade4e832627b4f6', 'Faculty');
+INSERT INTO `faculty` (`id`, `facultyid`, `firstname`, `lastname`, `department`, `email`, `contact`) VALUES
+(5, 679, 'Draco', 'Malfoy', 'BSCS', 'asdasd@yahoo.com', 12321),
+(6, 123, 'Harry', 'Potter', 'BSCS', 'harrypotter@gmail.com', 2147483647),
+(7, 58555, 'Ichigo', 'Kurozaki', 'BSED', 'ichigo@yahoo.com', 951554515);
 
 -- --------------------------------------------------------
 
@@ -154,6 +153,36 @@ INSERT INTO `grades` (`entryid`, `studentid`, `studentname`, `schoolyear`, `seme
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `id` int(25) NOT NULL,
+  `studentid` bigint(25) NOT NULL,
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `contact` int(25) NOT NULL,
+  `birthday` varchar(255) NOT NULL,
+  `email` mediumtext NOT NULL,
+  `course` varchar(255) NOT NULL,
+  `year` varchar(255) NOT NULL,
+  `section` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`id`, `studentid`, `firstname`, `lastname`, `address`, `contact`, `birthday`, `email`, `course`, `year`, `section`) VALUES
+(1, 21312, 'asd', 'asd', 'asd', 132, '2019-12-31', 'asda@yahoo.com', 'BSCS', 'asdas', 'asdsa'),
+(2, 12345, 'fname', 'lname', 'addrss', 12345, '2022-12-31', 'email@yahoo.com', 'BSCS', 'year', 'section'),
+(3, 32323, 'asdsd', 'asdsad', 'asdasd', 323, '2022-12-31', 'asdsa@yahoo.com', 'BSCS', 'sadasd', 'asdsad'),
+(4, 2423432, 'dfsfds', 'sdfsdfd', 'sdfdsf', 234234, '2022-12-31', 'sdfdsfhgh@yahoo.com', 'BSCS', 'fsdf', 'dfsdf');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `subjects`
 --
 
@@ -174,8 +203,16 @@ CREATE TABLE `subjects` (
 --
 
 INSERT INTO `subjects` (`subjectid`, `facultyid`, `faculty`, `course`, `code`, `subject`, `year`, `sem`, `unit`) VALUES
-(3, '14854521', 'Garcia, Julieta', 'BSCS', 'Math', 'Math', '2', '', '3'),
-(6, '14854521', 'Garcia, Julieta', 'BSCS', 'math', 'english', '1', '', '3');
+(7, '', 'N/A', 'BSCS', 'CCP 1101', 'Computer Programming 1', 'First Year', 'First Semester', '3'),
+(9, '', 'N/A', 'BSCS', 'CSP 1101', 'Social and Professional Issues in Computing', 'First Year', 'First Semester', '3'),
+(10, '', 'N/A', 'BSCS', 'MLC 1101	', 'Literacy/Civic Welfare/Military Science 1', 'First Year', 'First Semester', '3'),
+(11, '', 'N/A', 'BSCS', 'PPE 1101	', 'Physical Education 1	', 'First Year', 'First Semester', '3'),
+(12, '', 'N/A', 'BSCS', 'ZGE 1102	', 'The Contemporary World	', 'First Year', 'First Semester', '3'),
+(14, '', 'N/A', 'BSCS', 'CCP 1102	', 'Computer Programming 2', 'First Year', 'Second Semester', '3'),
+(15, '', 'N/A', 'BSCS', 'CDS 1101	', 'Data Structures and Algorithms', 'First Year', 'Second Semester', '3'),
+(16, '', 'N/A', 'BSCS', 'CFD 1101	', 'Fundamentals of Database Systems	', 'First Year', 'Second Semester', '3'),
+(17, '', 'N/A', 'BSCS', 'MLC 1102', 'Literacy/Civic Welfare/Military Science 2	', 'First Year', 'Second Semester', '3'),
+(18, '', 'N/A', 'BSCS', 'PPE 1102', 'Physical Education 2', 'First Year', 'Second Semester', '3');
 
 -- --------------------------------------------------------
 
@@ -184,19 +221,9 @@ INSERT INTO `subjects` (`subjectid`, `facultyid`, `faculty`, `course`, `code`, `
 --
 
 CREATE TABLE `users` (
-  `userno` int(20) NOT NULL,
-  `id` bigint(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `lastname` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `birthdate` varchar(255) NOT NULL,
-  `tel` varchar(255) NOT NULL,
+  `id` int(25) NOT NULL,
+  `userid` bigint(25) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `course` varchar(255) NOT NULL,
-  `year` varchar(255) NOT NULL,
-  `section` varchar(255) NOT NULL,
-  `picture` varchar(255) NOT NULL,
   `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -204,22 +231,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`userno`, `id`, `username`, `lastname`, `email`, `birthdate`, `tel`, `password`, `address`, `course`, `year`, `section`, `picture`, `role`) VALUES
-(1, 999999, 'admin', 'admin', '', '', '', '21232f297a57a5a743894a0e4a801fc3', '', '', '', '', '', 'Admin'),
-(3, 14854521, 'Julieta', 'Garcia', 'julietagarcia@gmail.com', '02/02/1965', '9165548854', '1a1dc91c907325c69271ddf0c944bc72', 'General E. Aguinaldo Highway, Public Market, Imus', '', '', '', '', 'Faculty'),
-(4, 54564582, 'Anthony', 'Bernardo', 'anthonybernardo@gmail.com', '02/10/1945', '9362254544', '1a1dc91c907325c69271ddf0c944bc72', 'General E. Aguinaldo Highway, Public Market, Imus', '', '', '', '', 'Cashier'),
-(5, 12542544, 'Christoper', 'Cruz', 'chriscruz@gmail.com', '07/07/1997', '9165545756', '1a1dc91c907325c69271ddf0c944bc72', 'General E. Aguinaldo Highway, Public Market, Imus', 'BSCS', '4th Yr', '4 BSCS - A', 'maxresdefault.jpg', 'Student'),
-(6, 58458745, 'five', 'dela ta', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(7, 54521541, 'six', 'dela ga', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(8, 89887455, 'seven', 'dela mas', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(9, 45434334, 'juana', 'dela cruz', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(66, 1212, 'juana', 'dela cruz', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(67, 2323, 'two', 'dela pena', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(68, 4545, 'three', 'dela paz', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(69, 5656, 'four', 'dela fuente', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(70, 45457, 'five', 'dela ta', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(71, 8977, 'six', 'dela ga', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student'),
-(72, 99987, 'seven', 'dela mas', '', '', '', '1a1dc91c907325c69271ddf0c944bc72', '', '', '', '', '', 'Student');
+INSERT INTO `users` (`id`, `userid`, `password`, `role`) VALUES
+(1, 999999, '21232f297a57a5a743894a0e4a801fc3', 'Admin'),
+(94, 2423432, '1a1dc91c907325c69271ddf0c944bc72', 'Student'),
+(95, 679, '1a1dc91c907325c69271ddf0c944bc72', 'Faculty'),
+(96, 123, '1a1dc91c907325c69271ddf0c944bc72', 'Faculty'),
+(104, 58555, '1a1dc91c907325c69271ddf0c944bc72', 'Faculty');
 
 --
 -- Indexes for dumped tables
@@ -241,13 +258,19 @@ ALTER TABLE `billing`
 -- Indexes for table `faculty`
 --
 ALTER TABLE `faculty`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `grades`
 --
 ALTER TABLE `grades`
   ADD PRIMARY KEY (`entryid`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `subjects`
@@ -259,7 +282,7 @@ ALTER TABLE `subjects`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`userno`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -281,7 +304,7 @@ ALTER TABLE `billing`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `grades`
@@ -290,16 +313,22 @@ ALTER TABLE `grades`
   MODIFY `entryid` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `subjectid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `subjectid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userno` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

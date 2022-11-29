@@ -24,7 +24,7 @@ $username = $_SESSION['username'];
   <?php
   include '../header.php'
   ?>
-<div class="container p-5">
+<div class="container p-4">
     <div class="row" >
       <div class="col">
         <a href="Activities.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5 inbtn" id="btn-sq-lg">
