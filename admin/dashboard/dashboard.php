@@ -27,7 +27,7 @@ $username = $_SESSION['username'];
 <div class="container p-4">
     <div class="row" >
       <div class="col">
-        <a href="Activities.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5 inbtn" id="btn-sq-lg">
+        <a href="../announcement/announcement.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5 inbtn" id="btn-sq-lg">
           <i class="fa-solid fa-bullhorn fa-6x"></i><br/>
           <b><h5>Announcement</h5></b><br>
         </a>

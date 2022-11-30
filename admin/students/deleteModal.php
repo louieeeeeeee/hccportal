@@ -1,4 +1,4 @@
-<!-- FACULTY DELETE -->
+<!-- STUDENT DELETE -->
 <div class="modal fade" id="<?php echo 'studentDelete'.$row["studentid"] ?>" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

@@ -22,8 +22,35 @@ if(isset($_POST['facultyDelete'])) {
   } else {
     echo '<script type="text/javascript">setTimeout(function () {
       swal("Something went wrong, Please try again.","","error");}, 200);</script>';
+      header("Refresh:1");
   }
 }
+
+/** FACULTY UPDATE */
+if(isset($_POST['facultyUpdate'])) {
+  $txtfacultyid = $_POST['txtfacultyid'];
+  $txtfname = $_POST['txtfname'];
+  $txtlname = $_POST['txtlname'];
+  $txtemail = $_POST['txtemail'];
+  $txtcontact = $_POST['txtcontact'];
+
+    $sql = "UPDATE faculty SET 
+    firstname = '$txtfname', 
+    lastname  = '$txtlname',
+    email   = '$txtemail', 
+    contact   = '$txtcontact' WHERE facultyid = '$txtfacultyid'";
+
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+      echo '<script type="text/javascript">setTimeout(function () {
+        swal("Faculty Information Succesfully Updated","","success");}, 200);
+        </script>';
+      header("Refresh:1");
+    } else {
+      echo '<script type="text/javascript">setTimeout(function () {
+        swal("Something went wrong, Please try again.","","error");}, 200);</script>';
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">

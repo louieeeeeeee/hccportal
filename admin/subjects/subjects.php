@@ -9,8 +9,6 @@ if (!($_SESSION['role'] == 'Admin')) {
 
 $id = $_SESSION['theid'];
 $username = $_SESSION['username'];
-  $sql = "SELECT * FROM subjects";
-  $result = mysqli_query($conn, $sql);
 
 /** DELETE CONDITION */
 if(isset($_POST['subjectDelete'])) {
@@ -82,10 +80,11 @@ if(isset($_POST['subjectDelete'])) {
           echo '<script type="text/javascript">setTimeout(function () {
             swal("Subject Succesfully Registered,"","success");}, 200);
             </script>';
-          header("Refresh:1");
+          
   			} else {
           echo '<script type="text/javascript">setTimeout(function () {
             swal("Something went wrong, Please try again.","","error");}, 200);</script>';
+            header("Refresh:1");
   			}
   }
 ?>
@@ -116,6 +115,8 @@ if(isset($_POST['subjectDelete'])) {
           </thead>
           <tbody>
             <?php
+            $sql = "SELECT * FROM subjects";
+            $result = mysqli_query($conn, $sql);
               if ($result->num_rows > 0) {
                 while ($row = mysqli_fetch_array($result)) {
                   echo "<tr>";
@@ -136,6 +137,9 @@ if(isset($_POST['subjectDelete'])) {
                   include 'deleteModal.php';
                   include 'registerModal.php';
                 }
+              }else{
+                echo '<script type="text/javascript">setTimeout(function () {
+                  swal("Nothing found in Database.","","error");}, 200);</script>';
               }
             ?>
           </tbody>

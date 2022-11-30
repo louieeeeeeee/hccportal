@@ -9,7 +9,7 @@
         <form action="" id="addUser" method="POST">
         <div class="col-md pb-3 pt-3">
           <label class="fw-bold">Faculty ID: </label>
-          <input type="number" name="txtfacultyid" class="form-control" placeholder="User ID" value="<?php echo $row["facultyid"]?>" onkeydown="return event.keyCode !== 69" required/>
+          <input type="number" name="txtfacultyid" class="form-control" placeholder="User ID" value="<?php echo $row["facultyid"]?>" onkeydown="return event.keyCode !== 69" readOnly/>
         </div>
         <div class="row pb-3">
           <div class="col-md">
@@ -33,7 +33,7 @@
         </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" name="register" class="btn btn-primary">Update</button>
+              <button type="submit" name="facultyUpdate" class="btn btn-primary">Update</button>
             </div>
         </form>
       </div>    
