@@ -1,10 +1,10 @@
 <?php
-include '../config.php';
+include '../../config.php';
 session_start();
 error_reporting(0);
 
 if (!($_SESSION['role'] == 'Faculty')) {
-  header("Location: ../index.php");
+  header("Location: ../../index.php");
 }
 
 if(isset($_POST['submit'])) {
@@ -19,7 +19,7 @@ if(isset($_POST['submit'])) {
 <html lang="en">
 <body>
   <?php
-    include("header.php");
+    include("../header.php");
   ?>
   <div class="container w-100">
     <div class="row" style="position:relative; top:10%;">
@@ -104,10 +104,13 @@ if(isset($_POST['submit'])) {
         </form>
     </div>
   </div>
+<?php
+include '../footer.php'
+?>
+</body>
+</html>
 <script>
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
 </script>
-</body>
-</html>

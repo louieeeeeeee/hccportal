@@ -24,6 +24,14 @@ body {
     }
 }
 
+#timedate {
+  font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  text-align:right;
+  width: 100%;
+  margin: 40px auto;
+  color: #000;
+  padding: 20px;
+}
 /* FOR ANNOUUNCEMENT */
 .scroll-left {
  height: 50px;

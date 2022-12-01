@@ -17,9 +17,11 @@ if (isset($_POST['btnlogin'])) {
       $_SESSION['loggedin'] = "1";
       header("Location: admin/dashboard/dashboard.php");
     }elseif($loggedinuser['role'] == 'Faculty'){
-      $_SESSION['username'] = $loggedinuser['lastname']. ', ' .$loggedinuser['username'];
+      $result = mysqli_query($conn, "SELECT * FROM faculty WHERE facultyid='$userID'");
+      $getFacultyName = mysqli_fetch_assoc($result);
+      $_SESSION['username'] = $getFacultyName['lastname']. ', ' .$getFacultyName['firstname'];
       $_SESSION['loggedin'] = "1";
-      header("Location: faculty/welcome.php");
+      header("Location: faculty/dashboard/dashboard.php");
     }elseif($loggedinuser['role'] == 'Cashier'){
       $_SESSION['username'] = $loggedinuser['lastname']. ', ' .$loggedinuser['username'];
       $_SESSION['loggedin'] = "1";
@@ -74,37 +76,56 @@ if (isset($_POST['login'])) {
     }
   }
     ?>
-    <!DOCTYPE html>
-    <html lang="en">
-    <title>HCC Portal</title>
-    <head> 
-      <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
-      <link href="assets/plugins/bootstrap.min.css" rel="stylesheet">
-      <script src="assets/plugins/bootstrap.bundle.min.js"></script>
-      <script src="assets/plugins/sweetalert.min.js"></script>
-      <link href="assets/css/style.css" rel="stylesheet">
-    </head>
-    <body class="text-center">
-      <main class="form-signin position-absolute top-50 start-50 translate-middle">
+<!DOCTYPE html>
+<html lang="en">
+<title>HCC Portal</title>
+<head> 
+  <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  <link href="assets/plugins/bootstrap.min.css" rel="stylesheet">
+  <script src="assets/plugins/bootstrap.bundle.min.js"></script>
+  <script src="assets/plugins/sweetalert.min.js"></script>
+  <link href="assets/plugins/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body onLoad="initClock()">
+  <div class="container-fluid pt-5" >
+    <div class="col text-center pt-5 font-monospace" style="letter-spacing: 0px;">
+      <h1>STUDENT INFORMATION SYSTEM</h1>
+    </div><br/><br/>
+    <div class="row d-flex justify-content-center pt-5">
+      <div class="col-6 pe-5">
+        <div id="timedate">
+          <div class="col" style="font-size:100px;">
+            <a id="h">12</a> :
+            <a id="m">00</a>:
+            <a id="s">00</a>
+          </div>
+          <div class="col fs-1">
+            <a id="mon">January</a>
+            <a id="d">1</a>,
+            <a id="y">0</a><br />
+          </div> 
+        </div>
+      </div>
+      <div class="col-4 text-center">
         <form action="" method="POST">
-          <img class="mb-4" src="assets/images/logo.png" alt="" width="100" height="100">
-          <h1 class="h3 mb-3 fw-bold " style="color:blue;">Sign in</h1>
-          <div class="form-floating">
-            <input type="text" name="studentID" class="form-control" placeholder="Student ID" maxlength="8">
-            <label id="textOP"  style="color:red;" >ID Number</label>
+          <img class="mb-4" src="assets/images/logo.png" alt="" width="150" height="150">
+          <div class="form-floating fw-bold">
+            <input type="text" name="studentID" class="form-control rounded-pill" placeholder="Student ID">
+            <label id="textOP" >ID Number</label>
           </div>
           <br/>
-          <button type="submit" name="login" class="w-100 btn btn-lg btn-primary">Sign in</button>
+          <button type="submit" name="login" class="w-100 btn btn-lg btn-primary rounded-pill">Sign in</button>
         </form>
-      </main>
+      </div>
+      <div class="col-2"></div>
+    </div>
+  </div>
+  <script src="assets/js/indexScript.js"></script>
+</body>
+</html>
 
-    </body>
-    </html>
-
-    <script type="text/javascript">
-    $(document).ready(function(){
-
-    });
+    <script>
     if ( window.history.replaceState ) {
       window.history.replaceState( null, null, window.location.href );
     }

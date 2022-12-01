@@ -20,8 +20,6 @@ if(isset($_POST['subjectDelete'])) {
     echo '<script type="text/javascript">setTimeout(function () {
       swal("Subject Succesfully Deleted!","","success");}, 200);
       </script>';
-      echo '<script>console.log("asdasdsad")</script>';
-    header("Refresh:1");
   } else {
     echo '<script type="text/javascript">setTimeout(function () {
       swal("Something went wrong, Please try again.","","error");}, 200);</script>';
@@ -33,31 +31,29 @@ if(isset($_POST['subjectDelete'])) {
     $txtsubject = $_POST['txtsubject'];
     $txtyear = $_POST['txtyear'];
   	$txtsem = $_POST['txtsem'];
+    $txtfaculty = $_POST['txtfaculty'];
     $txtcode = $_POST['txtcode'];
     $txtunit = $_POST['txtunit'];
     $txtcourse = $_POST['txtcourse'];
 
-    $parts = $_POST['faculty'];
-    $arr = explode(':', $parts);
 
-    $facultytemp = $arr[0];
-    $faculty = preg_replace('/(,)(?=[^\s])/', ', ', $facultytemp);
-    $facultyid = $arr[1];
-
-      $sql = "UPDATE subjects SET 
-      subject = '$txtsubject', 
-      year = '$txtyear', 
-      sem = '$txtsem',
-      code = '$txtcode', 
-      unit = '$txtunit', 
-      course = '$txtcourse' WHERE subjectid = '$subjectid'";
+    $sql = "UPDATE subjects AS Subj,
+    (SELECT * FROM faculty WHERE facultyid = '$txtfaculty') AS facuID SET
+    subject = '$txtsubject', 
+    year = '$txtyear', 
+    sem = '$txtsem',
+    code = '$txtcode', 
+    unit = '$txtunit', 
+    course = '$txtcourse',
+    Subj.facultyid = facuID.facultyid,
+    Subj.faculty = CONCAT(facuID.firstname,' ',facuID.lastname) WHERE 
+    Subj.subjectid = '$subjectid'";
 
   		$result = mysqli_query($conn, $sql);
   		if ($result) {
         echo '<script type="text/javascript">setTimeout(function () {
           swal("Subject Succesfully Updated","","success");}, 200);
           </script>';
-        header("Refresh:1");
   		} else {
   			echo '<script type="text/javascript">setTimeout(function () {
           swal("Something went wrong, Please try again.","","error");}, 200);</script>';
@@ -95,10 +91,10 @@ if(isset($_POST['subjectDelete'])) {
   include("../header.php");
   ?>
   <div class="container-fluid p-5">
-  <form action="" id="addUser" method="POST">
-    <div class="form-group ml-5 pb-2">
-      <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#registerModal"> Add Subject</button>
-    </div> 
+    <form action="" id="addUser" method="POST">
+      <div class="form-group ml-5 pb-2">
+        <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#registerModal"> Add Subject</button>
+      </div> 
       <div class="col-md">
         <table class="table table-striped table-primary table-hover p-2" id="table" style="table-layout:fixed;">
           <thead>
@@ -144,8 +140,7 @@ if(isset($_POST['subjectDelete'])) {
             ?>
           </tbody>
         </table>  
-      </div>
-      
+      </div> 
     </form>
   </div>
   <?php
@@ -155,6 +150,7 @@ if(isset($_POST['subjectDelete'])) {
 </html>
 <script>
 $(document).ready(function () {
+  
     $('#table').DataTable({
         lengthMenu: [
             [5, 10, 20, -1],

@@ -14,14 +14,21 @@
               </div>
               <div class="col-md pb-3">
                 <label>Faculty Assigned: </label>
-                <input list="browsers" class="form-control" placeholder="Faculty Assigned" name="browser" required/> 
-                <datalist id="browsers">
-                  <option value="Internet Explorer">
-                  <option value="Firefox">
-                  <option value="Chrome">
-                  <option value="Opera">
-                  <option value="Safari">
-                </datalist>
+                <select name="faculty" id="facultySelect" class="form-select" required>
+                  <option value="">-- Faculty Assigned -- </option>
+                    <?php
+                      $sql = "SELECT * FROM faculty";
+                      $result1 = mysqli_query($conn, $sql);
+                        if ($result1->num_rows > 0) {
+                          while ($row1 = mysqli_fetch_array($result1)) {
+                            echo '<option value="'.$row1["facultyid"].'">'.$row1["firstname"].' '.$row1["lastname"].'</option>';
+                           }
+                        }else{
+                          echo '<script type="text/javascript">setTimeout(function () {
+                          swal("No Faculty Member Found.","","error");}, 200);</script>';
+                      }
+                  ?>       
+                </select>
               </div>
             <div class="row pb-3">
               <div class="col-md-6">
@@ -72,6 +79,13 @@
     </div>
   </div>
 </div>  
-
+<script>
+  $(document).ready(function() {
+$('#facultySelect').select2({
+  theme: 'bootstrap-5',
+  dropdownParent: $('#registerModal')
+ });
+});
+  </script>
 
 
