@@ -2,7 +2,7 @@
 
 //import.php
 
-include '../vendor/autoload.php';
+include '../../vendor/autoload.php';
 
 $connect = new PDO("mysql:host=localhost;dbname=students", "root", "");
 

@@ -3,13 +3,13 @@ include '../../config.php';
 session_start();
 error_reporting(0);
 
-if (!($_SESSION['role'] == 'Faculty')) {
+if (!($_SESSION['role'] == 'Cashier')) {
   header("Location: ../../index.php");
 }
 
 if ($_SESSION['loggedin'] == '1') {
   echo '<script type="text/javascript">setTimeout(function () {
-    swal("Welcome Admin","","success");}, 200);</script>';
+    swal("Welcome Cashier","","success");}, 200);</script>';
   unset($_SESSION["loggedin"]);
 }
 ?>
@@ -26,21 +26,13 @@ if ($_SESSION['loggedin'] == '1') {
   <div class="container p-5 mt-5">
     <div class="row">
       <div class="col">
-        <a href="../students/students.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
-          <i class="fa-solid fa-user fa-6x"></i><br/>
-          <b><h5>Students View</h5></b><br>
-        </a>
-        <a href="adminprofile.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
-          <i class="fa-solid fa-chart-simple fa-6x"></i><br/>
-          <b><h5>Faculty Info</h5></b>
-        </a>
-        <a href="studentgrades.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
-          <i class="fa-solid fa-file-invoice fa-6x"></i><br/>
-          <b><h5>Grades</h5></b>
+        <a href="../billing/billing.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <i class="fa-solid fa-file-arrow-up fa-6x"></i><br/>
+          <b><h5>Upload Billing</h5></b><br>
         </a>
         <a href="../subjects/subjects.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
-          <i class="fa-solid fa-file-invoice fa-6x"></i><br/>
-          <b><h5>Subjects</h5></b>
+        <i class="fa-solid fa-file-circle-check fa-6x"></i><br/>
+          <b><h5>Enroll Subjects</h5></b>
         </a>
       </div>
     </div>
@@ -48,7 +40,7 @@ if ($_SESSION['loggedin'] == '1') {
     <nav class="navbar navbar-expand-lg fixed-bottom">
       <div class="container d-flex justify-content-between">
         <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
-          <a href="logout.php" class="btn btn-primary btn-lg shadow mb-3">
+          <a href="../logout.php" class="btn btn-primary btn-lg shadow mb-3">
             <i class="fa-solid fa-angles-left"></i>
             <b>Logout</b>
           </a>

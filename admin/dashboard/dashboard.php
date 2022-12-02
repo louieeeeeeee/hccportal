@@ -24,7 +24,7 @@ $username = $_SESSION['username'];
   <?php
   include '../header.php'
   ?>
-<div class="container p-4  mt-5">
+<div class="container p-4 mt-4">
     <div class="row" >
       <div class="col">
         <a href="../announcement/announcement.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5 inbtn" id="btn-sq-lg">
@@ -39,6 +39,10 @@ $username = $_SESSION['username'];
           <i class="fa-solid fa-user-graduate fa-6x"></i><br/>
           <b><h5>Student</h5></b>
         </a>
+        <a href="../cashier/#" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <i class="fa-solid fa-user-check fa-6x"></i><br/>
+          <b><h5>Cashier/Registrar</h5></b>
+        </a>
         <a href="../registration/registration.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
           <i class="fa-solid fa-file-pen fa-6x"></i><br/>
           <b><h5>Registration</h5></b>
@@ -50,6 +54,10 @@ $username = $_SESSION['username'];
         <a href="../upload/upload.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
           <i class="fa-solid fa-upload fa-6x"></i><br/>
           <b><h5>Upload</h5></b>
+        </a>
+        <a href="../logs/#" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <i class="fa-solid fa-clock-rotate-left fa-6x"></i><br/>
+          <b><h5>Logs</h5></b>
         </a>
       </div>
     </div>

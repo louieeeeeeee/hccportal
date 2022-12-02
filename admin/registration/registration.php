@@ -81,12 +81,14 @@ $username = $_SESSION['username'];
 <div class="container w-50 p-5">
   <nav>
     <div class="nav nav-tabs fs-4" id="nav-tab" role="tablist" style="justify-content: center;">
-      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Faculty</button>
-      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Students</button>
+      <button class="nav-link active" id="nav-student-tab" data-bs-toggle="tab" data-bs-target="#nav-student" type="button" role="tab" aria-controls="nav-student" aria-selected="false">Students</button>
+      <button class="nav-link" id="nav-faculty-tab" data-bs-toggle="tab" data-bs-target="#nav-faculty" type="button" role="tab" aria-controls="nav-faculty" aria-selected="true">Faculty</button>
+      <button class="nav-link" id="nav-cashier-tab" data-bs-toggle="tab" data-bs-target="#nav-cashier" type="button" role="tab" aria-controls="nav-cashier" aria-selected="false">Cashier</button>
+      <button class="nav-link" id="nav-registrar-tab" data-bs-toggle="tab" data-bs-target="#nav-registrar" type="button" role="tab" aria-controls="nav-registrar" aria-selected="false">Registrar</button>
     </div>
   </nav>
   <div class="tab-content">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+    <div class="tab-pane fade show active" id="nav-faculty" role="tabpanel" aria-labelledby="nav-faculty-tab" tabindex="0">
       <form action="" method="POST">
         <div class="col-md pb-3 pt-3">
           <label class="fw-bold">Faculty ID: </label>
@@ -126,7 +128,7 @@ $username = $_SESSION['username'];
         </div>
       </form>
       </div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+      <div class="tab-pane fade" id="nav-student" role="tabpanel" aria-labelledby="nav-student-tab" tabindex="0">
       <form action="" method="POST">
         <div class="row pb-3 pt-3">
           <div class="col-md">

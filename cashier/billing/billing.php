@@ -2,14 +2,14 @@
 session_start();
 error_reporting(0);
 if (!($_SESSION['role'] == 'Cashier')) {
-  header("Location: ../index.php");
+  header("Location: ../../index.php");
 }
 ?>
 <!DOCTYPE html>
 <html>
 <body>
   <?php
-  include("header.php");
+  include("../header.php");
   ?>
   <div class="container">
     <div class="h-100 d-flex align-items-center justify-content-center">
@@ -24,13 +24,9 @@ if (!($_SESSION['role'] == 'Cashier')) {
         </div>
       </form>
     </div>
-    <div class="d-flex align-items-end flex-column">
-      <div class="row">
-        <a href="welcome.php" class="btn btn-primary btn-lg shadow mb-5">
-          <i class="fa-solid fa-angles-left"></i><b>Back</b>
-        </a>
-      </div>
-    </div>
+    <?php
+    include '../footer.php';
+    ?>
   </div>
 </body>
 </html>

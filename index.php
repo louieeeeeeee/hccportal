@@ -23,9 +23,9 @@ if (isset($_POST['btnlogin'])) {
       $_SESSION['loggedin'] = "1";
       header("Location: faculty/dashboard/dashboard.php");
     }elseif($loggedinuser['role'] == 'Cashier'){
-      $_SESSION['username'] = $loggedinuser['lastname']. ', ' .$loggedinuser['username'];
+      $_SESSION['username'] = "Cashier";
       $_SESSION['loggedin'] = "1";
-      header("Location: cashier/welcome.php");
+      header("Location: cashier/dashboard/dashboard.php");
     }   
   }else{
     echo '<script type="text/javascript">setTimeout(function () {
@@ -111,8 +111,8 @@ if (isset($_POST['login'])) {
         <form action="" method="POST">
           <img class="mb-4" src="assets/images/logo.png" alt="" width="150" height="150">
           <div class="form-floating fw-bold">
-            <input type="text" name="studentID" class="form-control rounded-pill" placeholder="Student ID">
-            <label id="textOP" >ID Number</label>
+            <input type="text" name="studentID" class="form-control rounded-pill" placeholder="Student ID" style="text-align:center;">
+            <label id="textOP">ID Number</label>
           </div>
           <br/>
           <button type="submit" name="login" class="w-100 btn btn-lg btn-primary rounded-pill">Sign in</button>
