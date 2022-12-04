@@ -16,7 +16,10 @@ if (isset($_POST['btnlogin'])) {
       $getUsername = mysqli_fetch_assoc($result);
       $_SESSION['username'] = $getUsername['lastname']. ', ' .$getUsername['firstname'];
       $_SESSION['loggedin'] = "1";
-      
+      $userLog = $_SESSION['role'];
+      $actionLog = "User with ID ". $_SESSION['theid'] . " Logged in Successfully";
+      $logPop = mysqli_query($conn, "INSERT INTO logs (user, action) 
+        VALUES ('$userLog', '$actionLog')");
       if($_SESSION['role'] == 'Faculty'){
         header("Location: faculty/dashboard/dashboard.php");
       }elseif($_SESSION['role'] == 'Cashier'){
@@ -25,13 +28,26 @@ if (isset($_POST['btnlogin'])) {
         header("Location: registrar/dashboard/dashboard.php");
       }
     }else{
+      $userLog = $_SESSION['role'];
+      $actionLog = "User with ID ". $_SESSION['theid'] . " Attempted to Login but Failed";
+      $logPop = mysqli_query($conn, "INSERT INTO logs (user, action) 
+        VALUES ('$userLog', '$actionLog')");
       echo '<script type="text/javascript">setTimeout(function () {
         swal("Invalid Password, Please Try Again!","","error");}, 200);</script>';
       }
   }elseif($_SESSION['role'] == 'Student'){
+    $userLog = $_SESSION['role'];
+      $actionLog = "User with ID ". $_SESSION['theid'] . " Logged in Successfully";
+      $logPop = mysqli_query($conn, "INSERT INTO logs (user, action) 
+        VALUES ('$userLog', '$actionLog')");
     $_SESSION['loggedin'] = "1";
     header("Location: student/dashboard/dashboard.php");
   }elseif($_SESSION['role'] == 'Admin'){
+    $userLog = $_SESSION['role'];
+      $actionLog = "Admin Logged in Successfully";
+      $logPop = mysqli_query($conn, "INSERT INTO logs (user, action) 
+        VALUES ('$userLog', '$actionLog')");
+
     $sql = "SELECT * FROM users WHERE userid='$userID' and password='$userPass'";
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) == 1){
@@ -39,6 +55,10 @@ if (isset($_POST['btnlogin'])) {
       $_SESSION['username'] = "Administrator";
       header("Location: admin/dashboard/dashboard.php");
     }else{
+      $userLog = $_SESSION['role'];
+      $actionLog = "Admin Attempted to Login but Failed";
+      $logPop = mysqli_query($conn, "INSERT INTO logs (user, action) 
+        VALUES ('$userLog', '$actionLog')");
       echo '<script type="text/javascript">setTimeout(function () {
         swal("Invalid Password, Please Try Again!","","error");}, 200);</script>';
       } 

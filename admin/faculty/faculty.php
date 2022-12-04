@@ -75,7 +75,7 @@ if(isset($_POST['facultyUpdate'])) {
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT * FROM faculty";
+            $sql = "SELECT * FROM users u INNER JOIN faculty f on f.facultyid=u.userid where role='Faculty'";
             $result = mysqli_query($conn, $sql);
             if (!$result->num_rows > 0) {
               echo '<script type="text/javascript">setTimeout(function () {

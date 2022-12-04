@@ -17,7 +17,7 @@
             <select name="txtfaculty" id="<?php echo $row["facultyid"] ?>" class="form-select" required>
               <option selected value="<?php echo $row["facultyid"] ?>"><?php echo $row["faculty"] ?></option>
                 <?php
-                  $sql = "SELECT * FROM faculty";
+                  $sql = "SELECT * FROM users u INNER JOIN faculty f on f.facultyid=u.userid where role='Faculty'";
                   $result1 = mysqli_query($conn, $sql);
                     if ($result1->num_rows > 0) {
                       while ($row1 = mysqli_fetch_array($result1)) {
@@ -80,10 +80,11 @@
 </div>
 
 <script>
-$(document).ready(function() {
-$('#<?php echo $row["subjectid"] ?>').select2({
+  /** $(document).ready(function() {
+$('#').select2({
   theme: 'bootstrap-5',
-  dropdownParent: $('<?php echo '#subjectUpdate'.$row["subjectid"] ?>')
+  dropdownParent: $('')
  });
 });
+*/
 </script>

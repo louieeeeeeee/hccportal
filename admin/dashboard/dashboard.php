@@ -55,7 +55,7 @@ $username = $_SESSION['username'];
           <i class="fa-solid fa-upload fa-6x"></i><br/>
           <b><h5>Upload</h5></b>
         </a>
-        <a href="../logs/#" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <a href="../logs/logs.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
         <i class="fa-solid fa-clock-rotate-left fa-6x"></i><br/>
           <b><h5>Logs</h5></b>
         </a>
