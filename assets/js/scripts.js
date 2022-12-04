@@ -1,5 +1,28 @@
 $(document).ready(function(){
 
+  $('#import_excel_enrollees').on('submit', function(e){
+    e.preventDefault();
+    $.ajax({
+      url:"importEnrollees.php",
+      method:"POST",
+      data:new FormData(this),
+      contentType:false,
+      cache:false,
+      processData:false,
+      beforeSend:function(){
+        $('#import').attr('disabled', 'disabled');
+        $('#import').val('Importing...');
+      },
+      success:function(data)
+      {
+        $('#message').html(data);
+        $('#import_excel_enrollees')[0].reset();
+        $('#import').attr('disabled', false);
+        $('#import').val('Import');
+      }
+    })
+  });
+
   $('#import_excel_billing').on('submit', function(e){
     e.preventDefault();
     $.ajax({

@@ -1,26 +1,24 @@
 <?php
-include '../config.php';
+include '../../config.php';
 session_start();
 error_reporting(0);
 
 if (!($_SESSION['role'] == 'Student')) {
-  header("Location: ../index.php");
+  header("Location: ../../index.php");
 }
 
 $id = $_SESSION['theid'];
-$sql = "SELECT * FROM billing WHERE studentid='$id'";
+$sql = "select * from billing where studentid = '$id' and datecreated = (SELECT MAX(datecreated) FROM billing)";
 $result = mysqli_query($conn, $sql);
 if ($result->num_rows > 0) {
   $row = mysqli_fetch_assoc($result);
-} else {
-  echo "<script>alert('Data not found!')</script>";
-}
+} 
 ?>
     <!DOCTYPE html>
     <html lang="en">
     <body>
       <?php
-      include("header.php");
+      include("../header.php");
       ?>
 
       <div class="container" method="POST" action="" enctype="multipart/form-data">
@@ -58,17 +56,11 @@ if ($result->num_rows > 0) {
               </div>
           </div>
         </div>
-        <div class="d-flex align-items-end flex-column">
-        <div class="row">
-          <a href="welcome.php" class="btn btn-primary btn-lg shadow mb-5">
-            <i class="fa-solid fa-angles-left"></i>
-            <b>Back</b>
-          </a>
-      </div>
-      </div>
       </div>
 
-
+<?php
+include '../footer.php';
+?>
       <script>
       if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );

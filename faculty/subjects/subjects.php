@@ -30,8 +30,7 @@ if ($_SESSION['loggedin'] == '1') {
             while ($row = mysqli_fetch_array($result)) {    
               echo '
               <a href="../students/students.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
-              <i class="fa-solid fa-book fa-6x"></i><br/>
-              <b><h6>'.$row['subject'].'</h6></b><br>
+              <b><h4 class="mt-5 fw-bold">'.$row['subject'].'</h4></b><br>
             </a>';
             }
           }

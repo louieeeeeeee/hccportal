@@ -12,9 +12,9 @@
 </head>
 <nav class="navbar">
   <div class="container-fluid">
-    <a class="navbar-brand" id="username" style="position:relative; left:20px;bottom:5%;" href="#"> <?php echo  $_SESSION['username']; ?> </a>
-    <a class="nav-link link-light" id="username" style="bottom:5%;" >
-      <span id="clock"></span>
+    <a class="navbar-brand fw-bold fs-4" id="username" style="position:relative; left:20px;bottom:5%;" href=""> <?php echo  $_SESSION['username']; ?> </a>
+    <a class="nav-link link-light" style="bottom:5%;" >
+      <span class="fw-bold fs-4" id="clock"></span>
     </a>
   </div>
 </nav>

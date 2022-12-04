@@ -7,13 +7,6 @@ if (!($_SESSION['role'] == 'Faculty')) {
   header("Location: ../../index.php");
 }
 
-if(isset($_POST['submit'])) {
-  $subject = $_POST['subject'];
-  $year = $_POST['year'];
-  $semester = $_POST['semester'];
-  $sql = "SELECT * FROM grades WHERE subject='$subject' AND schoolyear='$year' AND semester='$semester'";
-  $result = mysqli_query($conn, $sql);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,85 +14,52 @@ if(isset($_POST['submit'])) {
   <?php
     include("../header.php");
   ?>
-  <div class="container w-100">
-    <div class="row" style="position:relative; top:10%;">
+  <div class="container-fluid w-100">
+    <div class="row mt-5">
         <form method="POST">
-          <div class="row gx-3 mb-3">
-            <div class="col-md-5">
-              <select name="subject" class="form-select" required>
-                <option value="">Select a Subject</option>
-                <?php
-                $facultyID = $_SESSION['theid'];
-                $sql = mysqli_query($conn, "SELECT * FROM subjects WHERE facultyid='$facultyID'");
-                while ($row = $sql->fetch_assoc()){
-                  echo "<option value='".$row['subject']."'>".$row['subject']."</option>";
-                }
-                ?>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <select name="year" class="form-select" required>
-                <option value="">Schoolyear</option>
-                <option value="2019/2020">2019/2020</option>
-                <option value="2020/2021">2020/2021</option>
-                <option value="2021/2022">2021/2022</option>
-                <option value="2022/2023">2022/2023</option>
-              </select>
-            </div>
-            <div class="col-md-3">
-              <select name="semester" class="form-select" required>
-                <option value="">Semester</option>
-                <option value="First">First</option>
-                <option value="Second">Second</option>
-              </select>
-            </div>
-            <div class="col-md">
-              <button name="submit" type="submit" class="btn btn-primary">View</button>
-            </div>
-          </div>
-          <div class="row gx-3 mb-3">
-            <table class="table table-striped table-dark">
-              <thead>
-                <tr>
-                  <th scope="col">Student ID</th>
-                  <th scope="col">Student Name</th>
-                  <th scope="col">Subject</th>
-                  <th scope="col">Units</th>
-                  <th scope="col">Prelim</th>
-                  <th scope="col">Midterm</th>
-                  <th scope="col">Finals</th>
-                  <th scope="col">Final Grade</th>
-                  <th scope="col">Average</th>
-                  <th scope="col">Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                  if ($result->num_rows > 0) {
-                    while ($row = mysqli_fetch_array($result)) {
-                      echo "<tr>";
-                      echo "<td>".$row['studentid']."</td>";
-                      echo "<td>".$row['studentname']."</td>";
-                      echo "<td>".$row['subject']."</td>";
-                      echo "<td>".$row['units']."</td>";
-                      echo "<td>".$row['prelim']."</td>";
-                      echo "<td>".$row['midterm']."</td>";
-                      echo "<td>".$row['finals']."</td>";
-                      echo "<td>".$row['finalgrades']."</td>";
-                      echo "<td>".$row['average']."</td>";
-                      echo "<td>".$row['status']."</td>";
-                      echo "</tr>";
-                  }
-                  } else {
-                      echo "<tr>";
-                      echo "<td colspan='10'>";
-                      echo "<center>No Data Found.</center>";
-                      echo "</td>";
-                      echo "</tr>";
-                  }
-                ?>
-              </tbody>
-            </table>
+          <div class="row gx-3 mb-3 p-3">
+          <table class="table table-striped table-primary table-hover p-2" id="table" style="table-layout:fixed;">
+          <thead>
+            <tr>
+            <th scope="col" style="width: 50px;">Student ID</th>
+            <th scope="col" style="width: 200px;">Student Name</th>
+            <th scope="col" style="width: 300px;">Subject</th>
+            <th scope="col" style="width: 30px;">Units</th>
+            <th scope="col" style="width: 30px;">Prelim</th>
+            <th scope="col" style="width: 30px;">Midterm</th>
+            <th scope="col" style="width: 30px;">Finals</th>
+            <th scope="col" style="width: 30px;">Final Grade</th>
+            <th scope="col" style="width: 30px;">Average</th>
+            <th scope="col" style="width: 50px;">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $sql = "SELECT * FROM grades";
+            $result = mysqli_query($conn, $sql);
+            if (!$result->num_rows > 0) {
+              echo '<script type="text/javascript">setTimeout(function () {
+                swal("Nothing found in Database.","","error");}, 200);</script>';
+              }
+            if ($result->num_rows > 0) {
+              while ($row = mysqli_fetch_array($result)) {
+                echo "<tr>";
+                echo "<td>".$row['studentid']."</td>";
+                echo "<td>".$row['studentname']."</td>";
+                echo "<td>".$row['subject']."</td>";
+                echo "<td>".$row['units']."</td>";
+                echo "<td>".$row['prelim']."</td>";
+                echo "<td>".$row['midterm']."</td>";
+                echo "<td>".$row['finals']."</td>";
+                echo "<td>".$row['finalgrades']."</td>";
+                echo "<td>".$row['average']."</td>";
+                echo "<td>".$row['status']."</td>";
+                echo "</tr>";
+              }
+            }
+            ?>
+          </tbody>
+        </table>
           </div>
         </form>
     </div>
@@ -110,7 +70,19 @@ include '../footer.php'
 </body>
 </html>
 <script>
+
+$(document).ready(function () {
+  
+  $('#table').DataTable({
+      lengthMenu: [
+          [5, 10, 20, -1],
+          [5, 10, 20, 'All'],
+      ],
+  });
+});
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
+
+
 </script>

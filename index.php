@@ -8,63 +8,59 @@ error_reporting(0);
 if (isset($_POST['btnlogin'])) {
   $userPass = md5($_POST['userPass']);
   $userID = $_SESSION['theid'];
-  $sql = "SELECT * FROM users WHERE userid='$userID' and password='$userPass'";
-  $result = mysqli_query($conn, $sql);
-  if(mysqli_num_rows($result) == 1){
-    $loggedinuser = mysqli_fetch_assoc($result);
-    if($loggedinuser['role'] == 'Admin'){
+  if ($_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Cashier' || $_SESSION['role'] == 'Registrar'){
+    $sql = "SELECT * FROM users u INNER JOIN faculty f on f.facultyid=u.userid WHERE userid='$userID' and password='$userPass'";
+    $result = mysqli_query($conn, $sql);
+    
+    if(mysqli_num_rows($result) == 1){
+      $getUsername = mysqli_fetch_assoc($result);
+      $_SESSION['username'] = $getUsername['lastname']. ', ' .$getUsername['firstname'];
+      $_SESSION['loggedin'] = "1";
+      
+      if($_SESSION['role'] == 'Faculty'){
+        header("Location: faculty/dashboard/dashboard.php");
+      }elseif($_SESSION['role'] == 'Cashier'){
+        header("Location: cashier/dashboard/dashboard.php");
+      }elseif($_SESSION['role'] == 'Registrar'){
+        header("Location: registrar/dashboard/dashboard.php");
+      }
+    }else{
+      echo '<script type="text/javascript">setTimeout(function () {
+        swal("Invalid Password, Please Try Again!","","error");}, 200);</script>';
+      }
+  }elseif($_SESSION['role'] == 'Student'){
+    $_SESSION['loggedin'] = "1";
+    header("Location: student/dashboard/dashboard.php");
+  }elseif($_SESSION['role'] == 'Admin'){
+    $sql = "SELECT * FROM users WHERE userid='$userID' and password='$userPass'";
+    $result = mysqli_query($conn, $sql);
+    if(mysqli_num_rows($result) == 1){
+      $_SESSION['loggedin'] = "1";
       $_SESSION['username'] = "Administrator";
-      $_SESSION['loggedin'] = "1";
       header("Location: admin/dashboard/dashboard.php");
-    }elseif($loggedinuser['role'] == 'Faculty'){
-      $result = mysqli_query($conn, "SELECT * FROM faculty WHERE facultyid='$userID'");
-      $getFacultyName = mysqli_fetch_assoc($result);
-      $_SESSION['username'] = $getFacultyName['lastname']. ', ' .$getFacultyName['firstname'];
-      $_SESSION['loggedin'] = "1";
-      header("Location: faculty/dashboard/dashboard.php");
-    }elseif($loggedinuser['role'] == 'Cashier'){
-      $_SESSION['username'] = "Cashier";
-      $_SESSION['loggedin'] = "1";
-      header("Location: cashier/dashboard/dashboard.php");
-    }   
-  }else{
-    echo '<script type="text/javascript">setTimeout(function () {
-      swal("Invalid Password, Please Try Again!","","error");}, 200);</script>';
-
-    }
-
-  $sql = "SELECT * FROM users WHERE userid='$userID'";
-  $result = mysqli_query($conn, $sql);
-
-  if(mysqli_num_rows($result) == 1){
-    $loggedinuser = mysqli_fetch_assoc($result);
-    if($loggedinuser['role'] == 'Student'){
-      $_SESSION['loggedin'] = "1";
-      header("Location: student/welcome.php");
-    }
+    }else{
+      echo '<script type="text/javascript">setTimeout(function () {
+        swal("Invalid Password, Please Try Again!","","error");}, 200);</script>';
+      } 
   }
+
 }
 if (isset($_POST['login'])) {
-  $studentID = $_POST['studentID'];
-  $sql = "SELECT * FROM users WHERE userid='$studentID'";
+  $userID = $_POST['studentID'];
+  $sql = "SELECT * FROM users WHERE userid='$userID'";
   $result = mysqli_query($conn, $sql);
-
   if(mysqli_num_rows($result) == 1){
     $loggedinuser = mysqli_fetch_assoc($result);
-    if($loggedinuser['role'] == 'Admin'){
-      $_SESSION['theid'] = $loggedinuser['userid'];
-      $_SESSION['role'] = $loggedinuser['role'];
-      include 'verificationModal.php';
-    }elseif($loggedinuser['role'] == 'Faculty'){
-      $_SESSION['theid'] = $loggedinuser['userid'];
-      $_SESSION['role'] = $loggedinuser['role'];
-      include 'verificationModal.php';
-    }elseif($loggedinuser['role'] == 'Cashier'){
+    if($loggedinuser['role'] == 'Admin' || $loggedinuser['role'] == 'Faculty' 
+    || $loggedinuser['role'] == 'Cashier' || $loggedinuser['role'] == 'Registrar'){
       $_SESSION['theid'] = $loggedinuser['userid'];
       $_SESSION['role'] = $loggedinuser['role'];
       include 'verificationModal.php';
     }elseif($loggedinuser['role'] == 'Student'){
-      $_SESSION['username'] = $loggedinuser['lastname']. ', ' .$loggedinuser['username'];
+    $sql = "SELECT * FROM users u INNER JOIN students s on s.studentid=u.userid WHERE userid='$userID'";
+    $result = mysqli_query($conn, $sql);
+    $getUsername = mysqli_fetch_assoc($result);
+      $_SESSION['username'] = $getUsername['lastname']. ', ' .$getUsername['firstname'];
       $_SESSION['theid'] = $loggedinuser['userid'];
       $_SESSION['role'] = $loggedinuser['role'];
       include 'verificationModal.php';
@@ -93,12 +89,17 @@ if (isset($_POST['login'])) {
       <h1>STUDENT INFORMATION SYSTEM</h1>
     </div><br/><br/>
     <div class="row d-flex justify-content-center pt-5">
-      <div class="col-6 pe-5">
+      <div class="col-6">
         <div id="timedate">
-          <div class="col" style="font-size:100px;">
-            <a id="h">12</a> :
-            <a id="m">00</a>:
-            <a id="s">00</a>
+          <div class="col ps-5" style="font-size:100px;">
+            <div class="row g-2">
+              <div class="col-1"></div>
+              <div class="col-3" id="h">12</div>
+              <div class="col-1">:</div>
+              <div class="col-3" id="m">00</div>
+              <div class="col-1">:</div>
+              <div class="col-3" id="s">00</div>
+            </div>     
           </div>
           <div class="col fs-1">
             <a id="mon">January</a>

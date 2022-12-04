@@ -1,10 +1,10 @@
-x<?php
-include '../config.php';
+<?php
+include '../../config.php';
 session_start();
 error_reporting(0);
 
 if (!($_SESSION['role'] == 'Faculty')) {
-  header("Location: ../index.php");
+  header("Location: ../../index.php");
 }
 
 $_SESSION['facultyName'] = $_SESSION['username']. ', ' .$_SESSION['firstname'];
@@ -12,13 +12,13 @@ $_SESSION['facultyName'] = $_SESSION['username']. ', ' .$_SESSION['firstname'];
 if(isset($_POST['studentidsearch'])) {
   if(!empty($_SESSION['subject'])) {
     $_SESSION['studentID'] = $_POST['studentID'];
-    $sql = "SELECT * FROM users WHERE id= " . $_SESSION['studentID'];
+    $sql = "SELECT * FROM students WHERE studentid= " . $_SESSION['studentID'];
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
 
     $_SESSION['course'] = $row['course'];
     $_SESSION['section'] = $row['section'];
-    $_SESSION['studentName'] = $row['lastname']. ', ' .$row['username'];
+    $_SESSION['studentName'] = $row['lastname']. ', ' .$row['firstname'];
 
     $sql = "SELECT * FROM grades WHERE studentid='".$_SESSION['studentID']."' AND subject='".$_SESSION['subject']."'
     AND schoolyear='".$_SESSION['year']."' AND semester='".$_SESSION['semester']."'";
@@ -176,7 +176,7 @@ if(isset($_POST['studentidsearch'])) {
   <html lang="en">
   <body>
     <?php
-    include("header.php");
+    include("../header.php");
     ?>
     <div class="modal fade" id="myModal">
       <div class="modal-dialog">
@@ -331,5 +331,8 @@ if(isset($_POST['studentidsearch'])) {
       window.history.replaceState( null, null, window.location.href );
     }
     </script>
+    <?php
+include '../footer.php'
+?>
   </body>
   </html>

@@ -16,7 +16,8 @@
         <div class="modal-content text-center">
 
           <?php
-          if($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Cashier'){
+          if($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Faculty' 
+          || $_SESSION['role'] == 'Cashier' || $_SESSION['role'] == 'Registrar'){
             echo '<div class="modal-header d-flex justify-content-center">
             <h5 class="heading">Please Enter Password</h5>
             </div>

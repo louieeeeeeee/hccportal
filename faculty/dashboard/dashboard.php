@@ -24,17 +24,17 @@ if ($_SESSION['loggedin'] == '1') {
     <button type="button" class="p-3 position-absolute top-25 start-0 btn btn-lg btn btn-secondary rounded-circle ms-2" data-bs-toggle="modal" data-bs-target="#showModal" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;"><i class="fa-solid fa-bullhorn fa-2x"></i></button>
   </div>
   <div class="container p-5 mt-5">
-    <div class="row">
+    <div class="row text-center">
       <div class="col">
         <a href="../students/students.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
           <i class="fa-solid fa-user fa-6x"></i><br/>
           <b><h5>Students View</h5></b><br>
         </a>
-        <a href="adminprofile.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <a href="../profile/profile.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
           <i class="fa-solid fa-chart-simple fa-6x"></i><br/>
           <b><h5>Faculty Info</h5></b>
         </a>
-        <a href="studentgrades.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <a href="../grades/grades.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
           <i class="fa-solid fa-file-invoice fa-6x"></i><br/>
           <b><h5>Grades</h5></b>
         </a>
