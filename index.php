@@ -3,7 +3,7 @@ include 'config.php';
 
 session_start();
 
-echo "asdasdasd";
+echo "TESTTTT";
 error_reporting(0);
 if (isset($_POST['btnlogin'])) {
   $userPass = md5($_POST['userPass']);
