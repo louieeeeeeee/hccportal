@@ -14,10 +14,12 @@ if(isset($_POST['submit'])) {
   $semester = $_POST['semester'];
   $sql = "SELECT * FROM grades WHERE studentid='$id' AND schoolyear='$schoolyear' AND semester='$semester'";
   $result = mysqli_query($conn, $sql);
+  echo $sql;
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<meta http-equiv="refresh" content="5000;url=../logout.php" />
 <body>
   <?php
     include("../header.php");
@@ -46,7 +48,7 @@ if(isset($_POST['submit'])) {
             </div>
             </div>
           
-            <table class="table table-striped table-dark">
+            <table class="table table-striped table-primary">
               <thead>
                 <tr>
                   <th scope="col">Subject</th>

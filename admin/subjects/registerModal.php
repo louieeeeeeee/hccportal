@@ -17,16 +17,14 @@
                 <select name="faculty" id="facultySelect" class="form-select" required>
                   <option value="">-- Faculty Assigned -- </option>
                     <?php
-                      $sql = "SELECT * FROM users u INNER JOIN faculty f on f.facultyid=u.userid where role='Faculty'";
+                      $sql = "SELECT * FROM users u INNER JOIN faculty f on f.facultyid=u.userid where f.role='Faculty'";
+                      
                       $result1 = mysqli_query($conn, $sql);
                         if ($result1->num_rows > 0) {
                           while ($row1 = mysqli_fetch_array($result1)) {
                             echo '<option value="'.$row1["facultyid"].'">'.$row1["firstname"].' '.$row1["lastname"].'</option>';
                            }
-                        }else{
-                          echo '<script type="text/javascript">setTimeout(function () {
-                          swal("No Faculty Member Found.","","error");}, 200);</script>';
-                      }
+                        }
                   ?>       
                 </select>
               </div>
@@ -64,11 +62,24 @@
             </div>
               <div class="col-md pb-3">
                 <label>Course: </label>
-                <select id="addCourse" name="course" class="form-select" required>
+                <select name="course" id="addCourse" class="form-select" required>
                   <option value="">-- Select a Course -- </option>
-                  <option value="BSCS">BSCS Bachelor of Science in Computer Science</option>
+                    <?php
+                      $sql = "SELECT DISTINCT course FROM cys";
+
+                      $result1 = mysqli_query($conn, $sql);
+                        if ($result1->num_rows > 0) {
+                          while ($row1 = mysqli_fetch_array($result1)) {
+                            echo '<option value="'.$row1["course"].'"> '.$row1["course"].'</option>';
+                           }
+                        }
+                  ?>
                 </select>
               </div>
+              <div class="col-md pb-3">
+            <label>Subject Color</label>
+            <input type="color" class="form-control form-control-color" name="color" value="" title="Choose your color" required>
+          </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="submit" name="register" class="btn btn-primary">Add Subject</button>

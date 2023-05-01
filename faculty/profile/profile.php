@@ -3,7 +3,7 @@ include '../../config.php';
 session_start();
 error_reporting(0);
 
-if (!($_SESSION['role'] == 'Faculty')) {
+if (!($_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Scheduler')) {
   header("Location: ../../index.php");
 }
 

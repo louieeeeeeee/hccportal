@@ -56,13 +56,13 @@ if (isset($_POST['imageValue'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
+<meta http-equiv="refresh" content="5000;url=../logout.php" />
 <body>
   <?php
   include("../header.php");
   ?>
   <div class="container w-75 p-5">
-        <form method="POST" action="" enctype="multipart/form-data"> 
+        <form method="POST" action="" enctype="multipart/form-data">
             <div class="row mb-2 fs-5">
               <div class="col">
                 <label class="small mb-1 fw-bold">First name</label>
@@ -81,11 +81,11 @@ if (isset($_POST['imageValue'])) {
             <div class="row mb-2 fs-5">
               <div class="col">
                 <label class="small mb-1 fw-bold" for="inputPhone">Phone number</label>
-                <input name="tel" class="form-control fs-5" type="tel" value="<?php echo $row['tel']; ?>" readOnly>
+                <input name="tel" class="form-control fs-5" type="tel" value="<?php echo $row['contact']; ?>" readOnly>
               </div>
               <div class="col">
                 <label class="small mb-1 fw-bold" for="inputBirthday">Birthday</label>
-                <input class="form-control fs-5" type="text" name="birthdate" value="<?php echo $row['birthdate']; ?>" readOnly>
+                <input class="form-control fs-5" type="text" name="birthdate" value="<?php echo $row['birthday']; ?>" readOnly>
               </div>
             </div>
             <div class="row mb-2 fs-5">
@@ -94,18 +94,8 @@ if (isset($_POST['imageValue'])) {
                 <input name="email" class="form-control fs-5" type="email" value="<?php echo $row['email']; ?>" readOnly>
               </div>
               <div class="col">
-                <label class="form-label fw-bold">Course</label>
+                <label class="form-label fw-bold">Course, Year & Section</label>
                 <input name="course" type="text" class="form-control fs-5" value="<?php echo $row['course']; ?>" readOnly>
-              </div>
-            </div>
-            <div class="row mb-2 fs-5">
-            <div class="col">
-                <label class="form-label fw-bold">Year</label>
-                <input name="year" type="text" class="form-control fs-5" value="<?php echo $row['year']; ?>" readOnly>
-              </div>
-              <div class="col">
-                <label class="form-label fw-bold">Section</label>
-                <input name="section" type="text" class="form-control fs-5" value="<?php echo $row['section']; ?>" readOnly>
               </div>
             </div>
         </form>

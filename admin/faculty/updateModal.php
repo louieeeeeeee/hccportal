@@ -13,12 +13,12 @@
         </div>
         <div class="row pb-3">
           <div class="col-md">
-            <label class="fw-bold">First Name: </label>
-            <input type="text" name="txtfname" class="form-control" placeholder="First Name" value="<?php echo $row["firstname"]?>" required/>
+            <label class="fw-bold" >First Name: </label>
+            <input onkeydown="return /[a-z, ]/i.test(event.key)" type="text" name="txtfname" class="form-control" placeholder="First Name" value="<?php echo $row["firstname"]?>" required/>
           </div>
           <div class="col-md">
             <label class="fw-bold">Last Name:</label>
-            <input type="text" name="txtlname" class="form-control" placeholder="Last Name" value="<?php echo $row["lastname"]?>" required/>
+            <input onkeydown="return /[a-z, ]/i.test(event.key)" type="text" name="txtlname" class="form-control" placeholder="Last Name" value="<?php echo $row["lastname"]?>" required/>
           </div>
         </div>
         <div class="row pb-3">

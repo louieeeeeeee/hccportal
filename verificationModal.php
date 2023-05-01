@@ -17,7 +17,8 @@
 
           <?php
           if($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Faculty' 
-          || $_SESSION['role'] == 'Cashier' || $_SESSION['role'] == 'Registrar'){
+          || $_SESSION['role'] == 'Cashier' || $_SESSION['role'] == 'Registrar'
+          || $_SESSION['role'] == 'Scheduler'){
             echo '<div class="modal-header d-flex justify-content-center">
             <h5 class="heading">Please Enter Password</h5>
             </div>
@@ -53,8 +54,6 @@
 </html>
 <script type="text/javascript">
 $(document).ready(function(){
-  $(window).on('load', function() {
-    $('#addModal').modal('show');
-  });
+  $('#addModal').modal('show');
 });
 </script>

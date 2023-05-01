@@ -1,58 +1,53 @@
+
 <?php
 include '../../config.php';
 //import.php
 
 include '../../vendor/autoload.php';
 
-$connect = new PDO("mysql:host=localhost;dbname=students", "root", "");
 
-if($_FILES["import_excel"]["name"] != '')
-{
-	$allowed_extension = array('xls', 'csv', 'xlsx');
-	$file_array = explode(".", $_FILES["import_excel"]["name"]);
-	$file_extension = end($file_array);
-	if(in_array($file_extension, $allowed_extension))
-	{
-		$file_name = time() . '.' . $file_extension;
-		move_uploaded_file($_FILES['import_excel']['tmp_name'], $file_name);
-		$file_type = \PhpOffice\PhpSpreadsheet\IOFactory::identify($file_name);
-		$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReader($file_type);
+// Get the uploaded file
+$file = $_FILES['file']['tmp_name'];
 
-		$spreadsheet = $reader->load($file_name);
+// Load the Excel file into a PHP spreadsheet object
+$reader = \PhpOffice\PhpSpreadsheet\IOFactory::createReaderForFile($file);
+$spreadsheet = $reader->load($file);
 
-		unlink($file_name);
+// Get the first worksheet in the Excel file
+$worksheet = $spreadsheet->getActiveSheet();
 
-		$data = $spreadsheet->getActiveSheet()->toArray();
-		foreach(array_slice($data,1) as $row)
-		{
-			$sql = "Select * from users WHERE id = $row[0]";
-			$result = mysqli_query($conn, $sql);
-			if(mysqli_num_rows($result) == 1){
-				
-				echo '<script type="text/javascript">setTimeout(function () {
-					swal("Duplicate ID Number: '.$row[0].'. Please Try again.","","error");}, 200);</script>';
-					return;
-			}else{
-				$sql = "INSERT INTO users (userid, password, role)
-      			VALUES ('$row[0]' , md5('".$row[3]."'), '$row[4]')";
-      		$result = mysqli_query($conn, $sql);
-			}			
-		}
-		$message = '<script type="text/javascript">setTimeout(function () {
-			swal("Succesfully Uploaded!","","success");});</script>';		
-	}
-	else
-	{
-		$message = '<script type="text/javascript">setTimeout(function () {
-      swal("Only .xls .csv or .xlsx file allowed","","error");}, 200);</script>';
-	}
-}
-else
-{
-	$message = '<script type="text/javascript">setTimeout(function () {
-		swal("Please Select a File First!","","error");}, 200);</script>';
+
+// Loop through each row in the worksheet and insert its data into the database
+for ($row = 2; $row <= $worksheet->getHighestRow(); $row++) {
+  $studentid = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+  $firstname = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+  $lastname = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+  $birthday = $worksheet->getCellByColumnAndRow(8, $row)->getValue();
+  $contact = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+  $course = $worksheet->getCellByColumnAndRow(10, $row)->getValue();
+
+  // Check if the student already exists in the database
+  $query = "SELECT * FROM students WHERE studentid = '$studentid'";
+  $result = $conn->query($query);
+
+  if ($result->num_rows == 0) {
+    // Insert the student's data into the database
+    $query = "INSERT INTO students (studentid, firstname, lastname, birthday, contact, course) VALUES ('$studentid', '$firstname', '$lastname', '$birthday', '$contact', '$course')";
+    $conn->query($query);
+  }
 }
 
-echo $message;
+// Close the database connection
+$conn->close();
+
+echo "<script>
+          swal({
+            title: 'Success',
+            text: 'Data uploaded successfully!',
+            icon: 'success',
+          }).then(function() {
+            window.history.back();
+          });
+        </script>";
 
 ?>

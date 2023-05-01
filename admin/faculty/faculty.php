@@ -14,6 +14,10 @@ if(isset($_POST['facultyDelete'])) {
   $result = mysqli_query($conn, "DELETE FROM users WHERE userid='".$_POST['facultyid']."'");
 
   if ($result) {
+    $userLog = $_SESSION['role'];
+      	$actionLog = "Deleted Faculty Member: ". $_POST['facultyid'];
+      	$logPop = mysqli_query($conn, "INSERT INTO logs (user, action)
+        VALUES ('$userLog', '$actionLog')");
     echo '<script type="text/javascript">setTimeout(function () {
       swal("Subject Succesfully Deleted!","","success");}, 200);
       </script>';
@@ -34,14 +38,18 @@ if(isset($_POST['facultyUpdate'])) {
   $txtemail = $_POST['txtemail'];
   $txtcontact = $_POST['txtcontact'];
 
-    $sql = "UPDATE faculty SET 
-    firstname = '$txtfname', 
+    $sql = "UPDATE faculty SET
+    firstname = '$txtfname',
     lastname  = '$txtlname',
-    email   = '$txtemail', 
+    email   = '$txtemail',
     contact   = '$txtcontact' WHERE facultyid = '$txtfacultyid'";
 
     $result = mysqli_query($conn, $sql);
     if ($result) {
+      $userLog = $_SESSION['role'];
+      	$actionLog = "Administrator Updated Faculty Memberwith ID #: ". $txtfacultyid;
+      	$logPop = mysqli_query($conn, "INSERT INTO logs (user, action)
+        VALUES ('$userLog', '$actionLog')");
       echo '<script type="text/javascript">setTimeout(function () {
         swal("Faculty Information Succesfully Updated","","success");}, 200);
         </script>';
@@ -54,11 +62,14 @@ if(isset($_POST['facultyUpdate'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<body>
-  <?php
+<?php
     include("../header.php");
   ?>
-  <div class="container p-5">
+<body class="loading">
+  <div id="loading-screen">
+    <div class="loader"></div>
+  </div>
+  <div class="container p-5" id="page-content">
   <form action="" method="POST">
       <div class="col-md pt-2">
         <table class="table table-striped table-primary table-hover p-2" id="table">
@@ -67,7 +78,6 @@ if(isset($_POST['facultyUpdate'])) {
               <th scope="col">Faculty ID</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
-              <th scope="col">Department</th>
               <th scope="col">Email</th>
               <th scope="col">Contact</th>
               <th scope="col">Action</th>
@@ -75,7 +85,7 @@ if(isset($_POST['facultyUpdate'])) {
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT * FROM users u INNER JOIN faculty f on f.facultyid=u.userid where role='Faculty'";
+            $sql = "SELECT * FROM faculty where role='Faculty'";
             $result = mysqli_query($conn, $sql);
             if (!$result->num_rows > 0) {
               echo '<script type="text/javascript">setTimeout(function () {
@@ -87,7 +97,6 @@ if(isset($_POST['facultyUpdate'])) {
                 echo "<td>".$row['facultyid']."</td>";
                 echo "<td>".$row['firstname']."</td>";
                 echo "<td>".$row['lastname']."</td>";
-                echo "<td>".$row['department']."</td>";
                 echo "<td>".$row['email']."</td>";
                 echo "<td>".$row['contact']."</td>";
                 echo '<td>
@@ -112,6 +121,13 @@ if(isset($_POST['facultyUpdate'])) {
 </body>
 </html>
 <script>
+window.addEventListener("load", function() {
+  var loadingScreen = document.getElementById("loading-screen");
+  loadingScreen.style.display = "none";
+  document.body.classList.remove("loading");
+});
+
+
     $(document).ready(function () {
     $('#table').DataTable({
         lengthMenu: [

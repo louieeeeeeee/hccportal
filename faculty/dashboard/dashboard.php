@@ -3,7 +3,7 @@ include '../../config.php';
 session_start();
 error_reporting(0);
 
-if (!($_SESSION['role'] == 'Faculty')) {
+if (!($_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Scheduler')) {
   header("Location: ../../index.php");
 }
 
@@ -23,7 +23,7 @@ if ($_SESSION['loggedin'] == '1') {
   <div class="col">
     <button type="button" class="p-3 position-absolute top-25 start-0 btn btn-lg btn btn-secondary rounded-circle ms-2" data-bs-toggle="modal" data-bs-target="#showModal" style="box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;"><i class="fa-solid fa-bullhorn fa-2x"></i></button>
   </div>
-  <div class="container p-5 mt-5">
+  <div class="container p-4 mt-4">
     <div class="row text-center">
       <div class="col">
         <a href="../students/students.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
@@ -42,6 +42,26 @@ if ($_SESSION['loggedin'] == '1') {
           <i class="fa-solid fa-file-invoice fa-6x"></i><br/>
           <b><h5>Subjects</h5></b>
         </a>
+        <a href="../upload/upload.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+          <i class="fa-solid fa-upload fa-6x"></i><br/>
+          <b><h5>Upload</h5></b>
+        </a>
+        <a href="../scheduling/scheduling.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+          <i class="fa-solid fa-calendar-days fa-6x"></i><br/>
+          <b><h5>Schedule</h5></b>
+        </a>
+        <?php
+        if($_SESSION['role'] == 'Scheduler'){
+          echo '
+          <a href="../../admin/schedule/pages/home.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+          <i class="fa-solid fa-calendar-plus fa-6x"></i><br/>
+          <b><h5>Schedule Generator</h5></b>
+        </a>
+        ';
+        }
+        
+        ?>
+        
       </div>
     </div>
   </div>

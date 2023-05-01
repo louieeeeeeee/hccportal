@@ -3,11 +3,9 @@ include '../../config.php';
 session_start();
 error_reporting(0);
 
-if (!($_SESSION['role'] == 'Faculty')) {
+if (!($_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Scheduler')) {
   header("Location: ../../index.php");
 }
-
-$_SESSION['facultyName'] = $_SESSION['username']. ', ' .$_SESSION['firstname'];
 
 if(isset($_POST['studentidsearch'])) {
   if(!empty($_SESSION['subject'])) {
@@ -25,9 +23,9 @@ if(isset($_POST['studentidsearch'])) {
     $result = mysqli_query($conn, $sql);
 
     if (!$result->num_rows > 0) {
-      $sql = "INSERT INTO grades (studentid, studentname, schoolyear, semester, subject, units, faculty)
+      $sql = "INSERT INTO grades (studentid, studentname, schoolyear, semester,code, subject, units, faculty)
       VALUES ('".$_SESSION['studentID']."', '".$_SESSION['studentName']."', '".$_SESSION['year']."', '".$_SESSION['semester']."',
-        '".$_SESSION['subject']."', '".$_SESSION['unit']."', '".$_SESSION['facultyName']."')";
+        '".$_SESSION['code']."','".$_SESSION['subject']."', '".$_SESSION['unit']."', '".$_SESSION['username']."')";
         $result = mysqli_query($conn, $sql);
 
         $sql = "SELECT * FROM grades WHERE studentid='".$_SESSION['studentID']."' AND subject='".$_SESSION['subject']."'
@@ -70,6 +68,7 @@ if(isset($_POST['studentidsearch'])) {
     $_SESSION['subject'] = $fsubject;
     $_SESSION['year'] = $_POST['year'];
     $_SESSION['semester'] = $_POST['semester'];
+    $_SESSION['code'] = $_POST['subject'];
 
     unset($_SESSION["studentID"]);
     unset($_SESSION["studentName"]);
@@ -243,7 +242,7 @@ if(isset($_POST['studentidsearch'])) {
           <form method="POST">
             <div class="row gx-3 mb-3"  style="margin-top:28px;margin-left:400px;">
               <div class="col-md-8">
-                <input name="studentID" class="form-control" type="text" placeholder="Student ID" value="" required>
+                <input name="studentID" class="form-control" type="number" placeholder="Student ID" value="" required>
               </div>
               <div class="col-md-2">
                 <button name="studentidsearch" type="submit" class="btn btn-primary">Search</button>
@@ -278,7 +277,13 @@ if(isset($_POST['studentidsearch'])) {
               </div>
             </div>
             <div class="row gx-3 mb-3">
-              <div class="col-md-12">
+              <div class="col-md-3">
+                <label class="small mb-1">Code</label>
+                <div class="form-outline">
+                  <input type="text" name="subjectView" class="form-control" placeholder="Subject" value="<?php echo $_SESSION['code'] ?>" disabled required/>
+                </div>
+              </div>
+              <div class="col-md-9">
                 <label class="small mb-1">Subject</label>
                 <div class="form-outline">
                   <input type="text" name="subjectView" class="form-control" placeholder="Subject" value="<?php echo $_SESSION['subject'] ?>" disabled required/>
@@ -303,19 +308,19 @@ if(isset($_POST['studentidsearch'])) {
               <div class="col-md-4">
                 <label class="small mb-1">Prelim</label>
                 <div class="form-outline">
-                  <input type="text" name="prelim" class="form-control" placeholder="Prelim" maxlength="3" value="<?php echo $_SESSION['prelim']; ?>"/>
+                  <input type="number" name="prelim" class="form-control" placeholder="Prelim" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "3"  value="<?php echo $_SESSION['prelim']; ?>"/>
                 </div>
               </div>
               <div class="col-md-4">
                 <label class="small mb-1">Midterm</label>
                 <div class="form-outline">
-                  <input type="text" name="midterm" class="form-control" placeholder="Midterm" maxlength="3" value="<?php echo $_SESSION['midterm']; ?>"/>
+                  <input type="number" name="midterm" class="form-control" placeholder="Midterm" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "3"  value="<?php echo $_SESSION['midterm']; ?>"/>
                 </div>
               </div>
               <div class="col-md-4">
                 <label class="small mb-1">Finals</label>
                 <div class="form-outline">
-                  <input type="text" name="finals" class="form-control" placeholder="Finals" maxlength="3" value="<?php echo $_SESSION['finals']; ?>"/>
+                  <input type="number" name="finals" class="form-control" placeholder="Finals" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type = "number" maxlength = "3" value="<?php echo $_SESSION['finals']; ?>"/>
                 </div>
               </div>
 

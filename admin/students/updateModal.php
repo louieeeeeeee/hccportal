@@ -14,11 +14,11 @@
           </div>
           <div class="col-md">
             <label class="fw-bold">First Name: </label>
-            <input type="text" name="txtstudentfname" class="form-control" placeholder="First Name" value="<?php echo $row["firstname"] ?>" required/>
+            <input onkeydown="return /[a-z, ]/i.test(event.key)" type="text" name="txtstudentfname" class="form-control" placeholder="First Name" value="<?php echo $row["firstname"] ?>" required/>
           </div>
           <div class="col-md">
             <label class="fw-bold">Last Name:</label>
-            <input type="text" name="txtstudentlname" class="form-control" placeholder="Last Name" value="<?php echo $row["lastname"] ?>" required/>
+            <input onkeydown="return /[a-z, ]/i.test(event.key)" type="text" name="txtstudentlname" class="form-control" placeholder="Last Name" value="<?php echo $row["lastname"] ?>" required/>
           </div>
         </div>
         <div class="col-md pb-3">
@@ -63,7 +63,7 @@
               <button type="submit" name="studentUpdate" class="btn btn-primary">Update</button>
             </div>
         </form>
-      </div>    
+      </div>
     </div>
   </div>
 </div>

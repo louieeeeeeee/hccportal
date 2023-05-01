@@ -18,12 +18,17 @@ if (!($_SESSION['role'] == 'Cashier')) {
         <div class="col-12 text-center">
           <h2><label class="form-label">Upload Billing</label></h2>
           <input class="form-control" type="file" name="import_excel">
+           <br>
+        <a href="../../assets/testfiles/egbilling.xlsx" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true" download></i> Download Template</a></td>
+    
         </div>
         <div class="d-grid gap-2">
           <input type="submit" name="import" id="import" class="btn btn-primary" value="Import" />   
         </div>
       </form>
+      
     </div>
+   
     <?php
     include '../footer.php';
     ?>

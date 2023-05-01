@@ -30,6 +30,10 @@ if ($_SESSION['loggedin'] == '1') {
         <i class="fa-solid fa-file-arrow-up fa-6x"></i><br/>
           <b><h5>Upload Billing</h5></b><br>
         </a>
+        <a href="../edit_billing/edit.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <i class="fa-solid fa-file-pen fa-6x"></i><br/>
+          <b><h5>Edit Billing</h5></b><br>
+        </a>
       </div>
     </div>
   </div>

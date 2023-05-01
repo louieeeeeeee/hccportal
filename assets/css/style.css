@@ -24,6 +24,74 @@ body {
     }
 }
 
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  z-index: 9999;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -60px;
+  margin-left: -60px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded #page-content {
+  opacity: 1;
+}
+
+body.loading {
+  overflow: hidden;
+}
+
+body.loading #loading-screen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.loading .loader {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+body.loaded #loading-screen {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.loaded .loader {
+  opacity: 0;
+  pointer-events: none;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+
 #timedate {
   font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   text-align:right;
@@ -39,6 +107,12 @@ body {
  position: relative;
  background:#2596be;
  color: white;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .scroll-left p {

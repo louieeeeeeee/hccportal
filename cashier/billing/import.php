@@ -1,10 +1,9 @@
 <?php
-
+include '../../config.php';
 //import.php
 
 include '../../vendor/autoload.php';
 
-$connect = new PDO("mysql:host=localhost;dbname=students", "root", "");
 
 if($_FILES["import_excel"]["name"] != '')
 {
@@ -26,34 +25,11 @@ if($_FILES["import_excel"]["name"] != '')
 
 		foreach(array_slice($data,1) as $row)
 		{
-			$insert_data = array(
-				':studentid'		=>	$row[0],
-				':tuitionfee'		=>	$row[1],
-				':learnandins'	=>	$row[2],
-				':regfee'				=>	$row[3],
-				':compprossfee'	=>	$row[4],
-				':guidandcouns'	=>	$row[5],
-				':schoolidfee'	=>	$row[6],
-				':studenthand'	=>	$row[7],
-				':schoolfab'		=>	$row[8],
-				':insurance'		=>	$row[9],
-				':totalass'			=>	$row[10],
-				':discount'			=>	$row[11],
-				':netass'				=>	$row[12],
-				':cashcheckpay'	=>	$row[13],
-				':balance'			=>	$row[14]
-			);
 
-			$query = "
-			INSERT INTO billing
-			(studentid, tuitionfee, learnandins, regfee, compprossfee, guidandcouns, schoolidfee, studenthand, schoolfab,
+				$sql = "INSERT INTO billing (studentid, tuitionfee, learnandins, regfee, compprossfee, guidandcouns, schoolidfee, studenthand, schoolfab,
 			insurance, totalass, discount, netass, cashcheckpay, balance)
-			VALUES (:studentid, :tuitionfee, :learnandins, :regfee, :compprossfee, :guidandcouns, :schoolidfee, :studenthand, :schoolfab,
-			:insurance, :totalass, :discount, :netass, :cashcheckpay, :balance)
-			";
-
-			$statement = $connect->prepare($query);
-			$statement->execute($insert_data);
+      			VALUES ('$row[0]' , '$row[1]', '$row[2]', '$row[3]', '$row[4]', '$row[5]', '$row[6]', '$row[7]', '$row[8]', '$row[9]', '$row[10]', '$row[11]', '$row[12]', '$row[13]', '$row[14]')";
+      		$result = mysqli_query($conn, $sql);
 		}
 		$message = '<script type="text/javascript">setTimeout(function () {
 	    swal("Succesfully Uploaded!","","success");}, 200);</script>';

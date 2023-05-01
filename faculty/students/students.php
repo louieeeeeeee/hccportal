@@ -3,7 +3,7 @@ include '../../config.php';
 session_start();
 error_reporting(0);
 
-if (!($_SESSION['role'] == 'Faculty')) {
+if (!($_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Scheduler')) {
   header("Location: ../../index.php");
 }
 
@@ -35,7 +35,12 @@ if (!($_SESSION['role'] == 'Faculty')) {
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT * FROM grades";
+
+            $faculty = $_SESSION['username'];
+            $facultyid = $_SESSION['theid'];
+            $subjectcode = $_GET['subjectcode'];
+            if (isset($_GET['subjectcode'])) {
+             $sql = "SELECT * FROM grades where facultyid = '$facultyid' AND code = '$subjectcode'";
             $result = mysqli_query($conn, $sql);
             if (!$result->num_rows > 0) {
               echo '<script type="text/javascript">setTimeout(function () {
@@ -57,6 +62,31 @@ if (!($_SESSION['role'] == 'Faculty')) {
                 echo "</tr>";
               }
             }
+            } else {
+            $sql = "SELECT * FROM grades where facultyid = '$facultyid'";
+            $result = mysqli_query($conn, $sql);
+            if (!$result->num_rows > 0) {
+              echo '<script type="text/javascript">setTimeout(function () {
+                swal("Nothing found in Database.","","error");}, 200);</script>';
+              }
+            if ($result->num_rows > 0) {
+              while ($row = mysqli_fetch_array($result)) {
+                echo "<tr>";
+                echo "<td>".$row['studentid']."</td>";
+                echo "<td>".$row['studentname']."</td>";
+                echo "<td>".$row['subject']."</td>";
+                echo "<td>".$row['units']."</td>";
+                echo "<td>".$row['prelim']."</td>";
+                echo "<td>".$row['midterm']."</td>";
+                echo "<td>".$row['finals']."</td>";
+                echo "<td>".$row['finalgrades']."</td>";
+                echo "<td>".$row['average']."</td>";
+                echo "<td>".$row['status']."</td>";
+                echo "</tr>";
+              }
+            }
+            }
+
             ?>
           </tbody>
         </table>
@@ -72,7 +102,7 @@ include '../footer.php'
 <script>
 
 $(document).ready(function () {
-  
+
   $('#table').DataTable({
       lengthMenu: [
           [5, 10, 20, -1],

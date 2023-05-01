@@ -5,7 +5,7 @@ error_reporting(0);
 
 if (!($_SESSION['role'] == 'Admin')) {
   header("Location: ../../index.php");
-} 
+}
 
 $id = $_SESSION['theid'];
 $username = $_SESSION['username'];
@@ -15,8 +15,12 @@ if(isset($_POST['subjectDelete'])) {
 
   $sql = "DELETE FROM subjects WHERE subjectid='".$_POST['subjectid']."'";
   $result = mysqli_query($conn, $sql);
-   
+
   if ($result) {
+        $userLog = $_SESSION['role'];
+      	$actionLog = "Succesfully Deleted a Subject with ID #: ".$_POST['subjectid'];
+      	$logPop = mysqli_query($conn, "INSERT INTO logs (user, action)
+        VALUES ('$userLog', '$actionLog')");
     echo '<script type="text/javascript">setTimeout(function () {
       swal("Subject Succesfully Deleted!","","success");}, 200);
       </script>';
@@ -35,22 +39,29 @@ if(isset($_POST['subjectDelete'])) {
     $txtcode = $_POST['txtcode'];
     $txtunit = $_POST['txtunit'];
     $txtcourse = $_POST['txtcourse'];
+    $txtcolor = $_POST['txtcolor'];
 
 
     $sql = "UPDATE subjects AS Subj,
     (SELECT * FROM faculty WHERE facultyid = '$txtfaculty') AS facuID SET
-    subject = '$txtsubject', 
-    year = '$txtyear', 
+    subject = '$txtsubject',
+    year = '$txtyear',
     sem = '$txtsem',
-    code = '$txtcode', 
-    unit = '$txtunit', 
+    code = '$txtcode',
+    unit = '$txtunit',
     course = '$txtcourse',
+    subjcolor = '$txtcolor',
     Subj.facultyid = facuID.facultyid,
-    Subj.faculty = CONCAT(facuID.firstname,' ',facuID.lastname) WHERE 
+    Subj.faculty = CONCAT(facuID.firstname,' ',facuID.lastname) WHERE
     Subj.subjectid = '$subjectid'";
+
 
   		$result = mysqli_query($conn, $sql);
   		if ($result) {
+        $userLog = $_SESSION['role'];
+      	$actionLog = "Succesfully Updated a Subject with Subject Code: ".$txtcode ;
+      	$logPop = mysqli_query($conn, "INSERT INTO logs (user, action)
+        VALUES ('$userLog', '$actionLog')");
         echo '<script type="text/javascript">setTimeout(function () {
           swal("Subject Succesfully Updated","","success");}, 200);
           </script>';
@@ -61,26 +72,35 @@ if(isset($_POST['subjectDelete'])) {
     }
 
   if (isset($_POST['register'])) {
-    echo '<script>console.log("Your stuff here")</script>';
     $subject = $_POST['subject'];
     $year = $_POST['year'];
     $sem = $_POST['sem'];
     $code = $_POST['code'];
     $unit = $_POST['unit'];
   	$course = $_POST['course'];
+    $faculty = $_POST['faculty'];
+    $color = $_POST['color'];
 
-  			$sql = "INSERT INTO subjects (facultyid,faculty, course, code, subject, year, sem, unit)
-  					VALUES ('$facultyid','N/A', '$course', '$code', '$subject', '$year', '$sem', '$unit')";
-  			$result = mysqli_query($conn, $sql);
-  			if ($result) {
+    $sql = "SELECT * FROM faculty where facultyid = '$faculty'";
+    $result = mysqli_query($conn, $sql);
+    $getFacname = mysqli_fetch_assoc($result);
+    $fullFacname = $getFacname['lastname'].', '.$getFacname['firstname'];
+
+  			$sql = "INSERT INTO subjects (facultyid,faculty, course, code, subject, year, sem, unit, subjcolor)
+  					VALUES ('$faculty','$fullFacname', '$course', '$code', '$subject', '$year', '$sem', '$unit', '$color')";
+  			$result1 = mysqli_query($conn, $sql);
+  			if ($result1) {
+          $userLog = $_SESSION['role'];
+      	$actionLog = "Succesfully Registered a Subject Code: ".$code;
+      	$logPop = mysqli_query($conn, "INSERT INTO logs (user, action)
+        VALUES ('$userLog', '$actionLog')");
           echo '<script type="text/javascript">setTimeout(function () {
-            swal("Subject Succesfully Registered,"","success");}, 200);
-            </script>';
-          
+          swal("Subject Succesfully Registered","","success");}, 200);
+          </script>';
+
   			} else {
           echo '<script type="text/javascript">setTimeout(function () {
             swal("Something went wrong, Please try again.","","error");}, 200);</script>';
-            header("Refresh:1");
   			}
   }
 ?>
@@ -89,12 +109,13 @@ if(isset($_POST['subjectDelete'])) {
 <body>
   <?php
   include("../header.php");
+  include 'registerModal.php';
   ?>
   <div class="container-fluid p-5">
     <form action="" id="addUser" method="POST">
       <div class="form-group ml-5 pb-2">
         <button type="button" class="btn btn-primary btn-md" data-bs-toggle="modal" data-bs-target="#registerModal"> Add Subject</button>
-      </div> 
+      </div>
       <div class="col-md">
         <table class="table table-striped table-primary table-hover p-2" id="table" style="table-layout:fixed;">
           <thead>
@@ -131,7 +152,7 @@ if(isset($_POST['subjectDelete'])) {
 
                   include 'updateModal.php';
                   include 'deleteModal.php';
-                  include 'registerModal.php';
+
                 }
               }else{
                 echo '<script type="text/javascript">setTimeout(function () {
@@ -139,8 +160,8 @@ if(isset($_POST['subjectDelete'])) {
               }
             ?>
           </tbody>
-        </table>  
-      </div> 
+        </table>
+      </div>
     </form>
   </div>
   <?php
@@ -150,7 +171,7 @@ if(isset($_POST['subjectDelete'])) {
 </html>
 <script>
 $(document).ready(function () {
-  
+
     $('#table').DataTable({
         lengthMenu: [
             [5, 10, 20, -1],

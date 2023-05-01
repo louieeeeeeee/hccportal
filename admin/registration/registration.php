@@ -24,9 +24,13 @@ $username = $_SESSION['username'];
     if (!$result->num_rows > 0) {
       $result = mysqli_query($conn, "INSERT INTO users (userid, password, role) 
         VALUES ('$txtfacultyid', '$txtpassword', '$txtstaff')");
-      $result = mysqli_query($conn, "INSERT INTO faculty (facultyid, firstname, lastname, email, contact) 
-        VALUES ('$txtfacultyid', '$txtfname', '$txtlname', '$txtemail', '$txtcontact')");
+      $result = mysqli_query($conn, "INSERT INTO faculty (facultyid, firstname, lastname, email, contact, role) 
+        VALUES ('$txtfacultyid', '$txtfname', '$txtlname', '$txtemail', '$txtcontact', '$txtstaff')");
       if ($result) {
+        $userLog = $_SESSION['role'];
+      	$actionLog = "Succesfully Registered a Faculty Member with ID #: ".$txtfacultyid;
+      	$logPop = mysqli_query($conn, "INSERT INTO logs (user, action) 
+        VALUES ('$userLog', '$actionLog')");
         echo '<script type="text/javascript">setTimeout(function () {
           swal("Staff Member Succesfully Registered!","","success");}, 200);</script>';
       } else {
@@ -48,8 +52,8 @@ $username = $_SESSION['username'];
     $txtbirthdate = $_POST['txtbirthdate'];
     $txtstudentemail = $_POST['txtstudentemail'];
     $txtcourse = $_POST['txtcourse'];
-    $txtyear = $_POST['txtyear'];
-    $txtsection = $_POST['txtsection'];
+    //$txtyear = $_POST['txtyear'];
+    //$txtsection = $_POST['txtsection'];
     $txtpassword = md5("pass");
 
     $result = mysqli_query($conn, "SELECT * FROM users WHERE userid='$txtstudentid'");
@@ -57,9 +61,13 @@ $username = $_SESSION['username'];
     if (!$result->num_rows > 0) {
       $result = mysqli_query($conn, "INSERT INTO users (userid, password, role) 
         VALUES ('$txtstudentid', '$txtpassword', 'Student')");
-      $result = mysqli_query($conn, "INSERT INTO students (studentid, firstname, lastname, address, contact, birthday, email, course, year, section) 
-        VALUES ('$txtstudentid', '$txtstudentfname', '$txtstudentlname', '$txtaddress', '$txtstudentcontact', '$txtbirthdate', '$txtstudentemail', '$txtcourse', '$txtyear', '$txtsection')");
+      $result = mysqli_query($conn, "INSERT INTO students (studentid, firstname, lastname, address, contact, birthday, email, course) 
+        VALUES ('$txtstudentid', '$txtstudentfname', '$txtstudentlname', '$txtaddress', '$txtstudentcontact', '$txtbirthdate', '$txtstudentemail', '$txtcourse')");
       if ($result) {
+        $userLog = $_SESSION['role'];
+      	$actionLog = "Succesfully Registered a Student Member with ID #: ".$txtstudentid;
+      	$logPop = mysqli_query($conn, "INSERT INTO logs (user, action) 
+        VALUES ('$userLog', '$actionLog')");
         echo '<script type="text/javascript">setTimeout(function () {
           swal("Student Succesfully Registered!","","success");}, 200);</script>';
       } else {
@@ -68,7 +76,7 @@ $username = $_SESSION['username'];
        }
     } else {
           echo '<script type="text/javascript">setTimeout(function () {
-            swal("Faculty ID Already Exist. Please Try Again.","","error");}, 200);</script>';
+            swal("Student ID Already Exist. Please Try Again.","","error");}, 200);</script>';
    }
   }
 ?>
@@ -90,7 +98,7 @@ $username = $_SESSION['username'];
       <form action="" method="POST">
         <div class="row  pb-3 pt-3">
           <div class="col-md">
-            <label class="fw-bold">Faculty ID: </label>
+            <label class="fw-bold">Employee ID: </label>
             <input type="number" name="txtfacultyid" class="form-control" placeholder="User ID" value="" onkeydown="return event.keyCode !== 69" required/>
           </div>
           <div class="col-md">
@@ -100,6 +108,7 @@ $username = $_SESSION['username'];
                 <option value="Faculty">Faculty</option>
                 <option value="Cashier">Cashier</option>
                 <option value="Registrar">Registrar</option>
+                <option value="Scheduler">Scheduler</option>
               </select>
           </div>
         </div>
@@ -107,11 +116,11 @@ $username = $_SESSION['username'];
         <div class="row pb-3">
           <div class="col-md">
             <label class="fw-bold">First Name: </label>
-            <input type="text" name="txtfname" class="form-control" placeholder="First Name" value="" required/>
+            <input onkeydown="return /[a-z, ]/i.test(event.key)" type="text" name="txtfname" class="form-control" placeholder="First Name" value="" required/>
           </div>
           <div class="col-md">
             <label class="fw-bold">Last Name:</label>
-            <input type="text" name="txtlname" class="form-control" placeholder="Last Name" value="" required/>
+            <input onkeydown="return /[a-z, ]/i.test(event.key)" type="text" name="txtlname" class="form-control" placeholder="Last Name" value="" required/>
           </div>
         </div>
         <div class="row pb-3">
@@ -139,11 +148,11 @@ $username = $_SESSION['username'];
           </div>
           <div class="col-md">
             <label class="fw-bold">First Name: </label>
-            <input type="text" name="txtstudentfname" class="form-control" placeholder="First Name" value="" required/>
+            <input onkeydown="return /[a-z, ]/i.test(event.key)" type="text" name="txtstudentfname" class="form-control" placeholder="First Name" value="" required/>
           </div>
           <div class="col-md">
             <label class="fw-bold">Last Name:</label>
-            <input type="text" name="txtstudentlname" class="form-control" placeholder="Last Name" value="" required/>
+            <input onkeydown="return /[a-z, ]/i.test(event.key)" type="text" name="txtstudentlname" class="form-control" placeholder="Last Name" value="" required/>
           </div>
         </div>
         <div class="col-md pb-3">
@@ -166,22 +175,35 @@ $username = $_SESSION['username'];
         </div>
         <div class="row pb-3">
           <div class="col-md">
-            <label class="fw-bold">Course: </label>
+            <label class="fw-bold">Course, Year & Section</label>
               <select id="addDept" name="txtcourse" class="form-control" required>
-                <option value="">-- Select a Course -- </option>
-                <option value="BSCS">BSCS</option>
-                <option value="BSED">BSED</option>
-                <option value="BSCRIM">BSCRIM</option>
+              <option value="">-- Course, Year & Section -- </option>
+                    <?php
+                      $sql = "SELECT * FROM cys";
+                      
+                      $result1 = mysqli_query($conn, $sql);
+                        if ($result1->num_rows > 0) {
+                          while ($row1 = mysqli_fetch_array($result1)) {
+                            echo '<option value="'.$row1["course"].''.$row1["year"].''.$row1["section"].'">'.$row1["course"].''.$row1["year"].''.$row1["section"].'</option>';
+                           }
+                        }
+                  ?>  
               </select>
           </div>
-          <div class="col-md">
+          <!--<div class="col-md">
               <label class="fw-bold">Year: </label>
-              <input type="text" name="txtyear" class="form-control" placeholder="Year" value="" required/>
+              <select name="txtyear" class="form-select" required>
+                <option value="">-- Select a Year --</option>
+                <option value="First Year">First Year</option>
+                <option value="Second Year">Second Year</option>
+                <option value="Third Year">Third Year</option>
+                <option value="Fourth Year">Fourth Year</option>
+              </select>
             </div>
             <div class="col-md">
               <label class="fw-bold">Section:</label>
               <input type="text" name="txtsection" class="form-control" placeholder="Section" value="" required/>
-            </div>
+            </div>-->
         </div>
         <div class="col-md text-center pt-3"> 
             <button class="btn btn-primary btn-lg" type="submit" name="studentReg" id="register">Register</button>

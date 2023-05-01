@@ -29,7 +29,7 @@ if (!($_SESSION['role'] == 'Admin')) {
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT * FROM logs";
+            $sql = "SELECT * FROM logs ORDER BY id DESC";
             $result = mysqli_query($conn, $sql);
               if ($result->num_rows > 0) {
                 while ($row = mysqli_fetch_array($result)) {
@@ -62,7 +62,9 @@ $(document).ready(function () {
         lengthMenu: [
             [5, 10, 20, -1],
             [5, 10, 20, 'All'],
+            
         ],
+        "ordering": false
     });
 });
   if ( window.history.replaceState ) {

@@ -4,7 +4,6 @@ include '../../config.php';
 
 include '../../vendor/autoload.php';
 
-$connect = new PDO("mysql:host=localhost;dbname=students", "root", "");
 
 if($_FILES["import_excel"]["name"] != '')
 {

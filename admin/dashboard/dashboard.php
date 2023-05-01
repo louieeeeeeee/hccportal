@@ -39,9 +39,9 @@ $username = $_SESSION['username'];
           <i class="fa-solid fa-user-graduate fa-6x"></i><br/>
           <b><h5>Student</h5></b>
         </a>
-        <a href="../cashier/#" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <a href="../cashier/cashier.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
         <i class="fa-solid fa-user-check fa-6x"></i><br/>
-          <b><h5>Cashier/Registrar</h5></b>
+          <b><h5>Non-Teaching Staff</h5></b>
         </a>
         <a href="../registration/registration.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
           <i class="fa-solid fa-file-pen fa-6x"></i><br/>
@@ -58,6 +58,10 @@ $username = $_SESSION['username'];
         <a href="../logs/logs.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
         <i class="fa-solid fa-clock-rotate-left fa-6x"></i><br/>
           <b><h5>Logs</h5></b>
+        </a>
+        <a href="../schedule/pages/home.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <i class="fa-solid fa-calendar-days fa-6x"></i><br/>
+          <b><h5>Schedule Generator</h5></b>
         </a>
       </div>
     </div>

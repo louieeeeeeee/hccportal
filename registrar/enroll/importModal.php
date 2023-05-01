@@ -7,11 +7,7 @@
       </div>
       <div class="modal-body">
         <form action="" id="addUser" method="POST">
-        <div class="col pb-3">
-        <span id="message"></span>
-          <label>Upload Students to Enroll: </label>
-          <input class="form-control" type="file" name="import_excel">   
-      </div>
+        
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" name="import" id="import" class="btn btn-primary">Update</button>

@@ -23,9 +23,6 @@
                       while ($row1 = mysqli_fetch_array($result1)) {
                         echo '<option value="'.$row1["facultyid"].'">'.$row1["firstname"].' '.$row1["lastname"].'</option>';
                       }
-                    }else{
-                      echo '<script type="text/javascript">setTimeout(function () {
-                      swal("No Faculty Member Found.","","error");}, 200);</script>';
                     }
                 ?>       
             </select>
@@ -68,6 +65,10 @@
             <option selected value="<?php echo $row["course"] ?>"><?php echo $row["course"] ?></option>
               <option value="BSCS">BSCS</option>
             </select>
+          </div>
+          <div class="col-md pb-3">
+            <label>Subject Color</label>
+            <input type="color" class="form-control form-control-color" name="txtcolor" value="<?php echo $row["subjcolor"] ?>" title="Choose your color">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -37,11 +37,11 @@ if(isset($_POST['studentUpdate'])) {
   $txtyear = $_POST['txtyear'];
   $txtsection = $_POST['txtsection'];
 
-    $sql = "UPDATE students SET 
-    firstname = '$txtstudentfname', 
+    $sql = "UPDATE students SET
+    firstname = '$txtstudentfname',
     lastname  = '$txtstudentlname',
-    address   = '$txtaddress', 
-    contact   = '$txtstudentcontact', 
+    address   = '$txtaddress',
+    contact   = '$txtstudentcontact',
     birthday  = '$txtbirthdate',
     email     = '$txtstudentemail',
     course    = '$txtcourse',
@@ -63,11 +63,15 @@ if(isset($_POST['studentUpdate'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<body>
-  <?php
+<?php
     include("../header.php");
   ?>
-  <div class="container p-5">
+<body class="loading">
+
+  <div id="loading-screen">
+    <div class="loader"></div>
+  </div>
+  <div class="container p-5" id="page-content">
   <form action="" method="POST">
       <div class="col-md pt-2">
         <table class="table table-striped table-primary table-hover p-2" id="table">
@@ -76,8 +80,6 @@ if(isset($_POST['studentUpdate'])) {
               <th scope="col">Student ID</th>
               <th scope="col">First Name</th>
               <th scope="col">Last Name</th>
-              <th scope="col">Course</th>
-              <th scope="col">Year</th>
               <th scope="col">Section</th>
               <th scope="col">Action</th>
             </tr>
@@ -90,25 +92,29 @@ if(isset($_POST['studentUpdate'])) {
               echo '<script type="text/javascript">setTimeout(function () {
                 swal("Nothing found in Database.","","error");}, 200);</script>';
               }
-            if ($result->num_rows > 0) {
-              while ($row = mysqli_fetch_array($result)) {
-                echo "<tr>";
-                echo "<td>".$row['studentid']."</td>";
-                echo "<td>".$row['firstname']."</td>";
-                echo "<td>".$row['lastname']."</td>";
-                echo "<td>".$row['course']."</td>";
-                echo "<td>".$row['year']."</td>";
-                echo "<td>".$row['section']."</td>";
-                echo '<td>
-                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#studentUpdate'.$row['studentid'].'"> Update</button>
-                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#studentDelete'.$row['studentid'].'"> Delete</button>
-                </td>';
-                echo "</tr>";
-                
-                include 'deleteModal.php';
-                include 'updateModal.php';
+              if ($result->num_rows > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                  $studentid = $row['studentid'];
+                  echo "<tr>";
+                  echo "<td>".$row['studentid']."</td>";
+                  echo "<td>".$row['firstname']."</td>";
+                  echo "<td>".$row['lastname']."</td>";
+                  echo "<td>".$row['course']."</td>";
+                  echo "<td>
+                    <button type='button' class='btn btn-primary btn-sm' onclick=\"window.location.href='updateForm.php?studentid=".urlencode($studentid)."'\">
+                      Update
+                    </button>
+                    <button type='button' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#studentDelete".$row['studentid']."'>
+                      Delete
+                    </button>
+                  </td>";
+                  echo "</tr>";
+
+                  include 'deleteModal.php';
+                  //include 'updateModal.php';
+                }
               }
-            }
+
             ?>
           </tbody>
         </table>
@@ -119,6 +125,13 @@ if(isset($_POST['studentUpdate'])) {
     include '../footer.php';
   ?>
   <script>
+  window.addEventListener("load", function() {
+    var loadingScreen = document.getElementById("loading-screen");
+    loadingScreen.style.display = "none";
+    document.body.classList.remove("loading");
+  });
+
+
 $(document).ready(function () {
     $('#table').DataTable({
         lengthMenu: [
