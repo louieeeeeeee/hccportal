@@ -20,7 +20,7 @@ if (!($_SESSION['role'] == 'Student')) {
       <div class="container" method="POST" action="">
         <?php
         $studentID = $_SESSION["theid"];
-        $sql = "SELECT * FROM students WHERE studentid= '$studentID'";
+        $sql = "SELECT * FROM students WHERE studentid= '$studentID' ORDER BY billingid DESC LIMIT 1";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         ?>
