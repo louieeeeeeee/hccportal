@@ -99,7 +99,7 @@ if(isset($_POST['studentUpdate'])) {
                   echo "<td>".$row['studentid']."</td>";
                   echo "<td>".$row['firstname']."</td>";
                   echo "<td>".$row['lastname']."</td>";
-                  echo "<td>".$row['course']."</td>";
+                  echo "<td>".$row['course'].''.$row['year'].''.$row['section']."</td>";
                   echo "<td>
                     <button type='button' class='btn btn-primary btn-sm' onclick=\"window.location.href='updateForm.php?studentid=".urlencode($studentid)."'\">
                       Update
