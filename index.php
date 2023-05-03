@@ -107,7 +107,7 @@ if (isset($_POST['login'])) {
       include 'verificationModal.php';
     }elseif($loggedinuser['role'] == 'Student'){
     $sql = "SELECT * FROM users u INNER JOIN students s on s.studentid=u.userid WHERE userid='$userID'";
-    echo $sql;
+    echo "'<script>console.log(\"$sql\")</script>'";
     $result = mysqli_query($conn, $sql);
     $getUsername = mysqli_fetch_assoc($result);
       $_SESSION['username'] = $getUsername['lastname']. ', ' .$getUsername['firstname'];
