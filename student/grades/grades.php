@@ -14,7 +14,7 @@ if(isset($_POST['submit'])) {
   $semester = $_POST['semester'];
   $sql = "SELECT * FROM grades WHERE studentid='$id' AND schoolyear='$schoolyear' AND semester='$semester'";
   $result = mysqli_query($conn, $sql);
-  echo $sql;
+  //echo $sql;
 }
 ?>
 <!DOCTYPE html>
