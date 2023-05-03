@@ -1,9 +1,9 @@
-<?php
+  <?php
 
 $server = "localhost";
-$user = "u584085915_hccportal";
-$pass = "Sishccportal01";
-$database = "u584085915_hccportal";
+$user = "root";
+$pass = "";
+$database = "students";
 
 $conn = mysqli_connect($server, $user, $pass, $database);
 
