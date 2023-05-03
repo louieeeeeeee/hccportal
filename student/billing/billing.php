@@ -20,7 +20,7 @@ if (!($_SESSION['role'] == 'Student')) {
       <div class="container" method="POST" action="">
         <?php
         $studentID = $_SESSION["theid"];
-        $sql = "SELECT * FROM students WHERE studentid= '$studentID' ORDER BY billingid DESC LIMIT 1";
+        $sql = "SELECT * FROM students WHERE studentid= '$studentID'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
         ?>
@@ -41,7 +41,7 @@ if (!($_SESSION['role'] == 'Student')) {
           <div class="row" style="background: rgba(170, 209, 163, 0.5)">
             <?php
               $id = $_SESSION['theid'];
-              $sql = "select * from billing where studentid = '$id' and datecreated = (SELECT MAX(datecreated) FROM billing)";
+              $sql = "select * from billing where studentid = '$id' and datecreated = (SELECT MAX(datecreated) FROM billing) ORDER BY billingid DESC LIMIT 1";
               $result = mysqli_query($conn, $sql);
               if ($result->num_rows > 0) {
                 $row = mysqli_fetch_assoc($result);
