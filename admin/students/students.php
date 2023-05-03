@@ -110,7 +110,7 @@ if(isset($_POST['studentUpdate'])) {
                   </td>";
                   echo "</tr>";
 
-                  include 'deleteModal.php';
+                  //include 'deleteModal.php';
                   //include 'updateModal.php';
                 }
               }
