@@ -107,7 +107,7 @@ if (isset($_POST['login'])) {
       include 'verificationModal.php';
     }elseif($loggedinuser['role'] == 'Student'){
     $sql = "SELECT * FROM users u INNER JOIN students s on s.studentid=u.userid WHERE userid='$userID'";
-
+    echo $sql;
     $result = mysqli_query($conn, $sql);
     $getUsername = mysqli_fetch_assoc($result);
       $_SESSION['username'] = $getUsername['lastname']. ', ' .$getUsername['firstname'];
@@ -117,7 +117,7 @@ if (isset($_POST['login'])) {
     }
   }else{
     echo '<script type="text/javascript">setTimeout(function () {
-      swal("User Does not Exist!"'.$sql.',"","error");}, 200);</script>';
+      swal("User Does not Exist!","","error");}, 200);</script>';
 
     }
   }
