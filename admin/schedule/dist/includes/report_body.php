@@ -11,10 +11,10 @@
 		width: auto;
 		padding: 0 10px;
 	}
-	.carousel-control-prev {
+	.carousel-control-prev-icon {
 		left: 0;
 	}
-	.carousel-control-next {
+	.carousel-control-next-icon {
 		right: 0;
 	}
 	.carousel-control-prev-icon, .carousel-control-next-icon {
