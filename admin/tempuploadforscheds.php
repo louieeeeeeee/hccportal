@@ -18,6 +18,10 @@ if(isset($_POST['submit'])){
     if($result->num_rows > 0){
       $sql = "UPDATE students SET course='$course', year='$year', section='$section' WHERE studentid='$studentid' AND EXISTS (SELECT 1 FROM students WHERE studentid='$studentid' LIMIT 1)";
       $conn->query($sql);
+      echo '<script language="javascript">';
+    echo 'alert("Succesfully Updated.")';
+    echo '</script>';
+      
     }
   }
 
