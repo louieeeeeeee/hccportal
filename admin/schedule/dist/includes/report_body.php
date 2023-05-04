@@ -1,12 +1,5 @@
-<div>
-  <ul class="pagination">
-    <li class="active"><a href="#" data-target="table1">Table 1</a></li>
-    <li><a href="#" data-target="table2">Table 2</a></li>
-  </ul>
-</div>
 
-<div id="table1" class="table-content">
-  <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 							<thead>
 							  <tr>
 								<th class="first">Time</th>
@@ -199,11 +192,9 @@
 							  </tr>
 							
 		<?php }?>					  
-		</table> 
-</div>
+		</table>    
 
-<div id="table2" class="table-content">
-  <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 								<thead>
 								   <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 								  <tr>
@@ -396,26 +387,5 @@
 			
 			<?php }?>					  
 			</table>
-</div>
-
-<script>
-  $(document).ready(function() {
-    $('.pagination li').on('click', function() {
-      // remove active class from all list items
-      $('.pagination li').removeClass('active');
-      // add active class to the clicked list item
-      $(this).addClass('active');
-      // hide all tables
-      $('.table-content').hide();
-      // show the table corresponding to the clicked list item
-      $('#' + $(this).find('a').data('target')).show();
-    });
-  });
-</script>
-
-
-
-   
-
 			
 			
