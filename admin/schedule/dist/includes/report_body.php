@@ -25,8 +25,6 @@
   filter: invert(100%);
 }
 
-
-
 </style>
 
 	<div id="myCarousel" class="carousel slide">
