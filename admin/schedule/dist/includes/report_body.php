@@ -5,9 +5,9 @@
 	<style>
 .carousel-control-prev,
 .carousel-control-next {
-  width: 10%;
+  width: 100%;
   position: absolute;
-  top: 50%;
+  top: 0%;
   transform: translateY(-50%);
   z-index: 1000; /* add this */
 }
@@ -27,37 +27,30 @@
 }
 </style>
 
-	<div id="myCarousel" class="carousel slide">
-		<!-- Indicators -->
-		<ul class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ul>
-
-		<!-- The slideshow -->
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
-							<thead>
-							  <tr>
-								<th class="first">Time</th>
-								<th>M</th>
-								<th>W</th>
-								<th>F</th>
-								
-							  </tr>
-							</thead>
-							
-		<?php
-				
-				$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
-					
-				while($row=mysqli_fetch_array($query)){
-						$id=$row['time_id'];
-						$start=date("h:i a",strtotime($row['time_start']));
-						$end=date("h:i a",strtotime($row['time_end']));
-		?>
+<div id="myCarousel" class="carousel slide">
+	<ul class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ul>
+	<div class="carousel-inner">
+		<div class="carousel-item active">
+			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+				<thead>
+					<tr>
+						<th class="first">Time</th>
+						<th>M</th>
+						<th>W</th>
+						<th>F</th>
+					</tr>
+				</thead>					
+				<?php
+					$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
+						while($row=mysqli_fetch_array($query)){
+							$id=$row['time_id'];
+							$start=date("h:i a",strtotime($row['time_start']));
+							$end=date("h:i a",strtotime($row['time_end']));
+				?>
 							  <tr >
 								<td class="first"><?php echo $start."-".$end;?></td>
 								<td><?php 
@@ -234,15 +227,15 @@
 		</table>
 			</div>
 			<div class="carousel-item">   
-			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
-								<thead>
-								  <tr>
-									<th class="first"  style="width:25%;">Time</th>
-									<th>T</th>
-									<th>TH</th>
-									<th>S</th>
-								  </tr>
-								</thead>
+				<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+					<thead>
+						<tr>
+						<th class="first"  style="width:25%;">Time</th>
+						<th>T</th>
+						<th>TH</th>
+						<th>S</th>
+						</tr>
+					</thead>
 								
 			<?php
 					
