@@ -5,8 +5,7 @@
 	<style>
 .carousel-control-prev,
 .carousel-control-next {
-	width: 50vw;
-  height: 50vw;
+  width: 10%;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
