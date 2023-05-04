@@ -10,11 +10,13 @@ if(isset($_POST['submit'])){
 
   foreach($rows as $row){
     $studentid = $row[0];
-    $section = $row[1];
+    $course = $row[1];
+    $year = $row[2];
+    $section = $row[3];
     $sql = "SELECT 1 FROM students WHERE studentid='$studentid' LIMIT 1";
     $result = $conn->query($sql);
     if($result->num_rows > 0){
-      $sql = "UPDATE students SET section='$section' WHERE studentid='$studentid' AND EXISTS (SELECT 1 FROM students WHERE studentid='$studentid' LIMIT 1)";
+      $sql = "UPDATE students SET course='$course', year='$year', section='$section' WHERE studentid='$studentid' AND EXISTS (SELECT 1 FROM students WHERE studentid='$studentid' LIMIT 1)";
       $conn->query($sql);
     }
   }
