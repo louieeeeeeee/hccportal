@@ -1,14 +1,13 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-<ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-  </ol>
+<div>
+  <ul class="pagination">
+    <li class="active"><a href="#" data-target="table1">Table 1</a></li>
+    <li><a href="#" data-target="table2">Table 2</a></li>
+  </ul>
+</div>
 
-<!-- Wrapper for slides -->
-<div class="carousel-inner">
-    <div class="item active">
-
-<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+<div id="table1" class="table-content">
+  <table class="table table-hover">
+  <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 							<thead>
 							  <tr>
 								<th class="first">Time</th>
@@ -201,11 +200,13 @@
 							  </tr>
 							
 		<?php }?>					  
-		</table>    
-		</div>
-		<div class="item">
+		</table> 
+  </table>
+</div>
 
-			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+<div id="table2" class="table-content">
+  <table class="table table-hover">
+  <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 								<thead>
 								   <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 								  <tr>
@@ -398,15 +399,28 @@
 			
 			<?php }?>					  
 			</table>
-			</div>
-			</div>
-
-<!-- Left and right controls -->
-<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-  <span class="glyphicon glyphicon-chevron-left"></span>
-</a>
-<a class="right carousel-control" href="#myCarousel" data-slide="next">
-  <span class="glyphicon glyphicon-chevron-right"></span>
-</a>
+			
+  </table>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('.pagination li').on('click', function() {
+      // remove active class from all list items
+      $('.pagination li').removeClass('active');
+      // add active class to the clicked list item
+      $(this).addClass('active');
+      // hide all tables
+      $('.table-content').hide();
+      // show the table corresponding to the clicked list item
+      $('#' + $(this).find('a').data('target')).show();
+    });
+  });
+</script>
+
+
+
+   
+
+			
 			
