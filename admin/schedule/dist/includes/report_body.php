@@ -5,7 +5,7 @@
 	<style>
 .carousel-control-prev,
 .carousel-control-next {
-    width: 5%;
+    width: 10%;
 }
 
 .carousel-control-prev-icon,
