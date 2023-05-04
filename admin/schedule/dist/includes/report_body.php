@@ -6,11 +6,29 @@
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: #000;
-}
+  top: 50%;
+		transform: translateY(-50%);
+		width: auto;
+		padding: 0 10px;
+	}
+	.carousel-control-prev {
+		left: 0;
+	}
+	.carousel-control-next {
+		right: 0;
+	}
+	.carousel-control-prev-icon, .carousel-control-next-icon {
+		background-image: none;
+		color: #000;
+		font-size: 30px;
+	}
+	.carousel-indicators {
+		margin-bottom: 0;
+	}
 
 </style>
 
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<div id="myCarousel" class="carousel slide">
 		<!-- Indicators -->
 		<ul class="carousel-indicators">
 			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
