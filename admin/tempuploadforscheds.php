@@ -21,11 +21,11 @@ if(isset($_POST['submit'])){
       
       
     }
-    echo '<script language="javascript">';
+    
+  }
+  echo '<script language="javascript">';
     echo 'alert("Succesfully Updated.")';
     echo '</script>';
-  }
-
   $conn->close();
 }
 ?>
