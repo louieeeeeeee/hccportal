@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit'])){
   $file = $_FILES['file']['tmp_name'];
-  include '../vendor/autoload.php';
+  include '../../vendor/autoload.php';
   
   $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($file);
   $worksheet = $spreadsheet->getActiveSheet();
@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
     $rows[] = $rowData;
   }
 
-  include '../config.php';
+  include '../../config.php';
 
   foreach($rows as $row){
     $studentid = $row[0];
