@@ -15,12 +15,10 @@ endif;?>
 include('../dist/includes/dbcon.php');
  ?>
  <script type="text/javascript" charset="utf-8">
-			jQuery(document).ready(function() {
-			
-		window.print()
-			
-			)};
-			</script>
+	jQuery(document).ready(function() {
+		window.print();
+	});
+</script>
  
  <div class="wrapper_print">
  <?php 
