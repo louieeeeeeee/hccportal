@@ -8,6 +8,11 @@ endif;?>
 <head>
 <link rel="stylesheet" href="../dist/css/print.css" media="print">
 <script src="../dist/js/jquery.min.js"></script>
+<!-- Bootstrap 3 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- Bootstrap 3 JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>

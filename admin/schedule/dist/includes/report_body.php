@@ -1,16 +1,13 @@
-<!-- Bootstrap 5 CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"/>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+  </ol>
 
-<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Wrapper for slides -->
+<div class="carousel-inner">
+    <div class="item active">
 
-<!-- Bootstrap 5 JS bundle -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-
-
-<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
 <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 							<thead>
 							  <tr>
@@ -206,7 +203,8 @@
 		<?php }?>					  
 		</table>    
 		</div>
-    <div class="carousel-item">
+		<div class="item">
+
 			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 								<thead>
 								   <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -402,14 +400,13 @@
 			</table>
 			</div>
 			</div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
+<!-- Left and right controls -->
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+  <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+  <span class="glyphicon glyphicon-chevron-right"></span>
+</a>
+</div>
 			
