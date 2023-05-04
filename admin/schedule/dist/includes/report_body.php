@@ -9,6 +9,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1;
 }
 
 .carousel-control-prev {
@@ -24,6 +25,7 @@
   background-color: #000;
   filter: invert(100%);
 }
+
 
 </style>
 
