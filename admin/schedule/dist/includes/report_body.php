@@ -1,56 +1,24 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<style>
-.carousel-control-prev,
-.carousel-control-next {
-  width: 10%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000; /* add this */
-}
 
-.carousel-control-prev {
-  left: 0;
-}
-
-.carousel-control-next {
-  right: 0;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: #000;
-  filter: invert(100%);
-}
-</style>
-
-<div id="myCarousel" class="carousel slide">
-	<ul class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
-		<li data-target="#myCarousel" data-slide-to="2"></li>
-	</ul>
-	<div class="carousel-inner">
-		<div class="carousel-item active">
-			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
-				<thead>
-					<tr>
-						<th class="first">Time</th>
-						<th>M</th>
-						<th>W</th>
-						<th>F</th>
-					</tr>
-				</thead>					
-				<?php
-					$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
-						while($row=mysqli_fetch_array($query)){
-							$id=$row['time_id'];
-							$start=date("h:i a",strtotime($row['time_start']));
-							$end=date("h:i a",strtotime($row['time_end']));
-				?>
+<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+							<thead>
+							  <tr>
+								<th class="first">Time</th>
+								<th>M</th>
+								<th>W</th>
+								<th>F</th>
+								
+							  </tr>
+							</thead>
+							
+		<?php
+				
+				$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
+					
+				while($row=mysqli_fetch_array($query)){
+						$id=$row['time_id'];
+						$start=date("h:i a",strtotime($row['time_start']));
+						$end=date("h:i a",strtotime($row['time_end']));
+		?>
 							  <tr >
 								<td class="first"><?php echo $start."-".$end;?></td>
 								<td><?php 
@@ -224,18 +192,18 @@
 							  </tr>
 							
 		<?php }?>					  
-		</table>
-			</div>
-			<div class="carousel-item">   
-				<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
-					<thead>
-						<tr>
-						<th class="first"  style="width:25%;">Time</th>
-						<th>T</th>
-						<th>TH</th>
-						<th>S</th>
-						</tr>
-					</thead>
+		</table>    
+
+			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+								<thead>
+								   <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+								  <tr>
+									<th class="first"  style="width:25%;">Time</th>
+									<th>T</th>
+									<th>TH</th>
+									<th>S</th>
+								  </tr>
+								</thead>
 								
 			<?php
 					
@@ -419,18 +387,5 @@
 			
 			<?php }?>					  
 			</table>
-			</div>
-		</div>
-
-		<a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-	<span class="carousel-control-next-icon" aria-hidden="true"></span>
-	<span class="sr-only">Next</span>
-</a>
-
-</div>
 			
 			
