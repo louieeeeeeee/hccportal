@@ -10,8 +10,6 @@
 
 </style>
 
-<div class="container">
-	<h2>Bootstrap Carousel Example</h2>
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ul class="carousel-indicators">
@@ -425,7 +423,6 @@
 	<span class="sr-only">Next</span>
 </a>
 
-</div>
 </div>
 			
 			
