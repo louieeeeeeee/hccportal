@@ -6,6 +6,8 @@
 .carousel-control-prev,
 .carousel-control-next {
     width: 10%;
+    left: 0;
+    right: 0;
 }
 
 .carousel-control-prev-icon,
@@ -13,6 +15,7 @@
     background-color: #000;
     filter: invert(100%);
 }
+
 
 
 </style>
