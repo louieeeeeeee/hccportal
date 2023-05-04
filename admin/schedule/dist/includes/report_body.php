@@ -5,15 +5,24 @@
 	<style>
 .carousel-control-prev,
 .carousel-control-next {
-    width: 10%;
-    left: 0;
-    right: 0;
+  width: 10%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0;
 }
 
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-    background-color: #000;
-    filter: invert(100%);
+  background-color: #000;
+  filter: invert(100%);
 }
 
 
