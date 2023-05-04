@@ -3,28 +3,17 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<style>
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: #000;
-  top: 50%;
-		transform: translateY(-50%);
-		width: auto;
-		padding: 0 10px;
-	}
-	.carousel-control-prev-icon {
-		left: 0;
-	}
-	.carousel-control-next-icon {
-		right: 0;
-	}
-	.carousel-control-prev-icon, .carousel-control-next-icon {
-		background-image: none;
-		color: #000;
-		font-size: 30px;
-	}
-	.carousel-indicators {
-		margin-bottom: 0;
-	}
+    background-color: #000;
+    filter: invert(100%);
+}
+
 
 </style>
 
