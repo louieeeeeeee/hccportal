@@ -9,7 +9,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 1000; /* add this */
 }
 
 .carousel-control-prev {
@@ -25,8 +25,6 @@
   background-color: #000;
   filter: invert(100%);
 }
-
-
 </style>
 
 	<div id="myCarousel" class="carousel slide">
