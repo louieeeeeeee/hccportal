@@ -6,7 +6,6 @@
 </div>
 
 <div id="table1" class="table-content">
-  <table class="table table-hover">
   <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 							<thead>
 							  <tr>
@@ -201,11 +200,9 @@
 							
 		<?php }?>					  
 		</table> 
-  </table>
 </div>
 
 <div id="table2" class="table-content">
-  <table class="table table-hover">
   <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 								<thead>
 								   <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -399,8 +396,6 @@
 			
 			<?php }?>					  
 			</table>
-			
-  </table>
 </div>
 
 <script>
