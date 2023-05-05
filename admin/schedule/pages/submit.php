@@ -11,6 +11,7 @@ include('../dist/includes/dbcon.php');
 	$member = $_POST['teacher'];
 	$subject = $_POST['subject'];
 	$room = $_POST['room'];
+	$options = $_POST['options'];
 	$tempcys = substr($_POST['cys'], 0, strpos($_POST['cys'], ','));
 	$cys = $tempcys;
 	$remarks = $_POST['remarks'];
@@ -100,8 +101,8 @@ include('../dist/includes/dbcon.php');
 		
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
-			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','m','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by,options) 
+				VALUES('$daym','m','$member','$subject','$cys','$room','$remarks','$set_id','$program', '$options')")or die(mysqli_error());
 				
 				
 			echo "<span class='text-success'>
