@@ -6,7 +6,7 @@ error_reporting(0);
 if (!($_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Scheduler')) {
   header("Location: ../../index.php");
 }
-echo $_SESSION['theid'];
+echo "asdasdasd";
 $value = $_SESSION['theid'];
 echo "'<script>console.log(\"$value\")</script>'";
 if(isset($_POST['studentidsearch'])) {
