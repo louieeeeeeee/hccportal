@@ -14,6 +14,21 @@ if (isset($_GET['studentid'])) {
 
   }
 }
+// retrieve data from database
+$query = "SELECT CONCAT(course, year, section) AS id_text FROM cys";
+$result = mysqli_query($conn, $query);
+
+// format data as array for Select2
+$data = array();
+while ($row = mysqli_fetch_assoc($result)) {
+    $data[] = array(
+        'id' => $row['id_text'],
+        'text' => $row['id_text']
+    );
+}
+
+// encode data as JSON for Select2
+$json_data = json_encode($data);
 
 ?>
 <!DOCTYPE html>
@@ -59,11 +74,9 @@ if (isset($_GET['studentid'])) {
 <div class="row pb-3">
   <div class="col-md">
     <label class="fw-bold">Section: </label>
-      <select id="addDept" name="txtcourse" class="form-control" required>
-      <option selected value="<?php echo $row["course"] ?>"><?php echo $row["course"] ?></option>
-        <option value="BSCS">BSCS</option>
-        <option value="BSED">BSED</option>
-        <option value="BSCRIM">BSCRIM</option>
+      <select id="addDept" name="txtcourse" class="form-control js-select2" required>
+      <option selected value="<?php echo $row["course"].$row["year"].$row["section"] ?>"><?php echo $row["course"].$row["year"].$row["section"] ?></option>
+        <option></option>
       </select>
   </div>
 </div>
@@ -74,3 +87,12 @@ if (isset($_GET['studentid'])) {
 </form>
 </form>
 </div>
+<script>
+        $(document).ready(function() {
+            // initialize Select2
+            $('.js-select2').select2({
+                data: <?php echo $json_data; ?>
+            });
+        });
+    </script>
+
