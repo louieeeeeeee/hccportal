@@ -1,6 +1,15 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="../../../../assets/css/style.css">
   <style>
+	body {
+  background: url(../../../../images/temp.jpg) center/cover no-repeat;
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  animation: fadeInAnimation ease 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
   .carousel-control-next {
     font-size: 4rem !important;
     color: black !important;
