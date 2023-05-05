@@ -23,9 +23,9 @@ if(isset($_POST['studentidsearch'])) {
     $result = mysqli_query($conn, $sql);
 
     if (!$result->num_rows > 0) {
-      $sql = "INSERT INTO grades (studentid, studentname, schoolyear, semester,code, subject, units, faculty)
+      $sql = "INSERT INTO grades (studentid, studentname, schoolyear, semester,code, subject, units, faculty, facultyid)
       VALUES ('".$_SESSION['studentID']."', '".$_SESSION['studentName']."', '".$_SESSION['year']."', '".$_SESSION['semester']."',
-        '".$_SESSION['code']."','".$_SESSION['subject']."', '".$_SESSION['unit']."', '".$_SESSION['username']."')";
+        '".$_SESSION['code']."','".$_SESSION['subject']."', '".$_SESSION['unit']."', '".$_SESSION['username']."', '".$_SESSION['theid']."')";
         $result = mysqli_query($conn, $sql);
 
         $sql = "SELECT * FROM grades WHERE studentid='".$_SESSION['studentID']."' AND subject='".$_SESSION['subject']."'
