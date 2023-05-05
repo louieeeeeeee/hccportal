@@ -238,14 +238,14 @@
 		</div>
             <div class="carousel-item">
 			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
-								<thead>
-								  <tr>
-									<th class="first"  style="width:25%;">Time</th>
-									<th>T</th>
-									<th>TH</th>
-									<th>S</th>
-								  </tr>
-								</thead>
+				<thead>
+					<tr>
+					<th class="first"  style="width:25%;">Time</th>
+					<th>T</th>
+					<th>TH</th>
+					<th>S</th>
+					</tr>
+				</thead>
 								
 			<?php
 					
