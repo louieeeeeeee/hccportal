@@ -6,6 +6,7 @@ error_reporting(0);
 if (!($_SESSION['role'] == 'Admin')) {
   header("Location: ../../index.php");
 }
+
 // retrieve data from database
 $query = "SELECT CONCAT(course, year, section) AS id_text FROM cys";
 $result1 = mysqli_query($conn, $query);
@@ -22,6 +23,14 @@ while ($row1 = mysqli_fetch_assoc($result1)) {
 // encode data as JSON for Select2
 $json_data = json_encode($data);
 
+if (isset($_GET['studentid'])) {
+  $sql = "SELECT * FROM students where studentid = ".$_GET['studentid'];
+  $result = mysqli_query($conn, $sql);
+  if ($result->num_rows > 0) {
+    $row = mysqli_fetch_assoc($result);
+
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,16 +76,6 @@ $json_data = json_encode($data);
   <div class="col-md">
     <label class="fw-bold">Section: </label>
       <select id="addDept" name="txtcourse" class="form-control js-select2" required>
-        <?php
-        if (isset($_GET['studentid'])) {
-          $sql = "SELECT * FROM students where studentid = ".$_GET['studentid'];
-          $result = mysqli_query($conn, $sql);
-          if ($result->num_rows > 0) {
-            $row = mysqli_fetch_assoc($result);
-        
-          }
-        }
-        ?>
       <option selected value="<?php echo $row["course"].$row["year"].$row["section"] ?>"><?php echo $row["course"].$row["year"].$row["section"] ?></option>
         <option></option>
       </select>
