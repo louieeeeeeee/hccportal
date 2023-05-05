@@ -215,7 +215,7 @@ if (!($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Scheduler')) {
 						  </div><!-- /.form group -->
 
 						  <div class="form-group">
-							<label for="class">Class Type</label><br>
+							<label for="class">Class Mode</label><br>
 								<label class="btn btn-default">
 									<input type="radio" name="options" id="ftf-option" value="FTF" required> FTF
 								</label>
