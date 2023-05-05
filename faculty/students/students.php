@@ -41,7 +41,7 @@ if (!($_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Scheduler')) {
             $subjectcode = $_GET['subjectcode'];
             if (isset($_GET['subjectcode'])) {
              $sql = "SELECT * FROM grades where facultyid = '$facultyid' AND code = '$subjectcode'";
-             echo $sql;
+             //echo $sql;
             $result = mysqli_query($conn, $sql);
             if (!$result->num_rows > 0) {
               echo '<script type="text/javascript">setTimeout(function () {
