@@ -38,7 +38,7 @@
       <div class="col-12">
       </div>
       <div class="col-12">
-        <div id="table-carousel" class="carousel carousel-dark slide" data-ride="false">
+        <div id="table-carousel" class="carousel carousel-dark slide" data-interval="false">
           <div class="carousel-inner">
             <div class="carousel-item active">
 <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
