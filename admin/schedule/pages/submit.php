@@ -26,8 +26,6 @@ include('../dist/includes/dbcon.php');
 	$set_id=$_SESSION['settings'];
 	$program=$_SESSION['id'];
 			
-	
-	echo "<script type='text/javascript'>alert('$options');</script>";
 	//monday sched
 	foreach ($m as $daym){
 		//check conflict for member
@@ -103,8 +101,8 @@ include('../dist/includes/dbcon.php');
 		
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
-			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','m','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by,classtype) 
+				VALUES('$daym','m','$member','$subject','$cys','$room','$remarks','$set_id','$program','$options')")or die(mysqli_error());
 				
 				
 			echo "<span class='text-success'>
@@ -201,8 +199,8 @@ include('../dist/includes/dbcon.php');
 		
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
-			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','w','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by,classtype) 
+				VALUES('$daym','w','$member','$subject','$cys','$room','$remarks','$set_id','$program','$options')")or die(mysqli_error());
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
@@ -298,8 +296,8 @@ include('../dist/includes/dbcon.php');
 		
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
-			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','f','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by,classtype) 
+				VALUES('$daym','f','$member','$subject','$cys','$room','$remarks','$set_id','$program','$options')")or die(mysqli_error());
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
@@ -394,8 +392,8 @@ include('../dist/includes/dbcon.php');
 		
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
-			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','t','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error($con));
+			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by,classtype) 
+				VALUES('$daym','t','$member','$subject','$cys','$room','$remarks','$set_id','$program','$options')")or die(mysqli_error($con));
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
@@ -491,8 +489,8 @@ include('../dist/includes/dbcon.php');
 		
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
-			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','th','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by,classtype) 
+				VALUES('$daym','th','$member','$subject','$cys','$room','$remarks','$set_id','$program','$options')")or die(mysqli_error());
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
@@ -589,8 +587,8 @@ include('../dist/includes/dbcon.php');
 		
 		if (($count_t==0) and ($count_r==0) and ($count_c==0))
 		{
-			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by) 
-				VALUES('$daym','s','$member','$subject','$cys','$room','$remarks','$set_id','$program')")or die(mysqli_error());
+			mysqli_query($con,"INSERT INTO schedule(time_id,day,facultyid,subject_code,cys,room,remarks,settings_id,encoded_by,classtype) 
+				VALUES('$daym','s','$member','$subject','$cys','$room','$remarks','$set_id','$program','$options')")or die(mysqli_error());
 				
 			echo "<span class='text-success'>
 			<table width='100%'>
