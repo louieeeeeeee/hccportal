@@ -42,11 +42,6 @@
   filter: invert(1);
   transform: scale(3.5);
 }
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 </style>
 <div class="container mt-5">
@@ -114,8 +109,7 @@
 										$query3=mysqli_query($con,"select * from subjects where subject = '".$row1['subject_code']."'")or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
 											echo '
-											<div class="show">
-											<div class="clearfix" style="background-color: '.$row3["subjcolor"].';">
+											<div style="background-color: '.$row3["subjcolor"].';">
 											<ul>
 												<li class="options" style="display:'.$options.'">
 													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
@@ -131,7 +125,7 @@
 													'.$displayrm.'
 											</ul>
 											</div>
-											</div>';
+											';
 										}	
 									?>
 								</td>
