@@ -239,7 +239,6 @@
             <div class="carousel-item">
 			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 								<thead>
-								   <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 								  <tr>
 									<th class="first"  style="width:25%;">Time</th>
 									<th>T</th>
