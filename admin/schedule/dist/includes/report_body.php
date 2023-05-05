@@ -109,21 +109,22 @@
 										$query3=mysqli_query($con,"select * from subjects where subject = '".$row1['subject_code']."'")or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
 											echo '
-											<div class="show">
+											<div class="show" style="background-color: '.$row3["subjcolor"].';">
 											<ul>
 												<li class="options" style="display:'.$options.'">
 													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
 														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 												</li></ul>
 											
-											<ul style="background-color: '.$row3["subjcolor"].';">
+											<ul >
 											<li class="showme">
 												<li>'.$row1["subject_code"].'</li>
 												<li class="'.$displayc.'">'.$row1['cys'].'</li>
 												<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
 												<li class="'.$displayr.'">Room '.$row1['room'].'</li>
 													'.$displayrm.'
-											</ul>';
+											</ul>
+											</div>';
 										}	
 									?>
 								</td>
