@@ -1,4 +1,46 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+  .carousel-control-next {
+    font-size: 4rem !important;
+    color: black !important;
+  }
+  
+  .carousel-control-prev {
+    display: none;
+  }
+  
+  .carousel-item table {
+    margin: auto;
+  }
+  
+  .carousel-item h5 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .carousel-item p {
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-item.active {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .carousel-control-next-icon {
+  filter: invert(1);
+  transform: scale(3.5);
+}
 
+</style>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+      </div>
+      <div class="col-12">
+        <div id="table-carousel" class="carousel carousel-dark slide" data-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
 <table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 							<thead>
 							  <tr>
@@ -193,7 +235,8 @@
 							
 		<?php }?>					  
 		</table>    
-
+		</div>
+            <div class="carousel-item">
 			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
 								<thead>
 								   <br> <br> <br> <br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -387,5 +430,19 @@
 			
 			<?php }?>					  
 			</table>
-			
+			</div>
+          </div>
+          <a class="carousel-control-next" href="#table-carousel" role="button" data-target="#table-carousel" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
+
+</div>
+</div>
+</div>
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 			
