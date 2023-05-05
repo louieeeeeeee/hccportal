@@ -7,6 +7,8 @@ if (!($_SESSION['role'] == 'Faculty' || $_SESSION['role'] == 'Scheduler')) {
   header("Location: ../../index.php");
 }
 echo $_SESSION['theid'];
+$value = $_SESSION['theid'];
+echo "'<script>console.log(\"$value\")</script>'";
 if(isset($_POST['studentidsearch'])) {
   if(!empty($_SESSION['subject'])) {
     $_SESSION['studentID'] = $_POST['studentID'];
