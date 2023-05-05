@@ -3,6 +3,7 @@
 	body {
   background: url(../../../../images/temp.jpg) center/cover no-repeat;
   margin: 0;
+  justify-content: center;
   font-family: Verdana, sans-serif;
   overflow-x: hidden;
   overflow-y: scroll;
