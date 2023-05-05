@@ -25,7 +25,9 @@ include('../dist/includes/dbcon.php');
 	
 	$set_id=$_SESSION['settings'];
 	$program=$_SESSION['id'];
-					
+			
+	
+	echo "<script type='text/javascript'>alert('$options');</script>";
 	//monday sched
 	foreach ($m as $daym){
 		//check conflict for member
