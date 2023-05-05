@@ -57,50 +57,46 @@ if (!($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Scheduler')) {
                     </h4>
                 </div> 
                <form method="post" id="reg-form">
-                <div class="box-body">
-				<div class="row">
-					<div class="col-md-6">
-							<table class="table table-bordered table-striped" style="margin-right:-10px">
-							<thead>
-							  <tr>
-								<th>Time</th>
-								<th>M</th>
-								<th>W</th>
-								<th>F</th>
-								
-							  </tr>
-							</thead>
-							
-		<?php
-				include('../dist/includes/dbcon.php');
-				$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
-					
-				while($row=mysqli_fetch_array($query)){
-						$id=$row['time_id'];
-						$start=date("h:i a",strtotime($row['time_start']));
-						$end=date("h:i a",strtotime($row['time_end']));
-		?>
-							  <tr >
-								<td><?php echo $start."-".$end;?></td>
-								<td><input type="checkbox" id="check" name="m[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" id="check" name="w[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								<td><input type="checkbox" id="check" name="f[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-								
-							  </tr>
-							
-		<?php }?>					  
-		</table>    
-		</div><!--col end -->
-		<div class="col-md-6">
-			<table class="table table-bordered table-striped">
-								<thead>
-								  <tr>
-									<th>Time</th>
-									<th>T</th>
-									<th>TH</th>
-									<th>S</th>
-								  </tr>
-								</thead>
+                	<div class="box-body">
+						<div class="row">
+							<div class="col-md-6">
+								<table class="table table-bordered table-striped" style="margin-right:-10px">
+									<thead>
+							  			<tr>
+											<th>Time</th>
+											<th>M</th>
+											<th>W</th>
+											<th>F</th>
+							  			</tr>
+									</thead>					
+									<?php
+											include('../dist/includes/dbcon.php');
+											$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
+												
+											while($row=mysqli_fetch_array($query)){
+													$id=$row['time_id'];
+													$start=date("h:i a",strtotime($row['time_start']));
+													$end=date("h:i a",strtotime($row['time_end']));
+									?>
+									<tr >
+										<td><?php echo $start."-".$end;?></td>
+										<td><input type="checkbox" id="check" name="m[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+										<td><input type="checkbox" id="check" name="w[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+										<td><input type="checkbox" id="check" name="f[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+									</tr>				
+									<?php }?>					  
+								</table>    
+							</div><!--col end -->
+							<div class="col-md-6">
+								<table class="table table-bordered table-striped">
+									<thead>
+									<tr>
+										<th>Time</th>
+										<th>T</th>
+										<th>TH</th>
+										<th>S</th>
+									</tr>
+									</thead>
 								
 			<?php
 					include('../dist/includes/dbcon.php');

@@ -25,7 +25,11 @@ include('../dist/includes/dbcon.php');
 	
 	$set_id=$_SESSION['settings'];
 	$program=$_SESSION['id'];
-					
+			
+	
+	if(isset($_POST['options'])){
+		echo 'asdadasasdasdasdADAS';
+	  }
 	//monday sched
 	foreach ($m as $daym){
 		//check conflict for member
