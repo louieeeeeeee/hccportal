@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style>
 	body {
-  background: url(../../../../images/temp.jpg) center/cover no-repeat;
+  background: url(../../../../assets/images/temp.jpg) center/cover no-repeat;
   margin: 0;
   justify-content: center;
   font-family: Verdana, sans-serif;
