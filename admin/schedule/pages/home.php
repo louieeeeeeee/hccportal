@@ -217,6 +217,16 @@ if (!($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Scheduler')) {
 								  ?>
 								</select>	
 						  </div><!-- /.form group -->
+
+						  <div class="form-group">
+							<label for="class">Class Type</label>
+								<label class="btn btn-default">
+									<input type="radio" name="options" id="ftf-option" value="FTF"> FTF
+								</label>
+								<label class="btn btn-default">
+									<input type="radio" name="options" id="online-option" value="Online"> Online
+								</label>
+							</div>
 						  <div class="form-group">
 							<label for="date" hidden>Remarks</label><br>
 								<textarea name="remarks" cols="30" placeholder="enclose remarks with parenthesis()" hidden></textarea>
