@@ -79,7 +79,10 @@ html
 	}
 </style>
 <h1 align = "center">
-
+<a class="carousel-control-next" href="#table-carousel" role="button" data-target="#table-carousel" data-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="sr-only">Next</span>
+</a>
 <?php
 	
 	if($member<>"")
