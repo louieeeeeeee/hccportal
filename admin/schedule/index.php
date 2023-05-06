@@ -117,10 +117,12 @@ include '../../../../config.php';
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-				<button id="btn-schedule" class="btn btn-sq-lg mx-auto">
-					<i class="fas fa-calendar-alt fa-6x"></i>
-					<div class="btn-label">Schedule</div>
-				</button>
+				<a href="pages/home.php">
+					<button id="btn-schedule" class="btn btn-sq-lg mx-auto">
+						<i class="fas fa-calendar-alt fa-6x"></i>
+						<div class="btn-label">Schedule</div>
+					</button>
+				</a>
 			</div>
 			<div class="col-xs-4">
 				<button id="btn-maintenance" class="btn btn-sq-lg mx-auto">

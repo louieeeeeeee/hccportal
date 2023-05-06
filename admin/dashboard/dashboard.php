@@ -59,7 +59,7 @@ $username = $_SESSION['username'];
         <i class="fa-solid fa-clock-rotate-left fa-6x"></i><br/>
           <b><h5>Logs</h5></b>
         </a>
-        <a href="../schedule/pages/index.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+        <a href="../schedule/index.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
         <i class="fa-solid fa-calendar-days fa-6x"></i><br/>
           <b><h5>Schedule Generator</h5></b>
         </a>
