@@ -84,7 +84,7 @@
 			font-weight: bold;
 			position: absolute;
 			top: 10px;
-			left: 20px;;
+			left: 25px;;
 			padding: 10px;
 		}
 		.navbar {
