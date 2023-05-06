@@ -142,6 +142,16 @@ include '../../../config.php';
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<nav class="navbar navbar-expand-lg fixed-bottom">
+  <div class="container d-flex justify-content-between">
+    <div class="collapse navbar-collapse justify-content-end" id="navbarScroll">
+      <a href="../dashboard/dashboard.php" class="btn btn-primary btn-lg shadow mb-3">
+        <i class="fa-solid fa-angles-left"></i>
+        <b>Back</b>
+      </a>
+    </div>
+  </div>
+</nav>
 </body>
 </html>
 <script>
