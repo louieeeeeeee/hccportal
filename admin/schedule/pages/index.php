@@ -71,9 +71,9 @@
 			margin-bottom: 0;
 		}
 		#clock {
-            font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-			color: #2596be;
-			font-weight: bold;
+            
+			color: #0000;
+			
 			position: absolute;
 			top: 0;
 			right: 0;
