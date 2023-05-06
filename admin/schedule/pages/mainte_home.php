@@ -146,9 +146,37 @@ include '../../../config.php';
 			</div>
 		</div>
 	</div>
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<div class="back-button">
+  <a href="../index.php">
+    <button class="btn btn-primary btn-lg">Back</button>
+  </a>
+</div>
 
+</body>
+</html>
 
-    <div id="searcht" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div style="text-align: center">
+              		<h4>Print Class Schedule
+              		<a href="#searcht" data-target="#searcht" data-toggle="modal" class="dropdown-toggle btn btn-primary">
+                     
+                      Teacher				
+                    </a>
+                   <a href="#searchclass" data-target="#searchclass" data-toggle="modal" class="dropdown-toggle btn btn-success">
+                     
+                      Class				
+                    </a>
+                  
+                   <a href="#searchroom" data-target="#searchroom" data-toggle="modal" class="dropdown-toggle btn btn-warning">
+                     
+                      Room				
+                    </a>
+                    </h4>
+                </div
+
+<div id="searcht" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="height:auto">
               <div class="modal-header">
@@ -273,16 +301,7 @@ include '../../../config.php';
  </div>
  <!--end of modal--> 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<div class="back-button">
-  <a href="../index.php">
-    <button class="btn btn-primary btn-lg">Back</button>
-  </a>
-</div>
 
-</body>
-</html>
 <script>
 var clockElement = document.getElementById('clock');
   function clock() {
