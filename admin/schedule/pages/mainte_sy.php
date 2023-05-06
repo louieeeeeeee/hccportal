@@ -42,12 +42,7 @@ error_reporting(0);
 			margin: 0;
 			padding: 0;
 		}
-		.container {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			height: calc(100% - 50px);
-		}
+		
 		.navbar {
 			margin-bottom: 0;
 		}
