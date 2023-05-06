@@ -132,14 +132,14 @@ include '../../../config.php';
 			</div>
 			<div class="col-xs-4">
 				<button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
-                    <i class="fas fa-tools fa-6x"></i>
+                    <i class="fas fa-clock fa-6x"></i>
 					<div class="btn-label">Time</div>
 				</button>
 			</div>
 			<div class="col-xs-4">
 				<a href="pages/settings.php">
 					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
-                        <i class="fas fa-clock fa-6x"></i>
+                        <i class="fas fa-map-marker-alt fa-6x"></i>
 						<div class="btn-label">Room</div>
 					</button>
 				</a>	
