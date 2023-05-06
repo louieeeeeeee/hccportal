@@ -25,8 +25,72 @@ error_reporting(0);
 	<script src="../dist/js/jquery.min.js"></script>
 	
  </head>
+ <style>
+        body {
+            background: url(../dist/img/temp.jpg) center/cover no-repeat;
+            margin: 0;
+            justify-content: center;
+            font-family: Verdana, sans-serif;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            animation: fadeInAnimation ease 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+		body, html {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: calc(100% - 50px);
+		}
+		.navbar {
+			margin-bottom: 0;
+		}
+		#clock {
+            font: small-caps lighter 30px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+			color: black;
+			font-weight: bold;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px;
+		}
+        #user {
+            color: #2596be;
+			font-size: 25px;
+			font-weight: bold;
+			position: absolute;
+			top: 15px;
+			left: 30px;;
+			padding: 10px;
+		}
+		.navbar {
+			background-color: transparent !important;
+			border: none;
+		}
+		.back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body class="hold-transition skin-yellow layout-top-nav" onload="myFunction()">
+  <nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+                <a class="navbar-brand fw-bold" id="user" href=""> <?php echo  $_SESSION['username']; ?> </a>
+			</div>
+			<a class="nav-link link-light" style="bottom:5%;" >
+                <span class="fw-bold fs-4" id="clock"></span>
+            </a>
+		</div>
+	</nav>
     <div class="wrapper">
       <!-- Full Width Column -->
       <div class="content-wrapper">
@@ -230,5 +294,10 @@ error_reporting(0);
         });
       });
     </script>
+    <div class="back-button">
+  <a href="../index.php">
+    <button class="btn btn-primary btn-lg">Back</button>
+  </a>
+</div>
   </body>
 </html>
