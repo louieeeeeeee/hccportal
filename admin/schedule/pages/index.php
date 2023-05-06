@@ -80,8 +80,7 @@
 			padding: 10px;
 		}
         #user {
-			color: #2596be;
-			font-size: 30px;
+			font-size: 25px;
 			font-weight: bold;
 			position: absolute;
 			top: 10px;
