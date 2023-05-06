@@ -79,6 +79,15 @@
 			right: 0;
 			padding: 10px;
 		}
+        #user {
+			color: #2596be;
+			font-size: 20px;
+			font-weight: bold;
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding: 10px;
+		}
 		.navbar {
 			background-color: transparent !important;
 			border: none;
@@ -89,7 +98,7 @@
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<span class="navbar-brand">Administrator</span>
+				<span class="navbar-brand" id="user">Administrator</span>
 			</div>
 			<a class="nav-link link-light" style="bottom:5%;" >
                 <span class="fw-bold fs-4" id="clock"></span>
