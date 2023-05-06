@@ -149,7 +149,7 @@ include '../../../config.php';
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<div class="back-button">
   <a href="../dashboard/dashboard.php">
-    <button class="btn btn-primary">Back</button>
+    <button class="btn btn-primary btn-lg">Back</button>
   </a>
 </div>
 
