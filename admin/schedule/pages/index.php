@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Centered Big Square Buttons</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<style>
+        body {
+            background: url(../dist/img/temp.jpg) center/cover no-repeat;
+            margin: 0;
+            justify-content: center;
+            font-family: Verdana, sans-serif;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            animation: fadeInAnimation ease 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
 		.btn-sq-lg {
 			width: 220px;
 			height: 200px;
@@ -16,7 +28,7 @@
 			color: #2596be;
 		}
 		.fa-6x {
-			padding-top: 45px;
+			padding-top: 35px;
 			position: absolute;
 			top: 0;
 			left: 50%;
@@ -44,14 +56,6 @@
 			transform: translate(-50%, 10%);
 			opacity: 1;
 		}
-		.btn-sq-lg:focus {
-			box-shadow: none;
-			outline: none;
-			border-color: #2596be;
-		}
-		.btn-sq-lg:focus .fa-6x, .btn-sq-lg:focus .btn-label {
-			color: #2596be;
-		}
 		body, html {
 			height: 100%;
 			margin: 0;
@@ -61,23 +65,35 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			height: 100%;
+			height: calc(100% - 50px);
+		}
+		.navbar {
+			margin-bottom: 0;
+		}
+		#time {
+			color: #2596be;
+			font-size: 20px;
+			font-weight: bold;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px;
+		}
+		.navbar {
+			background-color: transparent !important;
+			border: none;
 		}
 	</style>
 </head>
 <body>
-<?php
-    include '../../../config.php';
-    session_start();
-    error_reporting(0);
-    
-    if (!($_SESSION['role'] == 'Admin')) {
-      header("Location: ../../../index.php");
-    }
-    
-
-  include '../../header.php'
-  ?>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="navbar-brand">Administrator</span>
+			</div>
+			<div id="time">5/6/2023, 10:24:41 AM</div>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
@@ -93,6 +109,8 @@
 				</button>
 			</div>
 			<div class="col-xs-4">
+			
+
 				<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
 					<i class="fas fa-clock fa-6x"></i>
 					<div class="btn-label">Settings</div>
