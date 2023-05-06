@@ -70,15 +70,9 @@
 		.navbar {
 			margin-bottom: 0;
 		}
-		#clock {
-			color: #2596be;
-			font-size: 20px;
-			font-weight: bold;
-			position: absolute;
-			top: 0;
-			right: 0;
-			padding: 10px;
-		}
+		#clock{
+  color:black;
+}
 		.navbar {
 			background-color: transparent !important;
 			border: none;
