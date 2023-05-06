@@ -83,8 +83,8 @@
 			font-size: 25px;
 			font-weight: bold;
 			position: absolute;
-			top: 10px;
-			left: 25px;;
+			top: 15px;
+			left: 30px;;
 			padding: 10px;
 		}
 		.navbar {
