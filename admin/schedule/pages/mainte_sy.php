@@ -7,22 +7,24 @@ error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-	<style>
-        body {
-            background: url(../dist/img/temp.jpg) center/cover no-repeat;
-            margin: 0;
-            justify-content: center;
-            font-family: Verdana, sans-serif;
-            overflow-x: hidden;
-            overflow-y: hidden;
-            animation: fadeInAnimation ease 1s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-        }
-	</style>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Settings | <?php include('../dist/includes/title.php');?></title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="../plugins/select2/select2.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
+	<script src="../dist/js/jquery.min.js"></script>
+	
+ </head>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body class="hold-transition skin-yellow layout-top-nav" onload="myFunction()">
     <div class="wrapper">
