@@ -81,11 +81,11 @@
 		}
         #user {
 			color: #2596be;
-			font-size: 20px;
+			font-size: 30px;
 			font-weight: bold;
 			position: absolute;
-			top: 0;
-			left: 0;
+			top: 10px;
+			left: 20px;;
 			padding: 10px;
 		}
 		.navbar {
