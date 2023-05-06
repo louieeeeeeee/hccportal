@@ -92,8 +92,8 @@
 				<span class="navbar-brand">Administrator</span>
 			</div>
 			<a class="nav-link link-light" style="bottom:5%;" >
-      <span class="fw-bold fs-4" id="clock"></span>
-    </a>
+                <span class="fw-bold fs-4" id="clock"></span>
+            </a>
 		</div>
 	</nav>
 	<div class="container">
@@ -124,3 +124,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
+<script>
+var clockElement = document.getElementById('clock');
+  function clock() {
+    var date = new Date();
+      clockElement.textContent = date.toLocaleString();;
+    }
+    setInterval(clock, 100);
+</script>
