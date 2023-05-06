@@ -70,7 +70,7 @@
 		.navbar {
 			margin-bottom: 0;
 		}
-		#time {
+		#clock {
 			color: #2596be;
 			font-size: 20px;
 			font-weight: bold;
@@ -91,7 +91,9 @@
 			<div class="navbar-header">
 				<span class="navbar-brand">Administrator</span>
 			</div>
-			<div id="time">5/6/2023, 10:24:41 AM</div>
+			<a class="nav-link link-light" style="bottom:5%;" >
+      <span class="fw-bold fs-4" id="clock"></span>
+    </a>
 		</div>
 	</nav>
 	<div class="container">
