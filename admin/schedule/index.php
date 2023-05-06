@@ -131,10 +131,12 @@ include '../../../config.php';
 				</a>
 			</div>
 			<div class="col-xs-4">
-				<button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
-					<i class="fas fa-tools fa-6x"></i>
-					<div class="btn-label">Maintenance</div>
-				</button>
+				<a href="pages/mainte_home.php">
+					<button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
+						<i class="fas fa-tools fa-6x"></i>
+						<div class="btn-label">Maintenance</div>
+					</button>
+				</a>
 			</div>
 			<div class="col-xs-4">
 				<a href="pages/settings.php">
