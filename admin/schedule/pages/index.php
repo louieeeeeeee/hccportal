@@ -1,3 +1,12 @@
+<?php
+session_start();
+error_reporting(0);
+if (!($_SESSION['role'] == 'Admin')) {
+  header("Location: ../../../../index.php");
+}
+
+include '../../../../config.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
