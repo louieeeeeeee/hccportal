@@ -20,7 +20,7 @@ include '../../../config.php';
             justify-content: center;
             font-family: Verdana, sans-serif;
             overflow-x: hidden;
-            overflow-y: scroll;
+            overflow-y: hidden;
             animation: fadeInAnimation ease 1s;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
@@ -144,7 +144,9 @@ include '../../../config.php';
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="../dashboard/dashboard.php">Back</a></li>
+        <li><a href="../dashboard/dashboard.php">
+		<button class="btn btn-primary">Back</button>
+		</a></li>
       </ul>
     </div>
 </body>
