@@ -193,7 +193,7 @@ error_reporting(0);
     var date = new Date();
       clockElement.textContent = date.toLocaleString();;
     }
-    setInterval(clock, 100);-
+    setInterval(clock, 100);
 		
 </script>
 
