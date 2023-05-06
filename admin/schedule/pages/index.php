@@ -106,7 +106,7 @@ include '../../../../config.php';
 	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<span class="navbar-brand" id="user">Administrator</span>
+            <a class="navbar-brand fw-bold" id="user" href=""> <?php echo  $_SESSION['username']; ?> </a>
 			</div>
 			<a class="nav-link link-light" style="bottom:5%;" >
                 <span class="fw-bold fs-4" id="clock"></span>
