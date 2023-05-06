@@ -71,13 +71,12 @@
 			margin-bottom: 0;
 		}
 		#clock {
-            font:  "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-			color: black;
-			font-weight: bold;
-			position: absolute;
-			top: 0;
-			right: 0;
-			padding: 10px;
+            font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+			text-align:right;
+  width: 100%;
+  margin: 40px auto;
+  color: #000;
+  padding: 20px;
 		}
 		.navbar {
 			background-color: transparent !important;
