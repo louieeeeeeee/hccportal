@@ -11,9 +11,6 @@ include '../../../config.php';
 <!DOCTYPE html>
 <html>
 <head>
-	<?php 
-	include 'dist/includes/header.php';
-	?>
 	<title>Centered Big Square Buttons</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -140,13 +137,12 @@ include '../../../config.php';
 				</button>
 			</div>
 			<div class="col-xs-4">
-			
-
-				<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
-					<i class="fas fa-clock fa-6x"></i>
-					<div class="btn-label">Settings</div>
-				</button>
-				
+				<a href="pages/settings.php">
+					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
+						<i class="fas fa-clock fa-6x"></i>
+						<div class="btn-label">Settings</div>
+					</button>
+				</a>	
 			</div>
 		</div>
 	</div>
