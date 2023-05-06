@@ -142,6 +142,13 @@ include '../../../config.php';
 					<i class="fas fa-clock fa-6x"></i>
 					<div class="btn-label">Settings</div>
 				</button>
+
+				<div class="navbar-header navbar-right" style="margin-right:100px;margin-bottom:20px;">
+		<a href="../../dashboard/dashboard.php" class="btn btn-primary btn-lg shadow mb-3">
+        <i class="fa-solid fa-angles-left"></i>
+        <b>Back</b>
+      </a>
+</div>
 			</div>
 		</div>
 	</div>
