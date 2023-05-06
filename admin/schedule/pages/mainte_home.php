@@ -16,7 +16,7 @@ include '../../../config.php';
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<style>
         body {
-            background: url(dist/img/temp.jpg) center/cover no-repeat;
+            background: url(../dist/img/temp.jpg) center/cover no-repeat;
             margin: 0;
             justify-content: center;
             font-family: Verdana, sans-serif;
