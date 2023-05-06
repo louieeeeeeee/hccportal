@@ -188,7 +188,12 @@ error_reporting(0);
 		
 		})
 		
-		//-------------------------------------------------------------
+        var clockElement = document.getElementById('clock');
+  function clock() {
+    var date = new Date();
+      clockElement.textContent = date.toLocaleString();;
+    }
+    setInterval(clock, 100);-
 		
 </script>
 
