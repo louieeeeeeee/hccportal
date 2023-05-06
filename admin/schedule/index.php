@@ -101,6 +101,11 @@ include '../../../config.php';
 			background-color: transparent !important;
 			border: none;
 		}
+		.back-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
 	</style>
 </head>
 <body>
@@ -142,13 +147,12 @@ include '../../../config.php';
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-	<div class="collapse navbar-collapse" id="navbarScroll">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="../dashboard/dashboard.php">
-		<button class="btn btn-primary">Back</button>
-		</a></li>
-      </ul>
-    </div>
+	<div class="back-button">
+  <a href="../dashboard/dashboard.php">
+    <button class="btn btn-primary">Back</button>
+  </a>
+</div>
+
 </body>
 </html>
 <script>
