@@ -123,19 +123,23 @@ include '../../../config.php';
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-                <button type="button" id="btn-schedule" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fas fa-calendar-alt fa-6x"></i>
-					<div class="btn-label">School Year</div>
-            </button>
+				<a href="sy.php">
+					<button id="btn-schedule" class="btn btn-sq-lg mx-auto">
+                        <i class="fas fa-calendar-alt fa-6x"></i>
+						<div class="btn-label">School Year</div>
+					</button>
+				</a>
 			</div>
 			<div class="col-xs-4">
-				<button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
-                    <i class="fas fa-clock fa-6x"></i>
-					<div class="btn-label">Time</div>
-				</button>
+                <a href="time.php">
+				    <button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
+                        <i class="fas fa-clock fa-6x"></i>
+					    <div class="btn-label">Time</div>
+				    </button>
+                </a>
 			</div>
 			<div class="col-xs-4">
-				<a href="pages/settings.php">
+				<a href="room.php">
 					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
                         <i class="fas fa-map-marker-alt fa-6x"></i>
 						<div class="btn-label">Room</div>
