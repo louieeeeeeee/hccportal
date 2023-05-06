@@ -146,6 +146,133 @@ include '../../../config.php';
 			</div>
 		</div>
 	</div>
+
+
+    <div id="searcht" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+	  <div class="modal-content" style="height:auto">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Search Faculty Schedule</h4>
+              </div>
+              <div class="modal-body">
+			  <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
+                
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="name">Faculty</label>
+					<div class="col-lg-10">
+					<select class="select2" name="faculty" style="width:90%!important" required>
+								  <?php 
+								  
+									$query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
+									  while($row=mysqli_fetch_array($query2)){
+								  ?>
+										<option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
+								  <?php }
+									
+								  ?>
+								</select>
+					</div>
+				</div> 
+				
+				
+              </div><hr>
+              <div class="modal-footer">
+				<button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+			  </form>
+            </div>
+			
+        </div><!--end of modal-dialog-->
+ </div>
+ <!--end of modal--> 
+ 
+ 
+
+ <div id="searchclass" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+	  <div class="modal-content" style="height:auto">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Search Class Schedule</h4>
+              </div>
+              <div class="modal-body">
+			  <form class="form-horizontal" method="post" action="class_sched.php" target="_blank">
+                
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="name">Class</label>
+					<div class="col-lg-10">
+					<select class="select2" name="class" style="width:90%!important" required>
+								  <?php 
+								  
+									$query2=mysqli_query($con,"select * from cys")or die(mysqli_error($con));
+									  while($row=mysqli_fetch_array($query2)){
+								  ?>
+										<option><?php echo $row['course'] . $row['year'] . $row['section'];?></option>
+								  <?php }
+									
+								  ?>
+								</select>
+					</div>
+				</div> 
+				
+				
+              </div><hr>
+              <div class="modal-footer">
+				<button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+			  </form>
+            </div>
+			
+        </div><!--end of modal-dialog-->
+ </div>
+ <!--end of modal--> 
+ 
+ <div id="searchroom" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+	  <div class="modal-content" style="height:auto">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Search Room Schedule</h4>
+              </div>
+              <div class="modal-body">
+			  <form class="form-horizontal" method="post" action="room_sched.php" target="_blank">
+                
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="name">Room</label>
+					<div class="col-lg-10">
+					<select class="select2" name="room" style="width:90%!important" required>
+								  <?php 
+								  
+									$query2=mysqli_query($con,"select * from room order by room")or die(mysqli_error($con));
+									  while($row=mysqli_fetch_array($query2)){
+								  ?>
+										<option><?php echo $row['room'];?></option>
+								  <?php }
+									
+								  ?>
+								</select>
+					</div>
+				</div> 
+				
+				
+              </div><hr>
+              <div class="modal-footer">
+				<button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+			  </form>
+            </div>
+			
+        </div><!--end of modal-dialog-->
+ </div>
+ <!--end of modal--> 
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<div class="back-button">
