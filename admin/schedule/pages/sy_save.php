@@ -6,16 +6,11 @@ endif;
 
 if($_POST)
 {
-include('../dist/includes/dbcon.php');
-
-	$sy = $_POST['sy'];			
-					
-	
-			mysqli_query($con,"INSERT INTO sy(sy) 
-				VALUES('$sy')")or die(mysqli_error());
-				
-			echo "<span class='text-success'>Successfully added new school year!</span>";	
-	
-}					  
+    include('../dist/includes/dbcon.php');
+    $sy = $_POST['sy'];			
+    mysqli_query($con,"INSERT INTO sy(sy) VALUES('$sy')")or die(mysqli_error());	
+    echo "<script>alert('Successfully Added!');window.location.href='mainte_sy.php';</script>";
+}   
+					  
 	
 ?>
