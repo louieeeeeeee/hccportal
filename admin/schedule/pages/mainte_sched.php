@@ -89,7 +89,7 @@ error_reporting(0);
 		</div>
 	</nav>
     <div class="wrapper">
-      <?php include('../dist/includes/header.php');?>
+      
       <!-- Full Width Column -->
       <div class="content-wrapper" style="background-image: url('temp.jpg');">
         <div class="container">
