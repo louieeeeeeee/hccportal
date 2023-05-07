@@ -43,7 +43,7 @@ include('../dist/includes/dbcon.php');
 					<td>monday</td>
 					<td>$time1</td> 
 					<td>$member1</td>
-					<td class='text-danger'><b>Faculty Not Available</b></td>	
+					<td class='text-danger'><b>Not Available</b></td>	
 					<td>$subjectCode</td>
 				</tr>
 				</span>
@@ -51,7 +51,7 @@ include('../dist/includes/dbcon.php');
 		
 		//check conflict for room
 		$query_room=mysqli_query($con,"select *,COUNT(*) as count from schedule 
-		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='m'")or die(mysqli_error($con));
+		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='m' and room not like 'TBA'")or die(mysqli_error($con));
 			$rowr=mysqli_fetch_array($query_room);
 			$count_r=$rowr['count'];
 			$timer=date("h:i a",strtotime($rowr['time_start']))."-".date("h:i a",strtotime($rowr['time_end']));
@@ -64,7 +64,7 @@ include('../dist/includes/dbcon.php');
 					<td>monday</td>
 					<td>$timer</td> 
 					<td>Room $roomr</td>
-					<td class='text-danger'><b>Room Not Available</b></td>	
+					<td class='text-danger'><b>Not Available</b></td>	
 					<td>$subjectCode</td>
 				</tr>
 				</span>
@@ -84,7 +84,7 @@ include('../dist/includes/dbcon.php');
 					<td>monday</td>
 					<td>$timec</td> 
 					<td>$cysc</td>
-					<td class='text-danger'><b>Class Not Available</b>	</td>	
+					<td class='text-danger'><b>Not Available</b>	</td>	
 					<td>$subjectCode</td>
 				</tr>
 			</table></span>";	
@@ -529,7 +529,7 @@ include('../dist/includes/dbcon.php');
 					<td>saturday</td>
 					<td>$time1</td> 
 					<td>$member1</td>
-					<td class='text-danger'><b>Member Not Available</b></td>	
+					<td class='text-danger'><b>Not Available</b></td>	
 					<td>$subjectCode</td>
 				</tr>
 				</span>
@@ -537,8 +537,8 @@ include('../dist/includes/dbcon.php');
 		
 		//check conflict for room
 		$query_room=mysqli_query($con,"select *,COUNT(*) as count from schedule 
-    natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='s' and room not like 'TBA'") or die(mysqli_error($con));
-
+		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='s'")or die(mysqli_error($con));
+		
 			$rowr=mysqli_fetch_array($query_room);
 			$count_r=$rowr['count'];
 			$timer=date("h:i a",strtotime($rowr['time_start']))."-".date("h:i a",strtotime($rowr['time_end']));
@@ -551,7 +551,7 @@ include('../dist/includes/dbcon.php');
 					<td>saturday</td>
 					<td>$timer</td> 
 					<td>Room $roomr</td>
-					<td class='text-danger'><b>Room Not Available</b></td>	
+					<td class='text-danger'><b>Not Available</b></td>	
 					<td>$subjectCode</td>
 				</tr>
 				</span>
@@ -571,7 +571,7 @@ include('../dist/includes/dbcon.php');
 					<td>saturday</td>
 					<td>$timec</td> 
 					<td>$cysc</td>
-					<td class='text-danger'><b>Class Not Available</b>	</td>
+					<td class='text-danger'><b>Not Available</b>	</td>
 					<td>$subjectCode</td>
 				</tr>
 			</table></span>";	
