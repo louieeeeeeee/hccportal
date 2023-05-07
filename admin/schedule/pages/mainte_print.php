@@ -122,19 +122,19 @@ include('../dist/includes/dbcon.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-                <button type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#exampleModal">
+                <button id="btn-teacher" type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#exampleModal">
                     <i class="fas fa-calendar-alt fa-6x"></i>
                     <div class="btn-label">Teacher</div>
                 </button>
 			</div>
 			<div class="col-xs-4">
-				    <button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
+            <button id="btn-class" type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#exampleModal">
                         <i class="fas fa-clock fa-6x"></i>
 					    <div class="btn-label">Class</div>
 				    </button>
 			</div>
 			<div class="col-xs-4">
-					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
+            <button id="btn-room" type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#exampleModal">
                         <i class="fas fa-map-marker-alt fa-6x"></i>
 						<div class="btn-label">Room</div>
 					</button>
@@ -164,7 +164,7 @@ var clockElement = document.getElementById('clock');
 
 
 <!-- Print for Faculty -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="btn-teacher" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -201,7 +201,7 @@ var clockElement = document.getElementById('clock');
 
 
 <!-- Print for Class -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="btn-schedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -235,7 +235,7 @@ var clockElement = document.getElementById('clock');
 </div>
 
 <!-- Print for Room -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="btn-room" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
