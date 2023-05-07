@@ -88,7 +88,8 @@ error_reporting(0);
 	</nav>
     <div class="wrapper ">
       <div class="content-wrapper">
-        <div class="container" style="background-color: gray;">
+        <div class="container" style="background-color: rgba(128, 128, 128, 0.5);
+border-radius: 10px;">
           <section class="content">
             <div class="row">
 	      <div class="col-md-9">
