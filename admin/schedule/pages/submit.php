@@ -551,7 +551,7 @@ include('../dist/includes/dbcon.php');
 					<td>saturday</td>
 					<td>$timer</td> 
 					<td>Room $roomr</td>
-					<td class='text-danger'><b>Not Available</b></td>	
+					<td class='text-danger'><b>Room Not Available</b></td>	
 					<td>$subjectCode</td>
 				</tr>
 				</span>
