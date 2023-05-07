@@ -210,9 +210,9 @@ var clockElement = document.getElementById('clock');
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
+      <form class="form-horizontal" method="post" action="class_sched.php" target="_blank">
         <div class="form-group">
-            <label class="control-label col-lg-2" for="name">Class Schedule</label>
+            <label class="control-label col-lg-2" for="name">Section</label>
             <div class="col-lg-10">
                 <select class="select2" name="class" style="width:90%!important" required>
 					<?php 		  
@@ -239,30 +239,30 @@ var clockElement = document.getElementById('clock');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Seach for Faculty</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Seach for Room</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
+      <form class="form-horizontal" method="post" action="room_sched.php" target="_blank">
         <div class="form-group">
-            <label class="control-label col-lg-2" for="name">Faculty</label>
+            <label class="control-label col-lg-2" for="name">Room</label>
             <div class="col-lg-10">
-                <select class="select2" name="faculty" style="width:90%!important" required>
+                <select class="select2" name="room" style="width:90%!important" required>
                     <?php 
-                        $query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
-                            while($row=mysqli_fetch_array($query2)){
-                        ?>
-                            <option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
-                        <?php }
-                        
+                    $query2=mysqli_query($con,"select * from room order by room")or die(mysqli_error($con));
+                        while($row=mysqli_fetch_array($query2)){
+                    ?>
+                        <option><?php echo $row['room'];?></option>
+                    <?php }
+                    
                     ?>
                 </select>
             </div>
         </div> 
         <hr>
         <div class="modal-footer">
-        <button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
+        <button type="submit" name="search" class="btn btn-primary">Display Room</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
 		</form>
