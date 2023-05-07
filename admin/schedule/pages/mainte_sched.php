@@ -10,19 +10,16 @@ error_reporting(0);
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home | <?php include('../dist/includes/title.php');?></title>
+    <title>Settings | <?php include('../dist/includes/title.php');?></title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../plugins/select2/select2.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="../dist/css/skins/_all-skins.min.css">
 	<script src="../dist/js/jquery.min.js"></script>
+	
  </head>
  <style>
         body {
@@ -88,7 +85,7 @@ error_reporting(0);
             </a>
 		</div>
 	</nav>
-    <div class="wrapper text-center">
+    <div class="wrapper ">
       <div class="content-wrapper">
         <div class="container">
           <section class="content">
