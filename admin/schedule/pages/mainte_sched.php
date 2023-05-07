@@ -46,14 +46,16 @@ error_reporting(0);
 			margin-bottom: 0;
 		}
 		#clock {
-            font: small-caps lighter 30px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-			color: black;
-			font-weight: bold;
-			position: absolute;
-			top: 0;
-			right: 0;
-			padding: 10px;
-		}
+  font: small-caps lighter 30px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  color: black;
+  font-weight: bold;
+  position: fixed;
+  top: 15px;
+  right: 30px;
+  padding: 10px;
+  z-index: 9999;
+}
+
         #user {
             color: #2596be;
 			font-size: 25px;
