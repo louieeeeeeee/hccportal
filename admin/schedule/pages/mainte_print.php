@@ -122,19 +122,19 @@ include('../dist/includes/dbcon.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-                <button id="btn-teacher" type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#btn-teacher">
                     <i class="fas fa-calendar-alt fa-6x"></i>
                     <div class="btn-label">Teacher</div>
                 </button>
 			</div>
 			<div class="col-xs-4">
-            <button id="btn-class" type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#btn-class">
                         <i class="fas fa-clock fa-6x"></i>
 					    <div class="btn-label">Class</div>
 				    </button>
 			</div>
 			<div class="col-xs-4">
-            <button id="btn-room" type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#exampleModal">
+            <button type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#btn-room">
                         <i class="fas fa-map-marker-alt fa-6x"></i>
 						<div class="btn-label">Room</div>
 					</button>
@@ -201,7 +201,7 @@ var clockElement = document.getElementById('clock');
 
 
 <!-- Print for Class -->
-<div class="modal fade" id="btn-schedule" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="btn-class" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
