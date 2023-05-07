@@ -95,7 +95,7 @@ error_reporting(0);
         
 
           <!-- Main content -->
-          <section class="content">
+          <section class="content" style="display:flex; align-items:center; justify-content:center; height: 100vh;">
             <div class="row">
               <div class="col-md-9">
                 <div class="box box-warning">
