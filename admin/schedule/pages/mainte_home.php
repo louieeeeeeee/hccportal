@@ -138,7 +138,7 @@ include '../../../config.php';
                 </a>
 			</div>
 			<div class="col-xs-4">
-				<a href="room.php">
+				<a href="mainte_room.php">
 					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
                         <i class="fas fa-map-marker-alt fa-6x"></i>
 						<div class="btn-label">Room</div>
