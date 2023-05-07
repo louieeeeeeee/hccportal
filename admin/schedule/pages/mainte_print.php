@@ -122,10 +122,11 @@ include '../../../config.php';
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-                <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fas fa-calendar-alt fa-6x"></i>
-                    <div class="btn-label">Teacher</div>
-				</button>
+            <button  class="btn btn-primary mx-auto" data-toggle="modal" data-target="#exampleModal">
+					
+                        <i class="fas fa-calendar-alt fa-6x"></i>
+						<div class="btn-label">Teacher</div>
+					</button>
 			</div>
 			<div class="col-xs-4">
 				    <button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
