@@ -69,11 +69,12 @@ error_reporting(0);
     bottom: 20px;
     right: 20px;
   }
-  .content{
-    display: flex;
+  .section-wrapper {
+  display: flex;
   align-items: center;
   justify-content: center;
-  }
+  min-height: calc(100vh - 70px); /* subtract the height of the navbar from the viewport height */
+}
 	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body onload="myFunction()">
@@ -95,7 +96,7 @@ error_reporting(0);
         
 
           <!-- Main content -->
-          <section class="content" style="display:flex; align-items:center; justify-content:center; height: 100vh;">
+          <section class="content section-wrapper" style="display:flex; align-items:center; justify-content:center; height: 100vh;">
             <div class="row">
               <div class="col-md-9">
                 <div class="box box-warning">
