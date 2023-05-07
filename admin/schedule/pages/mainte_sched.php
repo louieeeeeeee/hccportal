@@ -94,7 +94,7 @@ border-radius: 10px;">
             <div class="row">
 	      <div class="col-md-9">
               <div class="box box-warning">
-              	<div style="text-align: center">
+              	<!--<div style="text-align: center">
               		<h4>Print Class Schedule
               		<a href="#searcht" data-target="#searcht" data-toggle="modal" class="dropdown-toggle btn btn-primary">
                      
@@ -110,7 +110,7 @@ border-radius: 10px;">
                       Room				
                     </a>
                     </h4>
-                </div> 
+                </div> -->
                <form method="post" id="reg-form">
                 	<div class="box-body">
 						<div class="row">
