@@ -69,7 +69,7 @@ error_reporting(0);
     bottom: 20px;
     right: 20px;
   }
-  .wrapper{
+  .content-wrapper{
     display: flex;
   justify-content: center;
   align-items: center;
