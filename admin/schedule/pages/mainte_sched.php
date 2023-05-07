@@ -71,6 +71,7 @@ error_reporting(0);
   }
   .content-wrapper{
     margin-top: 50px;
+    background-color: gray;
   }
 	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
