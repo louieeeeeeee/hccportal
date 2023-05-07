@@ -71,7 +71,7 @@ error_reporting(0);
   }
 	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
-  <body class="hold-transition skin-yellow layout-top-nav" onload="myFunction()">
+  <body onload="myFunction()">
   <nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
