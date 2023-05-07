@@ -162,6 +162,79 @@ var clockElement = document.getElementById('clock');
     setInterval(clock, 100);
 </script>
 
+
+<!-- Print for Faculty -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Seach for Faculty</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
+        <div class="form-group">
+            <label class="control-label col-lg-2" for="name">Faculty</label>
+            <div class="col-lg-10">
+                <select class="select2" name="faculty" style="width:90%!important" required>
+                    <?php 
+                        $query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
+                            while($row=mysqli_fetch_array($query2)){
+                        ?>
+                            <option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
+                        <?php }
+                        
+                    ?>
+                </select>
+            </div>
+        </div> 
+        <hr>
+        <div class="modal-footer">
+        <button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+		</form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Print for Class -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Seach for Class Schedule</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
+        <div class="form-group">
+            <label class="control-label col-lg-2" for="name">Class Schedule</label>
+            <div class="col-lg-10">
+                <select class="select2" name="class" style="width:90%!important" required>
+					<?php 		  
+                        $query2=mysqli_query($con,"select * from cys")or die(mysqli_error($con));
+                            while($row=mysqli_fetch_array($query2)){
+                        ?>
+										<option><?php echo $row['course'] . $row['year'] . $row['section'];?></option>
+						    <?php } ?>
+				</select>
+            </div>
+        </div> 
+        <hr>
+        <div class="modal-footer">
+        <button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+		</form>
+    </div>
+  </div>
+</div>
+
+<!-- Print for Room -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
