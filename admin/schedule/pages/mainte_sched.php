@@ -93,7 +93,7 @@ border-radius: 10px;">
           <section class="content">
             <div class="row">
 	      <div class="col-md-9">
-              <div class="box box-warning">
+              <div class="box box-warning" style="top:20px;">
               	<!--<div style="text-align: center">
               		<h4>Print Class Schedule
               		<a href="#searcht" data-target="#searcht" data-toggle="modal" class="dropdown-toggle btn btn-primary">
