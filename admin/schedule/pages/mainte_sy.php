@@ -70,9 +70,7 @@ error_reporting(0);
     right: 20px;
   }
   .content-wrapper{
-    display: flex;
-  justify-content: center;
-  align-items: center;
+    margin-top: 10px;
   }
 	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
