@@ -69,6 +69,11 @@ error_reporting(0);
     bottom: 20px;
     right: 20px;
   }
+  .content{
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  }
 	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body onload="myFunction()">
