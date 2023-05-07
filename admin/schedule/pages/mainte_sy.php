@@ -123,7 +123,7 @@ error_reporting(0);
 		<td><?php echo $sy;?></td>
 			
 		<td>
-		<a id="click" href="sy.php?id=<?php echo $id;?>&sy=<?php echo $sy;?>">
+		<a id="click" href="mainte_sy.php?id=<?php echo $id;?>&sy=<?php echo $sy;?>">
 		<i class="glyphicon glyphicon-edit text-blue"></i></a>
 		<a id="removeme" href="sy_del.php?id=<?php echo $id;?>">
 		<i class="glyphicon glyphicon-remove text-red"></i></a>
