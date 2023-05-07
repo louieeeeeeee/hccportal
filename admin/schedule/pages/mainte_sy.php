@@ -102,7 +102,7 @@ error_reporting(0);
                       <div class="row">
                         <div class="col-md-12">
                           <div class="result" id="form">
-                          <table id="example2" class="table table-bordered table-striped" style="margin-right:-10px">
+                          <table id="example1" class="table table-bordered table-striped" style="margin-right:-10px">
 	<thead>
 		<tr>
 		<th>School Year</th>
