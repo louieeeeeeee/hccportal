@@ -43,7 +43,7 @@ include('../dist/includes/dbcon.php');
 					<td>monday</td>
 					<td>$time1</td> 
 					<td>$member1</td>
-					<td class='text-danger'><b>Not Available</b></td>	
+					<td class='text-danger'><b>Faculty Not Available</b></td>	
 					<td>$subjectCode</td>
 				</tr>
 				</span>
@@ -64,7 +64,7 @@ include('../dist/includes/dbcon.php');
 					<td>monday</td>
 					<td>$timer</td> 
 					<td>Room $roomr</td>
-					<td class='text-danger'><b>Not Available</b></td>	
+					<td class='text-danger'><b>Room Not Available</b></td>	
 					<td>$subjectCode</td>
 				</tr>
 				</span>
@@ -84,7 +84,7 @@ include('../dist/includes/dbcon.php');
 					<td>monday</td>
 					<td>$timec</td> 
 					<td>$cysc</td>
-					<td class='text-danger'><b>Not Available</b>	</td>	
+					<td class='text-danger'><b>Class Not Available</b>	</td>	
 					<td>$subjectCode</td>
 				</tr>
 			</table></span>";	
