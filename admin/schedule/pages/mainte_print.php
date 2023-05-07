@@ -187,11 +187,12 @@ var clockElement = document.getElementById('clock');
                 </select>
             </div>
         </div> 
-        </div><hr>
+        <hr>
         <div class="modal-footer">
         <button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
 		</form>
+    </div>
   </div>
-</div
+</div>
