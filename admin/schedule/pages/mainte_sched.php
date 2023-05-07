@@ -89,14 +89,8 @@ error_reporting(0);
 		</div>
 	</nav>
     <div class="wrapper">
-      
-      <!-- Full Width Column -->
       <div class="content-wrapper">
-        <div class="container">
-          <!-- Content Header (Page header) -->
-        
-
-          <!-- Main content -->
+      <div class="container mx-auto">
           <section class="content">
             <div class="row">
 	      <div class="col-md-9">
