@@ -5,8 +5,8 @@ if (!($_SESSION['role'] == 'Admin')) {
   header("Location: ../../../index.php");
 }
 
-include '../../../config.php';
-
+//include '../../../config.php';
+include('../dist/includes/dbcon.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -166,7 +166,7 @@ var clockElement = document.getElementById('clock');
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Schedule a meeting</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Seach for Faculty</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
