@@ -75,6 +75,13 @@ error_reporting(0);
   .content-wrapper{
     margin-top: 50px;
   }
+  .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body>
@@ -90,7 +97,7 @@ error_reporting(0);
 	</nav>
     <div class="wrapper">
       <div class="content-wrapper">
-      <div class="container mx-auto">
+        <div class="container">
           <section class="content">
             <div class="row">
 	      <div class="col-md-9">
