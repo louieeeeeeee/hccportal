@@ -28,7 +28,7 @@ error_reporting(0);
             justify-content: center;
             font-family: Verdana, sans-serif;
             overflow-x: hidden;
-            overflow-y: hidden;
+            overflow-y: scroll;
             animation: fadeInAnimation ease 1s;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
