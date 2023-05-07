@@ -87,7 +87,6 @@ error_reporting(0);
 	</nav>
     <body class="hold-transition skin-yellow layout-top-nav" onload="myFunction()">
     <div class="wrapper">
-      <?php include('../dist/includes/header.php');?>
       <!-- Full Width Column -->
       <div class="content-wrapper">
         <div class="container">
