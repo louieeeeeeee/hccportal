@@ -11,12 +11,11 @@ include '../../../config.php';
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Centered Big Square Buttons</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<style>
         body {
-            background: url(dist/img/temp.jpg) center/cover no-repeat;
+            background: url(../dist/img/temp.jpg) center/cover no-repeat;
             margin: 0;
             justify-content: center;
             font-family: Verdana, sans-serif;
@@ -122,50 +121,38 @@ include '../../../config.php';
 	</nav>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-3">
-				<a href="pages/mainte_sched.php">
-					<button id="btn-schedule" class="btn btn-sq-lg mx-auto">
-						<i class="fas fa-calendar-alt fa-6x"></i>
-						<div class="btn-label">Schedule</div>
-					</button>
-				</a>
+			<div class="col-xs-4">
+                <button type="button" class="btn btn-primary mx-auto" data-toggle="modal" data-target="#exampleModal">
+                    <i class="fas fa-calendar-alt fa-6x"></i>
+                    <div class="btn-label">Teacher</div>
+				</button>
 			</div>
-			<div class="col-xs-3">
-				<a href="pages/mainte_home.php">
-					<button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
-						<i class="fas fa-wrench fa-6x"></i>
-						<div class="btn-label">Maintenance</div>
-					</button>
-				</a>
+			<div class="col-xs-4">
+				    <button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
+                        <i class="fas fa-clock fa-6x"></i>
+					    <div class="btn-label">Class</div>
+				    </button>
 			</div>
-			<div class="col-xs-3">
-				<a href="pages/mainte_setting.php">
+			<div class="col-xs-4">
 					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
-						<i class="fas fa-cog fa-6x"></i>
-						<div class="btn-label">Settings</div>
+                        <i class="fas fa-map-marker-alt fa-6x"></i>
+						<div class="btn-label">Room</div>
 					</button>
-				</a>	
-			</div>
-			<div class="col-xs-3">
-				<a href="pages/mainte_print.php">
-					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
-						<i class="fas fa-print fa-6x"></i>
-						<div class="btn-label">Print</div>
-					</button>
-				</a>	
 			</div>
 		</div>
 	</div>
+    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<div class="back-button">
-  <a href="../dashboard/dashboard.php">
+  <a href="../index.php">
     <button class="btn btn-primary btn-lg">Back</button>
   </a>
 </div>
 
 </body>
 </html>
+
 <script>
 var clockElement = document.getElementById('clock');
   function clock() {
@@ -174,3 +161,37 @@ var clockElement = document.getElementById('clock');
     }
     setInterval(clock, 100);
 </script>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Schedule a meeting</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Add your modal form here -->
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" class="form-control" id="date">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Schedule</button>
+      </div>
+    </div>
+  </div>
+</div
