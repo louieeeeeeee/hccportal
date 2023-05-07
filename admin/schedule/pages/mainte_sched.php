@@ -91,7 +91,7 @@ error_reporting(0);
     <div class="wrapper">
       
       <!-- Full Width Column -->
-      <div class="content-wrapper" style="background-image: url('temp.jpg');">
+      <div class="content-wrapper">
         <div class="container">
           <!-- Content Header (Page header) -->
         
