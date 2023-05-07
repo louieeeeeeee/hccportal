@@ -139,7 +139,7 @@ include '../../../config.php';
 				</a>
 			</div>
 			<div class="col-xs-4">
-				<a href="pages/settings.php">
+				<a href="pages/mainte_setting.php">
 					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
 						<i class="fas fa-cog fa-6x"></i>
 						<div class="btn-label">Settings</div>
