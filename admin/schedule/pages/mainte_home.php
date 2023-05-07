@@ -130,7 +130,7 @@ include '../../../config.php';
 				</a>
 			</div>
 			<div class="col-xs-4">
-                <a href="time.php">
+                <a href="mainte_time.php">
 				    <button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
                         <i class="fas fa-clock fa-6x"></i>
 					    <div class="btn-label">Time</div>
