@@ -115,7 +115,7 @@ border-radius: 10px;">
                 	<div class="box-body">
 						<div class="row">
 							<div class="col-md-6">
-								<table class="table table-bordered table-striped" style="margin-right:-10px">
+								<table id="example1" class="table table-bordered table-striped" style="margin-right:-10px">
 									<thead>
 							  			<tr>
 											<th>Time</th>
@@ -518,6 +518,17 @@ $(".uncheck").click(function () {
     
   
      <script>
+        $(function () {
+        $("#example1").DataTable();
+        $('#example2').DataTable({
+          "paging": true,
+          "lengthChange": false,
+          "searching": false,
+          "ordering": true,
+          "info": true,
+          "autoWidth": false
+        });
+      });
       $(function () {
         //Initialize Select2 Elements
         $(".select2").select2();
