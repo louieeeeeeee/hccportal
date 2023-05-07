@@ -88,7 +88,8 @@ error_reporting(0);
 	</nav>
     <div class="wrapper ">
       <div class="content-wrapper">
-        <div class="container" style="background-color: rgba(128, 128, 128, 0.5); border-radius: 10px; padding-top:20px;">
+        <div class="container" style="background-color: rgba(128, 128, 128, 0.5);
+border-radius: 10px;padding-top:20px;">
           <section class="content">
             <div class="row">
 	      <div class="col-md-9">
@@ -109,7 +110,7 @@ error_reporting(0);
                       Room				
                     </a>
                     </h4>
-                </div> 
+                </div> -->
                <form method="post" id="reg-form">
                 	<div class="box-body">
 						<div class="row">
