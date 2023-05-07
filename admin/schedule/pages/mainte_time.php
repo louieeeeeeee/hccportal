@@ -292,6 +292,13 @@ error_reporting(0);
           "autoWidth": false
         });
       });
+
+      var clockElement = document.getElementById('clock');
+  function clock() {
+    var date = new Date();
+      clockElement.textContent = date.toLocaleString();;
+    }
+    setInterval(clock, 100);
     </script>
      <script>
       $(function () {
