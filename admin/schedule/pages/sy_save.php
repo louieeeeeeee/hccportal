@@ -1,5 +1,4 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <?php session_start();
+<?php session_start();
 if(empty($_SESSION['id'])):
 header('Location:../index.php');
 endif;

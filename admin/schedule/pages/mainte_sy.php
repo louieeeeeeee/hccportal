@@ -210,18 +210,14 @@ error_reporting(0);
 	</script>
 	
 	<script type="text/javascript">
-		$("#reg-form").on('submit', function()
-		 {  
-		  $.post('sy_save.php', $(this).serialize(), function(data)
-		  {
-		   //$(".result").html(data);  
-			$(".result").load("sy_list.php");
-		  });
-		  
-		  return false;
-		  
-		
-		})
+		$("#reg-form").on('submit', function(event) {  
+  event.preventDefault();
+  $.post('sy_save.php', $(this).serialize(), function(data) {
+    alert("Successfully Added!"); 
+    $(".result").load("sy_list.php");
+  });
+});
+
 		
         var clockElement = document.getElementById('clock');
   function clock() {
