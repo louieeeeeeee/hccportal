@@ -252,16 +252,20 @@ error_reporting(0);
     
     <script>
       $(function () {
-        $("#example1").DataTable();
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
-        });
-      });
+        $("#example1").DataTable({
+    "pageLength": 5
+  });
+  
+  $('#example2').DataTable({
+    "paging": true,
+    "lengthChange": false,
+    "searching": false,
+    "ordering": true,
+    "info": true,
+    "autoWidth": false,
+    "pageLength": 5
+  });
+});
     </script>
      <script>
       $(function () {
