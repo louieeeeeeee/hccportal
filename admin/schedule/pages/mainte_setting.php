@@ -101,7 +101,7 @@ error_reporting(0);
                 <div class="box-body">
 				<div class="row">
 					<div class="col-md-12">
-						<table class="table table-bordered table-striped" style="margin-right:-10px">
+						<table id="example1" class="table table-bordered table-striped" style="margin-right:-10px">
               <thead>
                 <tr>
                 <th>Semester</th>
