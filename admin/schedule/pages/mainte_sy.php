@@ -70,7 +70,7 @@ error_reporting(0);
     right: 20px;
   }
   .content-wrapper{
-    margin-top: 10px;
+    margin-top: 50px;
   }
 	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
