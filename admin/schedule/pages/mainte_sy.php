@@ -210,13 +210,14 @@ error_reporting(0);
 	</script>
 	
 	<script type="text/javascript">
-		$("#reg-form").on('submit', function(event) {  
-  event.preventDefault();
-  $.post('sy_save.php', $(this).serialize(), function(data) {
-    alert("Successfully Added!"); 
-    $(".result").load("sy_list.php");
-  });
+		$("#reg-form").on('submit', function() {  
+        $.post('sy_save.php', $(this).serialize(), function(data) {
+            alert("Successfully added School Year!");
+            location.reload();
+        });
+    return false;
 });
+
 
 		
         var clockElement = document.getElementById('clock');
