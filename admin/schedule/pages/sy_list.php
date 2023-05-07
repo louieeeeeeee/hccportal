@@ -1,5 +1,5 @@
 
-<table id="example1" class="table table-bordered table-striped" style="margin-right:-10px">
+<table id="example2" class="table table-bordered table-striped" style="margin-right:-10px">
 							<thead>
 							  <tr>
 								<th>School Year</th>
