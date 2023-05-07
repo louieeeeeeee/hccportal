@@ -46,16 +46,14 @@ error_reporting(0);
 			margin-bottom: 0;
 		}
 		#clock {
-  font: small-caps lighter 30px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
-  color: black;
-  font-weight: bold;
-  position: fixed;
-  top: 15px;
-  right: 30px;
-  padding: 10px;
-  z-index: 9999;
-}
-
+            font: small-caps lighter 30px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+			color: black;
+			font-weight: bold;
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 10px;
+		}
         #user {
             color: #2596be;
 			font-size: 25px;
@@ -77,13 +75,6 @@ error_reporting(0);
   .content-wrapper{
     margin-top: 50px;
   }
-  .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 	</style>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body>
@@ -97,7 +88,7 @@ error_reporting(0);
             </a>
 		</div>
 	</nav>
-    <div class="wrapper">
+    <div class="wrapper text-center">
       <div class="content-wrapper">
         <div class="container">
           <section class="content">
