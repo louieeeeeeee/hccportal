@@ -123,7 +123,7 @@ include '../../../config.php';
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-				<a href="pages/home.php">
+				<a href="pages/mainte_sched.php">
 					<button id="btn-schedule" class="btn btn-sq-lg mx-auto">
 						<i class="fas fa-calendar-alt fa-6x"></i>
 						<div class="btn-label">Schedule</div>

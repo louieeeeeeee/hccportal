@@ -592,7 +592,7 @@ $(".uncheck").click(function () {
     </script>
 
     <div class="back-button">
-  <a href="mainte_home.php">
+  <a href="../index.php">
     <button class="btn btn-primary btn-lg">Back</button>
   </a>
 </div>
