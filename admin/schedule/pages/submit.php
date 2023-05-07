@@ -149,7 +149,7 @@ include('../dist/includes/dbcon.php');
 		
 		//check conflict for room
 		$query_room=mysqli_query($con,"select *,COUNT(*) as count from schedule 
-		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='w'")or die(mysqli_error($con));
+		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='w' and room not like 'TBA'")or die(mysqli_error($con));
 			$rowr=mysqli_fetch_array($query_room);
 			$count_r=$rowr['count'];
 			$timer=date("h:i a",strtotime($rowr['time_start']))."-".date("h:i a",strtotime($rowr['time_end']));
@@ -246,7 +246,7 @@ include('../dist/includes/dbcon.php');
 		
 		//check conflict for room
 		$query_room=mysqli_query($con,"select *,COUNT(*) as count from schedule 
-		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='f'")or die(mysqli_error($con));
+		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='f' and room not like 'TBA'")or die(mysqli_error($con));
 			$rowr=mysqli_fetch_array($query_room);
 			$count_r=$rowr['count'];
 			$timer=date("h:i a",strtotime($rowr['time_start']))."-".date("h:i a",strtotime($rowr['time_end']));
@@ -342,7 +342,7 @@ include('../dist/includes/dbcon.php');
 		
 		//check conflict for room
 		$query_room=mysqli_query($con,"select *,COUNT(*) as count from schedule 
-		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='t'")or die(mysqli_error($con));
+		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='t' and room not like 'TBA'")or die(mysqli_error($con));
 			$rowr=mysqli_fetch_array($query_room);
 			$count_r=$rowr['count'];
 			$timer=date("h:i a",strtotime($rowr['time_start']))."-".date("h:i a",strtotime($rowr['time_end']));
@@ -439,7 +439,7 @@ include('../dist/includes/dbcon.php');
 		
 		//check conflict for room
 		$query_room=mysqli_query($con,"select *,COUNT(*) as count from schedule 
-		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='th'")or die(mysqli_error($con));
+		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='th' and room not like 'TBA'")or die(mysqli_error($con));
 			$rowr=mysqli_fetch_array($query_room);
 			$count_r=$rowr['count'];
 			$timer=date("h:i a",strtotime($rowr['time_start']))."-".date("h:i a",strtotime($rowr['time_end']));
@@ -537,7 +537,7 @@ include('../dist/includes/dbcon.php');
 		
 		//check conflict for room
 		$query_room=mysqli_query($con,"select *,COUNT(*) as count from schedule 
-		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='s'")or die(mysqli_error($con));
+		natural join faculty natural join time where room='$room' and schedule.time_id='$daym' and day='s' and room not like 'TBA'")or die(mysqli_error($con));
 		
 			$rowr=mysqli_fetch_array($query_room);
 			$count_r=$rowr['count'];
