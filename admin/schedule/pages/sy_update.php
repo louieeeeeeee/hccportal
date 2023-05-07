@@ -10,7 +10,7 @@ $sy=$_REQUEST['sy'];
 	
 	mysqli_query($con,"update sy set sy='$sy' where sy_id='$id'")or die(mysqli_error());
 	echo "<script type='text/javascript'>alert('Successfully updated a room!');</script>";	
-	echo "<script>document.location='sy.php'</script>";  
+	echo "<script>document.location='mainte_sy.php'</script>";  
 }	
 	
 ?>
