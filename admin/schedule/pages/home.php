@@ -270,21 +270,19 @@ if (!($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Scheduler')) {
               </div>
               <div class="modal-body">
 			  <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
-                
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="name">Faculty</label>
 					<div class="col-lg-10">
-					<select class="select2" name="faculty" style="width:90%!important" required>
-								  <?php 
-								  
-									$query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
-									  while($row=mysqli_fetch_array($query2)){
-								  ?>
-										<option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
-								  <?php }
-									
-								  ?>
-								</select>
+						<select class="select2" name="faculty" style="width:90%!important" required>
+							<?php 
+								$query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
+									while($row=mysqli_fetch_array($query2)){
+								?>
+									<option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
+								<?php }
+								
+							?>
+						</select>
 					</div>
 				</div> 
 				

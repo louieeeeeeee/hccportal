@@ -171,27 +171,27 @@ var clockElement = document.getElementById('clock');
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <!-- Add your modal form here -->
-        <form>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter your name">
-          </div>
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-          </div>
-          <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" class="form-control" id="date">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Schedule</button>
-      </div>
-    </div>
+      <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
+        <div class="form-group">
+            <label class="control-label col-lg-2" for="name">Faculty</label>
+            <div class="col-lg-10">
+                <select class="select2" name="faculty" style="width:90%!important" required>
+                    <?php 
+                        $query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
+                            while($row=mysqli_fetch_array($query2)){
+                        ?>
+                            <option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
+                        <?php }
+                        
+                    ?>
+                </select>
+            </div>
+        </div> 
+        </div><hr>
+        <div class="modal-footer">
+        <button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+		</form>
   </div>
 </div
