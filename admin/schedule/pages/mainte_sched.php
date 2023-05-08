@@ -88,7 +88,7 @@ error_reporting(0);
 	</nav>
     <div class="wrapper ">
       <div class="content-wrapper">
-        <div class="container" style="background-color: rgba(128, 128, 128, 0.5);
+        <div class="container" style="background-color: rgba(128, 128, 128, 1);
 border-radius: 10px;padding-top:20px;">
           <section class="content">
             <div class="row">
