@@ -135,7 +135,7 @@ include('../dist/includes/dbcon.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-                <button type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#btn-teacher">
+                <button type="button" class="btn btn-sq-lg mx-auto" id="btn-teacher" data-toggle="modal" data-target="#btn-teacher">
                     <i class="fas fa-calendar-alt fa-6x"></i>
                     <div class="btn-label">Teacher</div>
                 </button>
@@ -284,7 +284,7 @@ var clockElement = document.getElementById('clock');
 <script>
     $(document).ready(function() {
         $('.select2').select2({
-            dropdownParent: $("#faculty"),
+            dropdownParent: $("#btn-teacher"),
             minimumResultsForSearch: -1,
             containerCssClass: 'select2-bootstrap4-container',
             dropdownCssClass: 'select2-bootstrap4-dropdown',
