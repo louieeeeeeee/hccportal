@@ -67,7 +67,7 @@
 				
 				$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
 					
-				while($row=mysqli_fetch_assoc($query)){
+				while($row=mysqli_fetch_array($query)){
 						$id=$row['time_id'];
 						$start=date("h:i a",strtotime($row['time_start']));
 						$end=date("h:i a",strtotime($row['time_end']));
@@ -87,7 +87,7 @@
 								{
 									$query1=mysqli_query($con,"select * from schedule natural join faculty where day='m' and schedule.cys='$class' and time_id='$id' and settings_id='$sid'")or die(mysqli_error($con));
 								}
-										$row1=mysqli_fetch_assoc($query1);
+										$row1=mysqli_fetch_array($query1);
 										$id1=$row1['sched_id'];
 										$count=mysqli_num_rows($query1);
 										$encode=$row1['encoded_by'];
@@ -106,9 +106,10 @@
 										}
 										else
 										{
+											echo $row1['subject_code'];
 										$test = "select * from subjects where subject = '".$row1['subject_code']."'";
 										$query3=mysqli_query($con,$test)or die(mysqli_error($con));
-										$row3=mysqli_fetch_assoc($query3);
+										$row3=mysqli_fetch_array($query3);
 										echo $test;
 											echo '
 											<div class="show">
