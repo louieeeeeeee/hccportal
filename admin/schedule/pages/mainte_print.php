@@ -188,7 +188,7 @@ var clockElement = document.getElementById('clock');
         <div class="form-group">
             <label class="control-label col-lg-2" for="name">Faculty</label>
             <div class="col-lg-10">
-                <select class="select2" name="faculty" style="width:90%!important;z-index: 999999 !important;" required>
+                <select class="select2" name="faculty" style="width:90%!important;" required>
                     <?php 
                         $query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
                             while($row=mysqli_fetch_array($query2)){
@@ -283,6 +283,19 @@ var clockElement = document.getElementById('clock');
 
 <script>
     $(document).ready(function() {
-        $('.select2').select2();
+        $('.select2').select2({
+            dropdownParent: $("#btn-teacher"),
+            minimumResultsForSearch: -1,
+            containerCssClass: 'select2-bootstrap4-container',
+            dropdownCssClass: 'select2-bootstrap4-dropdown',
+            dropdownAutoWidth: true,
+            width: '100%',
+            theme: 'bootstrap4',
+            placeholder: "Select a faculty member",
+            allowClear: true,
+            dropdownPosition: 'below',
+            dropdownParent: $("#btn-teacher"),
+            dropdownCss: { zIndex: 9999 },
+        });
     });
 </script>
