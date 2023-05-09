@@ -106,11 +106,11 @@
 										}
 										else
 										{
-											echo $row1['subject_code'];
+											//echo $row1['subject_code'];
 										$test = "select * from subjects where subject = '".$row1['subject_code']."'";
 										$query3=mysqli_query($con,$test)or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
-										echo $test;
+										//echo $test;
 											echo '
 											<div class="show">
 											<div style="background-color: '.$row3["subjcolor"].';">
