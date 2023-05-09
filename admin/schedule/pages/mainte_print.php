@@ -135,7 +135,7 @@ include('../dist/includes/dbcon.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-                <button type="button" class="btn btn-sq-lg mx-auto" id="btn-teacher" data-toggle="modal" data-target="#btn-teacher">
+                <button type="button" class="btn btn-sq-lg mx-auto" data-toggle="modal" data-target="#searcht">
                     <i class="fas fa-calendar-alt fa-6x"></i>
                     <div class="btn-label">Teacher</div>
                 </button>
@@ -175,40 +175,43 @@ var clockElement = document.getElementById('clock');
 
 
 <!-- Print for Faculty -->
-<div class="modal fade" id="btn-teacher" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Seach for Faculty</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
-        <div class="form-group">
-            <label class="control-label col-lg-2" for="name">Faculty</label>
-            <div class="col-lg-10">
-                <select class="select2" name="faculty" id="faculty" style="width:90%!important;" required>
-                    <?php 
-                        $query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
-                            while($row=mysqli_fetch_array($query2)){
-                        ?>
-                            <option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
-                        <?php }
-                        
-                    ?>
-                </select>
+<div id="searcht" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+	  <div class="modal-content" style="height:auto">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span></button>
+                <h4 class="modal-title">Search Faculty Schedule</h4>
+              </div>
+              <div class="modal-body">
+			  <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
+				<div class="form-group">
+					<label class="control-label col-lg-2" for="name">Faculty</label>
+					<div class="col-lg-10">
+						<select class="select2" name="faculty" style="width:90%!important" required>
+							<?php 
+								$query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
+									while($row=mysqli_fetch_array($query2)){
+								?>
+									<option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
+								<?php }
+								
+							?>
+						</select>
+					</div>
+				</div> 
+				
+				
+              </div><hr>
+              <div class="modal-footer">
+				<button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+			  </form>
             </div>
-        </div> 
-        <hr>
-        <div class="modal-footer">
-        <button type="submit" name="search" class="btn btn-primary">Display Schedule</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-		</form>
-    </div>
-  </div>
-</div>
+			
+        </div><!--end of modal-dialog-->
+ </div>
 
 
 <!-- Print for Class -->
@@ -283,19 +286,6 @@ var clockElement = document.getElementById('clock');
 
 <script>
     $(document).ready(function() {
-        $('.select2').select2({
-            dropdownParent: $("#btn-teacher"),
-            minimumResultsForSearch: -1,
-            containerCssClass: 'select2-bootstrap4-container',
-            dropdownCssClass: 'select2-bootstrap4-dropdown',
-            dropdownAutoWidth: true,
-            width: '100%',
-            theme: 'bootstrap4',
-            placeholder: "Select a faculty member",
-            allowClear: true,
-            dropdownPosition: 'below',
-            dropdownParent: $("#btn-teacher"),
-            dropdownCss: { zIndex: 9999 },
-        });
+        $('.select2').select2();
     });
 </script>
