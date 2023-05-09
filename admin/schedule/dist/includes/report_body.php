@@ -75,10 +75,9 @@
 							  <tr >
 								<td class="first"><?php echo $start."-".$end;?></td>
 								<td><?php 
-								$test = "select * from schedule natural join faculty where day='m' and schedule.facultyid='$member' and time_id='$id' and settings_id='$sid'";
 								if ($member<>"")
 								{
-									$query1=mysqli_query($con,$test)or die(mysqli_error($con));
+									$query1=mysqli_query($con,"select * from schedule natural join faculty where day='m' and schedule.facultyid='$member' and time_id='$id' and settings_id='$sid'")or die(mysqli_error($con));
 								}
 								elseif ($room<>"")
 								{
@@ -88,7 +87,6 @@
 								{
 									$query1=mysqli_query($con,"select * from schedule natural join faculty where day='m' and schedule.cys='$class' and time_id='$id' and settings_id='$sid'")or die(mysqli_error($con));
 								}
-								echo $test;
 										$row1=mysqli_fetch_array($query1);
 										$id1=$row1['sched_id'];
 										$count=mysqli_num_rows($query1);
@@ -108,8 +106,10 @@
 										}
 										else
 										{
-										$query3=mysqli_query($con,"select * from subjects where subject = '".$row1['subject_code']."'")or die(mysqli_error($con));
+										$test = "select * from subjects where subject = '".$row1['subject_code']."'";
+										$query3=mysqli_query($con,$test)or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
+										echo $test;
 											echo '
 											<div class="show">
 											<div style="background-color: '.$row3["subjcolor"].';">
