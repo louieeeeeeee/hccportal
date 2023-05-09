@@ -108,7 +108,7 @@
 										{
 										$test = "select * from subjects where subject = '".$row1['subject_code']."'";
 										$query3=mysqli_query($con,$test)or die(mysqli_error($con));
-										$row3=mysqli_fetch_array($query3);
+										$row3=mysqli_fetch_assoc($query3);
 										echo $test;
 											echo '
 											<div class="show">
