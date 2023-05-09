@@ -67,7 +67,7 @@
 				
 				$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
 					
-				while($row=mysqli_fetch_array($query)){
+				while($row=mysqli_fetch_assoc($query)){
 						$id=$row['time_id'];
 						$start=date("h:i a",strtotime($row['time_start']));
 						$end=date("h:i a",strtotime($row['time_end']));
