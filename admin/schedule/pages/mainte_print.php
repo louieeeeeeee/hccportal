@@ -279,6 +279,6 @@ var clockElement = document.getElementById('clock');
 
     <script>
     $(document).ready(function() {
-        $('.select2').select2();
+        $('#faculty').select2();
     });
 </script>
