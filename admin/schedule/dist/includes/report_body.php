@@ -87,6 +87,7 @@
 								{
 									$query1=mysqli_query($con,"select * from schedule natural join faculty where day='m' and schedule.cys='$class' and time_id='$id' and settings_id='$sid'")or die(mysqli_error($con));
 								}
+								echo $query1;
 										$row1=mysqli_fetch_array($query1);
 										$id1=$row1['sched_id'];
 										$count=mysqli_num_rows($query1);
