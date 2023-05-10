@@ -116,7 +116,7 @@
 											<div style="background-color: '.$row3["subjcolor"].';">
 											<ul>
 												<li class="options" style="display:'.$options.'">
-													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+													<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
 														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 												</li>
 											
@@ -175,7 +175,7 @@
 											<div class="show">
 											<ul>
 												<li class="options" style="display:'.$options.'">
-													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+													<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
 														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 												</li></ul>
 											
@@ -232,7 +232,7 @@
 											<div class="show">
 											<ul>
 												<li class="options" style="display:'.$options.'">
-													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+													<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
 														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 												</li></ul>
 											
@@ -371,7 +371,7 @@
 											<div class="show">
 											<ul>
 												<li class="options" style="display:'.$options.'">
-													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+													<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
 														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 												</li></ul>
 											
@@ -426,7 +426,7 @@
 											<div class="show">
 											<ul>
 												<li class="options" style="display:'.$options.'">
-													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+													<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
 														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 												</li></ul>
 											
