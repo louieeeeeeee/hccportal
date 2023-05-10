@@ -9,28 +9,35 @@ endif;?>
 <link rel="stylesheet" href="../dist/css/print.css" media="print">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" charset="utf-8">
-    $(function() {
-        $(".delete").on('click', function() {
-            var element = $(this);
-            var del_id = element.attr("id");
-            var info = 'id=' + del_id;
-            if (confirm("Are you sure you want to delete this?" + del_id)) {
-                $.ajax({
-                    type: "POST",
-                    url: "class_sched_del.php",
-                    data: info,
-                    success: function() {}
-                });
-                $(this).parents(".show").animate({
-                        backgroundColor: "#003"
-                    }, "slow")
-                    .animate({
-                        opacity: "hide"
-                    }, "slow");
-            }
-            return false;
-        });
-    });
+    $(document).ready(function() {
+  $(".delete").on('click', function(event) {
+    event.preventDefault();
+    var element = $(this);
+    var del_id = element.attr("id");
+    var info = 'id=' + del_id;
+    if (confirm("Are you sure you want to delete this?" + del_id)) {
+      $.ajax({
+        type: "POST",
+        url: "class_sched_del.php",
+        data: info,
+        success: function() {
+          element.parents(".show").animate({
+            backgroundColor: "#003"
+          }, "slow")
+          .animate({
+            opacity: "hide"
+          }, "slow");
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+          console.log(jqXHR);
+          console.log(textStatus);
+          console.log(errorThrown);
+        }
+      });
+    }
+  });
+});
+
 </script>
 <style>
 @media print {
