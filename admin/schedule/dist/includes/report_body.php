@@ -42,6 +42,34 @@
   filter: invert(1);
   transform: scale(3.5);
 }
+.button {
+  display: inline-block;
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.button.edit {
+  top: 0;
+  left: 0;
+  background-color: #3498db !important;
+}
+
+.button.delete {
+  top: 0;
+  right: 0;
+  background-color: #e74c3c !important;
+}
+
+.showme {
+  margin-top: 30px;
+  padding-left: 10px;
+}
 
 </style>
 <div class="container mt-5">
@@ -112,22 +140,28 @@
 										$row3=mysqli_fetch_array($query3);
 										//echo $test;
 										echo '
-										<div class="show">
-										  <div style="background-color: '.$row3["subjcolor"].'; position: relative;">
-											<div style="position: absolute; top: 0; right: 0;">
-											  <span><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
-											  <span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
+											<div class="show">
+											<div style="background-color: '.$row3["subjcolor"].';">
+												<ul>
+												<li class="options" style="display:'.$options.'">
+													<div class="button edit">
+													<a href="sched_edit.php?id='.$id1.'" title="Edit">Edit</a>
+													</div>
+													<div class="button delete">
+													<a href="#" id="'.$id1.'" title="Delete">Remove</a>
+													</div>
+												</li>
+												<ul class="showme">
+													<li>'.$row1["subject_code"].'</li>
+													<li class="'.$displayc.'">'.$row1['cys'].'</li>
+													<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
+													<li class="'.$displayr.'">Room '.$row1['room'].'</li>
+													'.$displayrm.'
+												</ul>
+												</ul>
 											</div>
-											<ul>
-											  <li class="showme">
-												<li>'.$row1["subject_code"].'</li>
-												<li class="'.$displayc.'">'.$row1['cys'].'</li>
-												<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
-												<li class="'.$displayr.'">Room '.$row1['room'].'</li>
-												'.$displayrm.'
-											  </ul>
-											</div>
-										  </div>';
+											</div>';
+
 									  
 										}	
 									?>
