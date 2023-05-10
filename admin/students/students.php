@@ -66,7 +66,14 @@ if(isset($_POST['studentDelete'])) {
                   echo "<td>".$row['firstname']."</td>";
                   echo "<td>".$row['lastname']."</td>";
                   echo "<td>".$row['course'].''.$row['year'].''.$row['section']."</td>";
-                  
+                  echo "<td>
+                          <button type='button' class='btn btn-primary btn-sm' onclick=\"window.location.href='updateForm.php?studentid=".urlencode($studentid)."'\">
+                            Update
+                          </button>
+                          <button type='button' class='btn btn-danger btn-sm' onclick='deleteStudent(\"".$row['studentid']."\")'>
+                            Delete
+                          </button>
+                        </td>";
                   echo "</tr>";
                 }
               }
