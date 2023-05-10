@@ -1,14 +1,19 @@
-<?php session_start();
-if(empty($_SESSION['id'])):
-header('Location:../index.php');
-endif;?>
-<?php error_reporting(0);?>
 <!DOCTYPE hmtl>
 <html>
 <head>
-<link rel="stylesheet" href="../dist/css/print.css" media="print">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../dist/css/print.css" media="print">
+</head>
+<body>
+  <?php session_start();
+  if(empty($_SESSION['id'])):
+    header('Location:../index.php');
+  endif;
+  ?>
+  
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript">
     $(document).ready(function() {
   $(".delete").on('click', function(event) {
     event.preventDefault();
@@ -38,7 +43,7 @@ endif;?>
   });
 });
 
-</script>
+  </script>
 <style>
 @media print {
     @page {
