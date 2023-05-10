@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <link rel="stylesheet" href="../dist/css/print.css" media="print">
 </head>
 <body>
@@ -11,8 +12,6 @@
     header('Location:../index.php');
   endif;
   ?>
-  
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
             $(".delete").on('click', function(event) {
