@@ -287,7 +287,7 @@ border-radius: 10px;padding-top:20px;">
                       <button class="btn btn-lg btn-block btn-primary" id="daterange-btn" name="save" type="submit">
                         Save
                       </button>
-					  <button class="btn btn-lg btn-block" id="daterange-btn" type="reset">
+					  <button class="btn btn-lg btn-block" id="daterange-btn" type="reset" onclick="window.location.href='mainte_print.php'">
                        Cancel
                       </button>
 					  
