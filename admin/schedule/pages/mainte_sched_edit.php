@@ -111,47 +111,64 @@ border-radius: 10px;padding-top:20px;">
                     </a>
                     </h4>
                 </div> -->
-               <form method="post" id="reg-form">
-                	<div class="box-body">
-						<div class="row">
-							<div class="col-md-6">
-								<table class="table table-bordered table-striped" style="margin-right:-10px">
-									<thead>
-							  			<tr>
-											<th>Time</th>
-											<th>M</th>
-											<th>W</th>
-											<th>F</th>
-							  			</tr>
-									</thead>					
-									<?php
-											include('../dist/includes/dbcon.php');
-											$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
-												
-											while($row=mysqli_fetch_array($query)){
-													$id=$row['time_id'];
-													$start=date("h:i a",strtotime($row['time_start']));
-													$end=date("h:i a",strtotime($row['time_end']));
-									?>
-									<tr >
-										<td><?php echo $start."-".$end;?></td>
-										<td><input type="checkbox" id="check" name="m[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-										<td><input type="checkbox" id="check" name="w[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-										<td><input type="checkbox" id="check" name="f[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-									</tr>				
-									<?php }?>					  
-								</table>    
-							</div><!--col end -->
-							<div class="col-md-6">
-								<table class="table table-bordered table-striped">
-									<thead>
-									<tr>
-										<th>Time</th>
-										<th>T</th>
-										<th>TH</th>
-										<th>S</th>
-									</tr>
-									</thead>
+                <form method="post" id="reg-form">
+                <div class="box-body">
+				<div class="row">
+					<div class="col-md-6">
+							<table class="table table-bordered table-striped" style="margin-right:-10px">
+							<thead>
+							  <tr>
+								<th>Time</th>
+								<th>M</th>
+								<th>W</th>
+								<th>F</th>
+								
+							  </tr>
+							</thead>
+							
+		<?php
+				include('../dist/includes/dbcon.php');
+				$sched_id=$_REQUEST['id'];
+				$query1=mysqli_query($con,"select * from schedule where sched_id='$sched_id'")or die(mysqli_error());
+						$row1=mysqli_fetch_array($query1);	
+							$time_id=$row1['time_id'];	
+							$day=$row1['day'];	
+							//$day=$row1['day'];	
+
+				$query=mysqli_query($con,"select * from time where days='mwf' order by time_start")or die(mysqli_error());
+				
+				while($row=mysqli_fetch_array($query)){
+						$id=$row['time_id'];
+						$start=date("h:i a",strtotime($row['time_start']));
+						$end=date("h:i a",strtotime($row['time_end']));
+
+					
+		?>
+							  <tr >
+								<td><?php echo $start."-".$end;?></td>
+								<td><input type="checkbox" name="m[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+								<?php if(($id==$time_id) and ($day=='m')) echo "checked"; ?>>
+								</td>
+								<td><input type="checkbox" name="w[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+								<?php if(($id==$time_id) and ($day=='w')) echo "checked"; ?>></td>
+								<td><input type="checkbox" name="f[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+								<?php if(($id==$time_id) and ($day=='f')) echo "checked"; ?>></td>
+								
+							  </tr>
+							
+		<?php }?>					  
+		</table>    
+		</div><!--col end -->
+		<div class="col-md-6">
+			<table class="table table-bordered table-striped">
+								<thead>
+								  <tr>
+									<th>Time</th>
+									<th>T</th>
+									<th>TH</th>
+									
+								  </tr>
+								</thead>
 								
 			<?php
 					include('../dist/includes/dbcon.php');
@@ -164,37 +181,25 @@ border-radius: 10px;padding-top:20px;">
 			?>
 								  <tr >
 									<td><?php echo $start."-".$end;?></td>
-									<td><input type="checkbox" name="t[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
-									<td><input type="checkbox" name="s[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+									<td><input type="checkbox" name="t[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+									<?php if(($id==$time_id) and ($day=='t')) echo "checked"; ?>></td>
+									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+									<?php if(($id==$time_id) and ($day=='th')) echo "checked"; ?>></td>
+									
 								  </tr>
 								
 			<?php }?>					  
 			</table>  
-            <a href="#" class="" id="sentMessage" data-toggle="modal" data-target="#largeModal"></a>
-            <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <b><h3 class="modal-title" id="myModalLabel">Result</h4></b>
-                        </div>
-                        <div class="modal-body">
-                            <div class="result" id="form"></div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-						
-			
+			<div class="result" id="form">
+					  </div>			
          </div><!--col end-->           
         </div><!--row end-->        
+					
+			
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
             </div><!-- /.col (right) -->
+
         
         <div class="col-md-3">
             <div class="box box-warning">
