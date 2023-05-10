@@ -332,7 +332,7 @@ include 'home_updateModal.php';
 
 	$(document).ready(function(){
 
-$(".result").load("cys_list.php");
+//$(".result").load("cys_list.php");
 
 
 });
