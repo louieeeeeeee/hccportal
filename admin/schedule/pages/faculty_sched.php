@@ -11,38 +11,35 @@
     header('Location:../index.php');
   endif;
   ?>
-  
-  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {
-  $(".delete").on('click', function(event) {
-    event.preventDefault();
-    var element = $(this);
-    var del_id = element.attr("id");
-    var info = 'id=' + del_id;
-    if (confirm("Are you sure you want to delete this?" + del_id)) {
-      $.ajax({
-        type: "POST",
-        url: "class_sched_del.php",
-        data: info,
-        success: function() {
-          element.parents(".show").animate({
-            backgroundColor: "#003"
-          }, "slow")
-          .animate({
-            opacity: "hide"
-          }, "slow");
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-          console.log(jqXHR);
-          console.log(textStatus);
-          console.log(errorThrown);
-        }
-      });
-    }
-  });
-});
-
+            $(".delete").on('click', function(event) {
+                event.preventDefault();
+                var element = $(this);
+                var del_id = element.attr("id");
+                var info = 'id=' + del_id;
+                if (confirm("Are you sure you want to delete this?" + del_id)) {
+                    $.ajax({
+                        type: "POST",
+                        url: "class_sched_del.php",
+                        data: info,
+                        success: function() {
+                            element.parents(".show").animate({
+                                backgroundColor: "#003"
+                            }, "slow")
+                            .animate({
+                                opacity: "hide"
+                            }, "slow");
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.log(jqXHR);
+                            console.log(textStatus);
+                            console.log(errorThrown);
+                        }
+                    });
+                }
+            });
+        });
   </script>
 <style>
 @media print {
