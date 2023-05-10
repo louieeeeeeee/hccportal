@@ -7,7 +7,7 @@ endif;?>
 <html>
 <head>
 <link rel="stylesheet" href="../dist/css/print.css" media="print">
-<script src="../dist/js/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" charset="utf-8">
     $(function() {
         $(".delete").on('click', function() {
