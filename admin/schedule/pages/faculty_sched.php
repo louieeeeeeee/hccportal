@@ -37,7 +37,7 @@ $(".delete").on('click',function(){
 var element = $(this);
 var del_id = element.attr("id");
 var info = 'id=' + del_id;
-if(confirm("Are you sure you want to delete this?"))
+if(confirm("Are you sure you want to delete this?" + del_id))
 {
  $.ajax({
    type: "POST",
