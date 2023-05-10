@@ -9,7 +9,19 @@ if (!($_SESSION['role'] == 'Admin')) {
  /** STUDENT DELETE  */
 if(isset($_POST['studentDelete'])) {
 
-  
+  $result = mysqli_query($conn, "DELETE FROM students WHERE studentid='".$_POST['studentid']."'");
+  $result = mysqli_query($conn, "DELETE FROM users WHERE userid='".$_POST['studentid']."'");
+
+  if ($result) {
+    echo '<script type="text/javascript">setTimeout(function () {
+      swal("Student Succesfully Removed!","","success");}, 200);
+      </script>';
+    header("Refresh:1");
+  } else {
+    echo '<script type="text/javascript">setTimeout(function () {
+      swal("Something went wrong, Please try again.","","error");}, 200);</script>';
+      header("Refresh:1");
+  }
 }
 
 
@@ -99,9 +111,15 @@ function deleteStudent(studentid) {
       type: "POST",
       url: "delete_student.php",
       data: { studentid: studentid },
-      success: function() {
-        // Refresh page after deletion
-        location.reload();
+      success: function(response) {
+        // Show success message and refresh page after deletion
+        swal({
+          title: "Success",
+          text: "Student has been successfully deleted.",
+          icon: "success",
+        }).then(function() {
+          location.reload();
+        });
       }
     });
   }
