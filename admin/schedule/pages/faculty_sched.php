@@ -13,8 +13,9 @@
   endif;
   ?>
   <script type="text/javascript">
+    var $j = jQuery.noConflict();
     $(document).ready(function() {
-            $(".delete").on('click', function(event) {
+            $("$j.delete").on('click', function(event) {
                 event.preventDefault();
                 var element = $(this);
                 var del_id = element.attr("id");
