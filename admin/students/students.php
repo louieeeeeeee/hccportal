@@ -9,19 +9,7 @@ if (!($_SESSION['role'] == 'Admin')) {
  /** STUDENT DELETE  */
 if(isset($_POST['studentDelete'])) {
 
-  $result = mysqli_query($conn, "DELETE FROM students WHERE studentid='".$_POST['studentid']."'");
-  $result = mysqli_query($conn, "DELETE FROM users WHERE userid='".$_POST['studentid']."'");
-
-  if ($result) {
-    echo '<script type="text/javascript">setTimeout(function () {
-      swal("Student Succesfully Removed!","","success");}, 200);
-      </script>';
-    header("Refresh:1");
-  } else {
-    echo '<script type="text/javascript">setTimeout(function () {
-      swal("Something went wrong, Please try again.","","error");}, 200);</script>';
-      header("Refresh:1");
-  }
+  
 }
 
 
@@ -67,17 +55,14 @@ if(isset($_POST['studentDelete'])) {
                   echo "<td>".$row['lastname']."</td>";
                   echo "<td>".$row['course'].''.$row['year'].''.$row['section']."</td>";
                   echo "<td>
-                    <button type='button' class='btn btn-primary btn-sm' onclick=\"window.location.href='updateForm.php?studentid=".urlencode($studentid)."'\">
-                      Update
-                    </button>
-                    <button type='button' class='btn btn-danger btn-sm' data-bs-toggle='modal' data-bs-target='#studentDelete".$row['studentid']."'>
-                      Delete
-                    </button>
-                  </td>";
+                          <button type='button' class='btn btn-primary btn-sm' onclick=\"window.location.href='updateForm.php?studentid=".urlencode($studentid)."'\">
+                            Update
+                          </button>
+                          <button type='button' class='btn btn-danger btn-sm' onclick='deleteStudent(\"".$row['studentid']."\")'>
+                            Delete
+                          </button>
+                        </td>";
                   echo "</tr>";
-
-                  //include 'deleteModal.php';
-                  //include 'updateModal.php';
                 }
               }
 
@@ -106,9 +91,26 @@ $(document).ready(function () {
         ],
     });
 });
+
+function deleteStudent(studentid) {
+  if(confirm("Are you sure you want to delete this student?")) {
+    // Send AJAX request to delete row
+    $.ajax({
+      type: "POST",
+      url: "delete_student.php",
+      data: { studentid: studentid },
+      success: function() {
+        // Refresh page after deletion
+        location.reload();
+      }
+    });
+  }
+}
+
     if ( window.history.replaceState ) {
       window.history.replaceState( null, null, window.location.href );
     }
+    
   </script>
 </body>
 </html>
