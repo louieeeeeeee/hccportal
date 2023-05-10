@@ -31,6 +31,44 @@ if (isset($_GET['studentid'])) {
 
   }
 }
+
+/** STUDENT UPDATE */
+if(isset($_POST['studentUpdate'])) {
+  $components = explode('-', $_POST['txtcourse']);
+
+  $txtstudentid = $_POST['txtstudentid'];
+  $txtstudentfname = $_POST['txtstudentfname'];
+  $txtstudentlname = $_POST['txtstudentlname'];
+  $txtaddress = $_POST['txtaddress'];
+  $txtstudentcontact = $_POST['txtstudentcontact'];
+  $txtbirthdate = $_POST['txtbirthdate'];
+  $txtstudentemail = $_POST['txtstudentemail'];
+  $txtcourse = $components[0];
+  $txtyear = $components[1];
+  $txtsection = $components[2];;
+
+    $sql = "UPDATE students SET
+    firstname = '$txtstudentfname',
+    lastname  = '$txtstudentlname',
+    address   = '$txtaddress',
+    contact   = '$txtstudentcontact',
+    birthday  = '$txtbirthdate',
+    email     = '$txtstudentemail',
+    course    = '$txtcourse',
+    year      = '$txtyear',
+    section   = '$txtsection' WHERE studentid = '$txtstudentid'";
+
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+      echo '<script type="text/javascript">setTimeout(function () {
+        swal("Student Information Succesfully Updated","","success");}, 200);
+        </script>';
+      header("Refresh:1");
+    } else {
+      echo '<script type="text/javascript">setTimeout(function () {
+        swal("Something went wrong, Please try again.","","error");}, 200);</script>';
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,8 +114,7 @@ if (isset($_GET['studentid'])) {
   <div class="col-md">
     <label class="fw-bold">Section: </label>
       <select id="addDept" name="txtcourse" class="form-control js-select2" required>
-      <option selected value="<?php echo $row["course"].$row["year"].$row["section"] ?>"><?php echo $row["course"].$row["year"].$row["section"] ?></option>
-        <option></option>
+      <option selected value="<?php echo $row["course"].'-'.$row["year"].'-'.$row["section"] ?>"><?php echo $row["course"].$row["year"].$row["section"] ?></option>
       </select>
   </div>
 </div>

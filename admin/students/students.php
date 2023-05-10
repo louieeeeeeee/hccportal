@@ -24,41 +24,7 @@ if(isset($_POST['studentDelete'])) {
   }
 }
 
-/** STUDENT UPDATE */
-if(isset($_POST['studentUpdate'])) {
-  $txtstudentid = $_POST['txtstudentid'];
-  $txtstudentfname = $_POST['txtstudentfname'];
-  $txtstudentlname = $_POST['txtstudentlname'];
-  $txtaddress = $_POST['txtaddress'];
-  $txtstudentcontact = $_POST['txtstudentcontact'];
-  $txtbirthdate = $_POST['txtbirthdate'];
-  $txtstudentemail = $_POST['txtstudentemail'];
-  $txtcourse = $_POST['txtcourse'];
-  $txtyear = $_POST['txtyear'];
-  $txtsection = $_POST['txtsection'];
 
-    $sql = "UPDATE students SET
-    firstname = '$txtstudentfname',
-    lastname  = '$txtstudentlname',
-    address   = '$txtaddress',
-    contact   = '$txtstudentcontact',
-    birthday  = '$txtbirthdate',
-    email     = '$txtstudentemail',
-    course    = '$txtcourse',
-    year      = '$txtyear',
-    section   = '$txtsection' WHERE studentid = '$txtstudentid'";
-
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-      echo '<script type="text/javascript">setTimeout(function () {
-        swal("Student Information Succesfully Updated","","success");}, 200);
-        </script>';
-      header("Refresh:1");
-    } else {
-      echo '<script type="text/javascript">setTimeout(function () {
-        swal("Something went wrong, Please try again.","","error");}, 200);</script>';
-    }
-  }
 
 ?>
 <!DOCTYPE html>
