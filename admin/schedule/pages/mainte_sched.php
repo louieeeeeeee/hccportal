@@ -183,7 +183,7 @@ border-radius: 10px;padding-top:20px;">
 		  <div class="result" id="form"></div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.href='mainte_sched.php'">Close</button>
           </div>
         </div>
       </div>
