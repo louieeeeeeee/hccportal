@@ -7,52 +7,44 @@ endif;?>
 <html>
 <head>
 <link rel="stylesheet" href="../dist/css/print.css" media="print">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-</head>
+<script src="../dist/js/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+    $(function() {
+        $(".delete").on('click', function() {
+            var element = $(this);
+            var del_id = element.attr("id");
+            var info = 'id=' + del_id;
+            if (confirm("Are you sure you want to delete this?" + del_id)) {
+                $.ajax({
+                    type: "POST",
+                    url: "class_sched_del.php",
+                    data: info,
+                    success: function() {}
+                });
+                $(this).parents(".show").animate({
+                        backgroundColor: "#003"
+                    }, "slow")
+                    .animate({
+                        opacity: "hide"
+                    }, "slow");
+            }
+            return false;
+        });
+    });
+</script>
 <style>
-    @media print 
-{
-   @page
-   {
-    size: 8in 13in;
-    size: portrait;
-  }
+@media print {
+    @page {
+        size: 8in 13in;
+        size: portrait;
+    }
 }
-  </style>
+</style>
+</head>
 <body>
 <?php 
 include('../dist/includes/dbcon.php');
  ?>
- <script type="text/javascript" charset="utf-8">
-			jQuery(document).ready(function() {
-			
-		
-			
-			});
-
-      $(function() {
-$(".delete").on('click',function(){
-  console.log('ssacs')
-var element = $(this);
-var del_id = element.attr("id");
-var info = 'id=' + del_id;
-if(confirm("Are you sure you want to delete this?" + del_id))
-{
-  jQuery.ajax({
-   type: "POST",
-   url: "class_sched_del.php",
-   data: info,
-   success: function(){
- }
-});
-  $(this).parents(".show").animate({ backgroundColor: "#003" }, "slow")
-  .animate({ opacity: "hide" }, "slow");
- }
-return false;
-});
-}); 
-			</script>
  
  <div class="wrapper_print">
  <?php 
@@ -62,17 +54,17 @@ $member=$_POST['faculty'];
 $sid=$_SESSION['settings'];
 
 $search=mysqli_query($con,"select * from faculty where facultyid='$member'")or die(mysqli_error($con));
-	$row=mysqli_fetch_array($search);
+    $row=mysqli_fetch_array($search);
 
 $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or die(mysqli_error($con));
-	$rows=mysqli_fetch_array($settings);
+    $rows=mysqli_fetch_array($settings);
 
-	include('../dist/includes/report_header.php');
-	include('../dist/includes/report_body.php');
-	include('../dist/includes/report_footer.php');
+    include('../dist/includes/report_header.php');
+    include('../dist/includes/report_body.php');
+    include('../dist/includes/report_footer.php');
 ?> 
+  </div>
 
-<script src="jquery.js"></script>
   </body>
 
   </html>
