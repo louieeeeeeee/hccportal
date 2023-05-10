@@ -17,7 +17,7 @@ include('../dist/includes/dbcon.php');
 				VALUES('$course','$year','$section')")or die(mysqli_error());
 				
 				echo "<script type='text/javascript'>alert('Successfully added a Section!');</script>";	
-				echo "<script>document.location='home.php'</script>";
+				echo "<script>document.location='mainte_sched.php'</script>";
 	
 }					  
 	

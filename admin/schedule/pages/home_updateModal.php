@@ -149,7 +149,7 @@ function addCourse() {
                 data : {abbrev:abbrev, degree:degree},
                 success: function (data) {
                 alert("Succesfully Added a Course!");
-                document.location='home.php'
+                document.location='mainte_sched.php'
                 }
             });
   }
