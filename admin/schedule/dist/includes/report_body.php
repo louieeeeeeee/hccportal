@@ -111,38 +111,25 @@
 										$query3=mysqli_query($con,$test)or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
 										//echo $test;
-										echo '
-    <div class="show">
-        <div style="background-color: '.$row3["subjcolor"].';">
-            <ul>
-                <li class="options" style="display:'.$options.'">
-                    <a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a>
-                    <a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a>
-                </li>
-            </ul>
-            <ul class="showme">
-                <li>'.$row1["subject_code"].'</li>
-                <li class="'.$displayc.'">'.$row1['cys'].'</li>
-                <li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>                                        
-                <li class="'.$displayr.'">Room '.$row1['room'].'</li>
-                '.$displayrm.'
-            </ul>
-        </div>
-    </div>';
-
-// CSS for edit and delete buttons
-echo '<style>
-    .options a {
-        display: inline-block;
-        position: absolute;
-        top: 0;
-    }
-    .options .delete {
-        right: 0;
-    }
-</style>';
-
-									  
+											echo '
+											<div class="show">
+											<div style="background-color: '.$row3["subjcolor"].';">
+											<ul>
+												<li class="options" style="display:'.$options.'">
+													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
+												</li>
+											
+											<ul >
+											<li class="showme">
+												<li>'.$row1["subject_code"].'</li>
+												<li class="'.$displayc.'">'.$row1['cys'].'</li>
+												<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
+												<li class="'.$displayr.'">Room '.$row1['room'].'</li>
+													'.$displayrm.'
+											</ul>
+											</div>
+											</div>';
 										}	
 									?>
 								</td>
@@ -330,7 +317,6 @@ echo '<style>
 											<ul>
 												<li class="options" style="display:'.$options.'">
 													<span style="float:left;"><a href="sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
-
 													<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 												</li></ul>
 											
