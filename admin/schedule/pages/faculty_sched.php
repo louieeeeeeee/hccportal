@@ -39,7 +39,7 @@ var del_id = element.attr("id");
 var info = 'id=' + del_id;
 if(confirm("Are you sure you want to delete this?" + del_id))
 {
- $.ajax({
+  jQuery.ajax({
    type: "POST",
    url: "class_sched_del.php",
    data: info,
