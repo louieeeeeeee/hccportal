@@ -7,7 +7,7 @@ endif;?>
 <html>
 <head>
 <link rel="stylesheet" href="../dist/css/print.css" media="print">
-<script src="../dist/js/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 <style>
