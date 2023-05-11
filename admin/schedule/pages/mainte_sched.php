@@ -211,11 +211,12 @@ border-radius: 10px;padding-top:20px;">
 							<label for="date">Teacher</label>
 							
 								<select class="form-control select2" name="teacher" required>
+								<option value="" selected>-</option>
 								  <?php 
 									$query2=mysqli_query($con,"select * from faculty where role='Faculty' OR role='Scheduler' order by lastname")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
 								  ?>
-								  <option value="" selected>-</option>
+								  
 										<option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
 								  <?php }
 									
