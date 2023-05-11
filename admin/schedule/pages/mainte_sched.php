@@ -501,12 +501,10 @@ $(".result").load("cys_list.php");
 </script>
 <script>
 $(".uncheck").click(function () {
-	alert("Button clicked!");
 	$('input:checkbox').removeAttr('checked');
-	$('select').val(function() {
-  		return $(this).find('option:first').val();
-	});		
+	$('select').val('');
 });
+
 
 
 </script>
