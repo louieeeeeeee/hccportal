@@ -259,7 +259,7 @@ border-radius: 10px;padding-top:20px;">
 								  ?>
 								</select>	
 								
-						  </div><!-- /.form group -->
+						  </div>
 						  <div class="form-group">
 							<label for="date">Room</label>
 							<select class="form-control select2" name="room" required>
@@ -273,8 +273,8 @@ border-radius: 10px;padding-top:20px;">
 								  <?php }
 									
 								  ?>
-								</select>	
-						  </div><!-- /.form group -->
+							</select>	
+						  </div>
 
 						  <div class="form-group">
 							<label for="class">Class Mode</label><br>
@@ -503,9 +503,10 @@ $(".result").load("cys_list.php");
 $(".uncheck").click(function () {
 	$('input:checkbox').removeAttr('checked');
 	$('select').val(function() {
-  		return $(this).find('option[selected]').val();
+  		return $(this).find('option:first').val();
 	});		
 });
+
 
 </script>
 	
