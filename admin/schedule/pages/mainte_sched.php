@@ -145,23 +145,21 @@ border-radius: 10px;padding-top:20px;">
 							<div class="col-md-6">
 								<table class="table table-bordered table-striped">
 									<thead>
-									<tr>
-										<th>Time</th>
-										<th>T</th>
-										<th>TH</th>
-										<th>S</th>
-									</tr>
-									</thead>
-								
-			<?php
-					include('../dist/includes/dbcon.php');
-					$query=mysqli_query($con,"select * from time where days='tth' order by time_start")or die(mysqli_error());
-						
-					while($row=mysqli_fetch_array($query)){
-							$id=$row['time_id'];
-							$start=date("h:i a",strtotime($row['time_start']));
-							$end=date("h:i a",strtotime($row['time_end']));
-			?>
+										<tr>
+											<th>Time</th>
+											<th>T</th>
+											<th>TH</th>
+											<th>S</th>
+										</tr>
+									</thead>				
+									<?php
+										include('../dist/includes/dbcon.php');
+										$query=mysqli_query($con,"select * from time where days='tth' order by time_start")or die(mysqli_error());			
+										while($row=mysqli_fetch_array($query)){
+											$id=$row['time_id'];
+											$start=date("h:i a",strtotime($row['time_start']));
+											$end=date("h:i a",strtotime($row['time_end']));
+									?>
 								  <tr >
 									<td><?php echo $start."-".$end;?></td>
 									<td><input type="checkbox" name="t[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
@@ -169,9 +167,14 @@ border-radius: 10px;padding-top:20px;">
 									<td><input type="checkbox" name="s[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
 								  </tr>
 								
-			<?php }?>					  
-			</table>  
-			<a href="#" class="" id="sentMessage" data-toggle="modal" data-target="#largeModal"></a>
+									<?php }?>					  
+								</table>  
+         					</div><!--col end-->           
+        				</div><!--row end-->        
+                	</div><!-- /.box-body -->
+              	</div><!-- /.box -->
+            </div><!-- /.col (right) -->
+<a href="#" class="" id="sentMessage" data-toggle="modal" data-target="#largeModal"></a>
     <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -188,16 +191,6 @@ border-radius: 10px;padding-top:20px;">
         </div>
       </div>
     </div>
-						
-			
-         </div><!--col end-->           
-        </div><!--row end-->        
-					
-			
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col (right) -->
-            
             <div class="col-md-3">
               <div class="box box-warning">
                
@@ -211,7 +204,7 @@ border-radius: 10px;padding-top:20px;">
 							<label for="date">Teacher</label>
 							
 								<select class="form-control select2" name="teacher" required>
-								<option value="" selected>-</option>
+								<option value="" selected></option>
 								  <?php 
 									$query2=mysqli_query($con,"select * from faculty where role='Faculty' OR role='Scheduler' order by lastname")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
@@ -228,7 +221,7 @@ border-radius: 10px;padding-top:20px;">
 							<label for="date">Subject</label>
 							
 								<select class="form-control select2" name="subject" required>
-								<option value="" selected>-</option>
+								<option value="" selected></option>
 								  <?php 
 									$query2=mysqli_query($con,"select * from subjects order by subjectid")or die(mysqli_error($con));
 									 while($row=mysqli_fetch_array($query2)){
@@ -245,7 +238,7 @@ border-radius: 10px;padding-top:20px;">
 							<a href="#" class="btn btn-sm btn-primary" id="sentMessage" data-toggle="modal" class="modifyModal" data-target="#modifyModal" onClick="handleSelectChange(event)">Modify</a>
 								
 							<select class="form-control select2" id="cys" name="cys" required>
-							<option value="" selected>-</option>
+							<option value="" selected></option>
 								  <?php 
 									$query2=mysqli_query($con,"select * from cys")or die(mysqli_error($con));
 									 while($row=mysqli_fetch_array($query2)){
@@ -263,7 +256,7 @@ border-radius: 10px;padding-top:20px;">
 						  <div class="form-group">
 							<label for="date">Room</label>
 							<select class="form-control select2" name="room" required>
-							<option value="" selected>-</option>
+							<option value="" selected></option>
 								  <?php 
 									$query2=mysqli_query($con,"select * from room order by room")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
