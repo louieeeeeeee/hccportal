@@ -451,9 +451,6 @@ border-radius: 10px;padding-top:20px;">
 include 'home_updateModal.php';
 ?>
 	<script type="text/javascript">
-	
-	
-	
 	function handleSelectChange(event) {
 		event.preventDefault();
 		var value = document.getElementById("cys").options[document.getElementById("cys").selectedIndex ].value;
@@ -468,10 +465,7 @@ include 'home_updateModal.php';
 	}
 
 	$(document).ready(function(){
-
-$(".result").load("cys_list.php");
-
-
+		$(".result").load("cys_list.php");
 });
 
 
@@ -502,7 +496,17 @@ $(".result").load("cys_list.php");
 <script>
 $(".uncheck").click(function () {
 	$('input:checkbox').removeAttr('checked');
-	$('select').val('');
+	// Loop through all Select2 elements on the page
+$('select').each(function() {
+  var $select = $(this);
+  
+  // Check if the element is a Select2 element
+  if ($select.hasClass('select2-hidden-accessible')) {
+    // Reset the Select2 element's value
+    $select.val([]).trigger('change.select2');
+  }
+});
+
 });
 
 
