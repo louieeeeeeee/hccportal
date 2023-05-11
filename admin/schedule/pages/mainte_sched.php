@@ -302,7 +302,7 @@ border-radius: 10px;padding-top:20px;">
                       <button class="btn btn-lg btn-primary" id="daterange-btn" name="save" type="submit">
                         Save
                       </button>
-					  <button class="uncheck btn btn-lg btn-success" type="reset">Uncheck All</button>
+					  <button class="uncheck btn btn-lg btn-success" type="reset">Reset</button>
 					  
 					  
                    </div>
@@ -501,7 +501,10 @@ $(".result").load("cys_list.php");
 </script>
 <script>
 $(".uncheck").click(function () {
-			$('input:checkbox').removeAttr('checked');
+	$('input:checkbox').removeAttr('checked');
+	$('select').val(function() {
+  		 $(this).find('option[selected]').val();
+	});		
 });
 </script>
 	
