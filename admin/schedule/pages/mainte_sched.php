@@ -503,9 +503,10 @@ $(".result").load("cys_list.php");
 $(".uncheck").click(function () {
 	$('input:checkbox').removeAttr('checked');
 	$('select').val(function() {
-  		 $(this).find('option[selected]').val();
+  		return $(this).find('option[selected]').val();
 	});		
 });
+
 </script>
 	
 	<script type="text/javascript" src="autosum.js"></script>
