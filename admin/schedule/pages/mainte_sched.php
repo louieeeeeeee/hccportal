@@ -215,6 +215,7 @@ border-radius: 10px;padding-top:20px;">
 									$query2=mysqli_query($con,"select * from faculty where role='Faculty' OR role='Scheduler' order by lastname")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
 								  ?>
+								  <option value="" selected>-</option>
 										<option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
 								  <?php }
 									
@@ -229,7 +230,8 @@ border-radius: 10px;padding-top:20px;">
 								  <?php 
 									$query2=mysqli_query($con,"select * from subjects order by subjectid")or die(mysqli_error($con));
 									 while($row=mysqli_fetch_array($query2)){
-								  ?>
+								  ?>	
+								  	<option value="" selected>-</option>
 										<option><?php echo $row['subject'];?></option>
 								  <?php }
 									
@@ -241,11 +243,12 @@ border-radius: 10px;padding-top:20px;">
 							<label for="date">Course, Yr & Section</label> 
 							<a href="#" class="btn btn-sm btn-primary" id="sentMessage" data-toggle="modal" class="modifyModal" data-target="#modifyModal" onClick="handleSelectChange(event)">Modify</a>
 								
-							<select class="form-control select2" id="cys" name="cys"  required>
+							<select class="form-control select2" id="cys" name="cys" required>
 								  <?php 
 									$query2=mysqli_query($con,"select * from cys")or die(mysqli_error($con));
 									 while($row=mysqli_fetch_array($query2)){
 								  ?>
+								  		<option value="" selected>-</option>
 										<option value="<?php echo $row['course'] . $row['year'] . $row['section'] .','.$row['id'] . ',' . $row['course'] .','. $row['year'] .','. $row['section']?>">
 										    <?php echo $row['course'] . $row['year'] . $row['section'];?></option>
 								  <?php 
@@ -262,6 +265,7 @@ border-radius: 10px;padding-top:20px;">
 									$query2=mysqli_query($con,"select * from room order by room")or die(mysqli_error($con));
 									  while($row=mysqli_fetch_array($query2)){
 								  ?>
+								  <option value="" selected>-</option>
 										<option><?php echo $row['room'];?></option>
 								  <?php }
 									
