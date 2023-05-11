@@ -10,7 +10,7 @@ include('../dist/includes/dbcon.php');
 	
 	mysqli_query($con,"update room set room='$room' where room_id='$id'")or die(mysqli_error());
 	echo "<script type='text/javascript'>alert('Successfully updated a room!');</script>";	
-	echo "<script>document.location='room.php'</script>";  
+	echo "<script>document.location='mainte_room.php'</script>";  
 }	
 	
 ?>
