@@ -94,23 +94,6 @@ border-radius: 10px;padding-top:20px;">
             <div class="row">
 	      <div class="col-md-9">
               <div class="box box-warning">
-              	<!--<div style="text-align: center">
-              		<h4>Print Class Schedule
-              		<a href="#searcht" data-target="#searcht" data-toggle="modal" class="dropdown-toggle btn btn-primary">
-                     
-                      Teacher				
-                    </a>
-                   <a href="#searchclass" data-target="#searchclass" data-toggle="modal" class="dropdown-toggle btn btn-success">
-                     
-                      Class				
-                    </a>
-                  
-                   <a href="#searchroom" data-target="#searchroom" data-toggle="modal" class="dropdown-toggle btn btn-warning">
-                     
-                      Room				
-                    </a>
-                    </h4>
-                </div> -->
                <form method="post" id="reg-form">
                 	<div class="box-body">
 						<div class="row">
