@@ -53,7 +53,7 @@ if ($_SESSION['loggedin'] == '1') {
         <?php
         if($_SESSION['role'] == 'Scheduler'){
           echo '
-          <a href="../../admin/schedule/pages/home.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
+          <a href="../../admin/schedule/index.php" class="btn btn-sq-lg btn-light mx-3 shadow mb-5" id="btn-sq-lg">
           <i class="fa-solid fa-calendar-plus fa-6x"></i><br/>
           <b><h5>Schedule Generator</h5></b>
         </a>
