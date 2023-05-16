@@ -1,7 +1,7 @@
 <?php
 session_start();
 error_reporting(0);
-if (!($_SESSION['role'] == 'Admin')) {
+if (!($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Scheduler')) {
   header("Location: ../../../index.php");
 }
 
