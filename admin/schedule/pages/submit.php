@@ -22,7 +22,7 @@ include('../dist/includes/dbcon.php');
 	$t = $_POST['t'];
 	$th = $_POST['th'];
 	$s = $_POST['s'];
-	$s = $_POST['u'];
+	$u = $_POST['u'];
 	
 	$set_id=$_SESSION['settings'];
 	$program=$_SESSION['id'];
