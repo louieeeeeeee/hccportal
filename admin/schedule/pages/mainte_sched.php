@@ -284,7 +284,7 @@ error_reporting(0);
                    </div>
 				   <hr>
 				   <div class="form-group">
-				   <label><h1>Update</h1></label><br>
+				   <label><h2>Update</h2></label><br>
 					  <button class="btn btn-md btn-warning" type="button" data-toggle="modal" data-target="#searcht">Teacher</button>
 					  <button class="btn btn-md btn-success" type="button" data-toggle="modal" data-target="#searchclass">Class</button>
 					  <button class="btn btn-md btn-primary" type="button" data-toggle="modal" data-target="#searchroom">Room</button>
