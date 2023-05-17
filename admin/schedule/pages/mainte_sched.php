@@ -281,11 +281,13 @@ error_reporting(0);
 					  
 					  
                    </div>
+				   <br/>
+				   <hr>
 				   <div class="form-group">
                     
-					  <button class="btn btn-md btn-primary" type="button">Teacher</button>
+					  <button class="btn btn-md btn-warning" type="button">Teacher</button>
 					  <button class="btn btn-md btn-success" type="button">Class</button>
-					  <button class="btn btn-md btn-warning" type="button">Room</button>
+					  <button class="btn btn-md btn-primary" type="button">Room</button>
 					  
 					  
                    </div>
