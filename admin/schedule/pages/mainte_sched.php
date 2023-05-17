@@ -283,9 +283,9 @@ error_reporting(0);
                    </div>
 				   <div class="form-group">
                     
-					  <button class="btn btn-lg btn-success" type="button">Teacher</button>
-					  <button class="btn btn-lg btn-success" type="button">Class</button>
-					  <button class="btn btn-lg btn-success" type="button">Room</button>
+					  <button class="btn btn-md btn-success" type="button">Teacher</button>
+					  <button class="btn btn-md btn-success" type="button">Class</button>
+					  <button class="btn btn-md btn-success" type="button">Room</button>
 					  
 					  
                    </div>
