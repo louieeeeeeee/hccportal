@@ -281,7 +281,6 @@ error_reporting(0);
 					  
 					  
                    </div>
-				   <br/>
 				   <hr>
 				   <div class="form-group">
                     
