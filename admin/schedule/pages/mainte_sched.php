@@ -23,16 +23,17 @@ error_reporting(0);
  </head>
  <style>
         body {
-            background: url(../dist/img/temp.jpg) center/cover no-repeat;
-            margin: 0;
-            justify-content: center;
-            font-family: Verdana, sans-serif;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            animation: fadeInAnimation ease 1s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-        }
+    background: url(../dist/img/temp.jpg) center/cover no-repeat fixed;
+    margin: 0;
+    justify-content: center;
+    font-family: Verdana, sans-serif;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
 		body, html {
 			height: 100%;
 			margin: 0;
