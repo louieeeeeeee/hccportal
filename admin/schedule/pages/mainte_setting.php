@@ -343,7 +343,7 @@ error_reporting(0);
       });
     </script>
     <div class="back-button">
-  <a href="../mainte_home.php">
+  <a href="mainte_home.php">
     <button class="btn btn-primary btn-lg">Back</button>
   </a>
 </div>
