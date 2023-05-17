@@ -133,6 +133,7 @@ error_reporting(0);
 											<th>T</th>
 											<th>TH</th>
 											<th>S</th>
+											<th>U</th>
 										</tr>
 									</thead>				
 									<?php
@@ -148,6 +149,7 @@ error_reporting(0);
 									<td><input type="checkbox" name="t[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
 									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
 									<td><input type="checkbox" name="s[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
+									<td><input type="checkbox" name="u[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"></td>
 								  </tr>
 								
 									<?php }?>					  
