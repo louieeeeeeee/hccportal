@@ -148,7 +148,7 @@ include '../../../config.php';
 			<div class="col-xs-3">
 				<a href="mainte_setting.php">
 					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
-                        <i class="fas fa-map-marker-alt fa-6x"></i>
+                        <i class="fas fa-calendar-checkalt fa-6x"></i>
 						<div class="btn-label">Set SY</div>
 					</button>
 				</a>	
