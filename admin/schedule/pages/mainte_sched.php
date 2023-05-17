@@ -284,9 +284,9 @@ error_reporting(0);
 				   <hr>
 				   <div class="form-group">
                     
-					  <button class="btn btn-md btn-warning" type="button">Teacher</button>
-					  <button class="btn btn-md btn-success" type="button">Class</button>
-					  <button class="btn btn-md btn-primary" type="button">Room</button>
+					  <button class="btn btn-md btn-warning" type="button" data-toggle="modal" data-target="#searcht">Teacher</button>
+					  <button class="btn btn-md btn-success" type="button" data-toggle="modal" data-target="#searchclass">Class</button>
+					  <button class="btn btn-md btn-primary" type="button" data-toggle="modal" data-target="#searchroom">Room</button>
 					  
 					  
                    </div>
@@ -306,7 +306,8 @@ error_reporting(0);
       </div><!-- /.content-wrapper -->
       <?php include('../dist/includes/footer.php');?>
     </div><!-- ./wrapper -->
-	<div id="searcht" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<!-- Print for Faculty -->
+<div id="searcht" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="height:auto">
               <div class="modal-header">
@@ -316,21 +317,19 @@ error_reporting(0);
               </div>
               <div class="modal-body">
 			  <form class="form-horizontal" method="post" action="faculty_sched.php" target="_blank">
-                
 				<div class="form-group">
 					<label class="control-label col-lg-2" for="name">Faculty</label>
 					<div class="col-lg-10">
-					<select class="select2" name="faculty" style="width:90%!important" required>
-								  <?php 
-								  
-									$query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
-									  while($row=mysqli_fetch_array($query2)){
-								  ?>
-										<option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
-								  <?php }
-									
-								  ?>
-								</select>
+						<select class="select2" name="faculty" style="width:90%!important" required>
+							<?php 
+								$query2=mysqli_query($con,"select * from faculty order by lastname")or die(mysqli_error($con));
+									while($row=mysqli_fetch_array($query2)){
+								?>
+									<option value="<?php echo $row['facultyid'];?>"><?php echo $row['lastname'].", ".$row['firstname'];?></option>
+								<?php }
+								
+							?>
+						</select>
 					</div>
 				</div> 
 				
@@ -345,11 +344,10 @@ error_reporting(0);
 			
         </div><!--end of modal-dialog-->
  </div>
- <!--end of modal--> 
- 
- 
 
- <div id="searchclass" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+
+<!-- Print for Class -->
+<div id="searchclass" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="height:auto">
               <div class="modal-header">
@@ -390,6 +388,8 @@ error_reporting(0);
  </div>
  <!--end of modal--> 
  
+
+ <!-- Print for Room -->
  <div id="searchroom" class="modal fade in" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div class="modal-dialog">
 	  <div class="modal-content" style="height:auto">
