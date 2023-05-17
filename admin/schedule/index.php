@@ -121,7 +121,7 @@ include '../../../config.php';
 	</nav>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-4">
+			<div class="col-xs-6">
 				<a href="pages/mainte_sched.php">
 					<button id="btn-schedule" class="btn btn-sq-lg mx-auto">
 						<i class="fas fa-calendar-alt fa-6x"></i>
@@ -129,21 +129,13 @@ include '../../../config.php';
 					</button>
 				</a>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-6">
 				<a href="pages/mainte_home.php">
 					<button id="btn-maintenance" class="btn btn-sq-lg mx-auto">
 						<i class="fas fa-wrench fa-6x"></i>
-						<div class="btn-label">Maintenance</div>
-					</button>
-				</a>
-			</div>
-			<div class="col-xs-4">
-				<a href="pages/mainte_setting.php">
-					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
-						<i class="fas fa-cog fa-6x"></i>
 						<div class="btn-label">Settings</div>
 					</button>
-				</a>	
+				</a>
 			</div>
 		</div>
 	</div>
