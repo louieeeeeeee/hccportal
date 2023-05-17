@@ -145,14 +145,6 @@ include '../../../config.php';
 					</button>
 				</a>	
 			</div>
-			<div class="col-xs-3">
-				<a href="pages/mainte_print.php">
-					<button id="btn-schedule2" class="btn btn-sq-lg mx-auto">
-						<i class="fas fa-print fa-6x"></i>
-						<div class="btn-label">Print</div>
-					</button>
-				</a>	
-			</div>
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
