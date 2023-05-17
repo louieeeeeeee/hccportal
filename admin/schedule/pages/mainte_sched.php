@@ -282,7 +282,6 @@ error_reporting(0);
 					  
 					  
                    </div>
-				   <hr>
 				   <div class="form-group">
 				   <label><h3><b>Update<b></h3></label><br>
 					  <button class="btn btn-md btn-warning" type="button" data-toggle="modal" data-target="#searcht">Teacher</button>
