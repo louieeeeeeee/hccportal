@@ -185,9 +185,9 @@ error_reporting(0);
 									<?php if(($id==$time_id) and ($day=='t')) echo "checked"; ?>></td>
 									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
 									<?php if(($id==$time_id) and ($day=='th')) echo "checked"; ?>></td>
-									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+									<td><input type="checkbox" name="s[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
 									<?php if(($id==$time_id) and ($day=='s')) echo "checked"; ?>></td>
-									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+									<td><input type="checkbox" name="u[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
 									<?php if(($id==$time_id) and ($day=='u')) echo "checked"; ?>></td>
 									
 								  </tr>
