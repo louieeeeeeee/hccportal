@@ -88,8 +88,7 @@ error_reporting(0);
 	</nav>
     <div class="wrapper ">
       <div class="content-wrapper">
-        <div class="container" style="background-color: rgba(128, 128, 128, 1);
-border-radius: 10px;padding-top:20px;">
+        <div class="container" >
           <section class="content">
             <div class="row">
 	      <div class="col-md-9">
@@ -166,7 +165,8 @@ border-radius: 10px;padding-top:20px;">
 									<th>Time</th>
 									<th>T</th>
 									<th>TH</th>
-									
+									<th>S</th>
+									<th>SU</th>
 								  </tr>
 								</thead>
 								
@@ -185,6 +185,10 @@ border-radius: 10px;padding-top:20px;">
 									<?php if(($id==$time_id) and ($day=='t')) echo "checked"; ?>></td>
 									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
 									<?php if(($id==$time_id) and ($day=='th')) echo "checked"; ?>></td>
+									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+									<?php if(($id==$time_id) and ($day=='s')) echo "checked"; ?>></td>
+									<td><input type="checkbox" name="th[]" value="<?php echo $id;?>" style="width: 20px; height: 20px;"
+									<?php if(($id==$time_id) and ($day=='u')) echo "checked"; ?>></td>
 									
 								  </tr>
 								
