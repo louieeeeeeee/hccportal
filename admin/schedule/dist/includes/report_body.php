@@ -441,7 +441,60 @@
 										}	
 									?>
 								</td>
-								
+								<td class="sec"  style="width:25%;"><?php 
+								if ($member<>"")
+								{
+									$query2=mysqli_query($con,"select * from schedule natural join faculty where day='u' and schedule.facultyid='$member' and time_id='$id' and settings_id='$sid'")or die(mysqli_error($con));
+								}
+								elseif ($room<>"")
+								{
+									$query2=mysqli_query($con,"select * from schedule natural join faculty where day='u' and schedule.room='$room' and time_id='$id' and settings_id='$sid'")or die(mysqli_error($con));
+								}
+								elseif ($class<>"")
+								{
+									$query2=mysqli_query($con,"select * from schedule natural join faculty where day='u' and schedule.cys='$class' and time_id='$id' and settings_id='$sid'")or die(mysqli_error($con));
+								}
+										$row1=mysqli_fetch_array($query2);
+										$count=mysqli_num_rows($query2);
+										$id1=$row1['sched_id'];
+										//$count=mysqli_num_rows($query1);
+										$encode=$row2['encoded_by'];
+										$mid=$_SESSION['id'];
+										if ($row1['remarks']<>"")
+											$displayrm1= "<li>$row1[remarks]</li>";
+											
+										if($mid==$encode)
+										{
+											$options="";
+										}
+										else
+											$options="";
+										if ($count==0)
+										{
+											//echo "<td></td>";
+										}
+										else
+										{
+											$query3=mysqli_query($con,"select * from subjects where subject = '".$row1['subject_code']."'")or die(mysqli_error($con));
+										$row3=mysqli_fetch_array($query3);
+											echo '
+											<div class="show">
+											<ul>
+												<li class="options" style="display:'.$options.'">
+													<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
+												</li></ul>
+											
+											<ul style="background-color: '.$row3["subjcolor"].';">
+											<li class="showme">												<li>'.$row1["subject_code"].'</li>
+												<li class="'.$displayc.'">'.$row1['cys'].'</li>
+												<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
+												<li class="'.$displayr.'">Room '.$row1['room'].'</li>
+													'.$displayrm.'
+											</ul>';
+										}	
+									?>
+								</td>
 							  </tr>
 			
 			<?php }?>					  
