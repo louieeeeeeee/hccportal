@@ -11,23 +11,16 @@ endif;?>
 
 </head>
 <style>
-	table td, table th {
-		border: 1px solid black;
-		padding: 5px;
-	}
-
 	@media print {
-	  table {
-	    border-collapse: collapse;
-	  }
-	  td, th {
-	    border: 1px solid black;
-	    padding: 5px;
-	  }
-	  table td, table th {
-	    background-color: inherit;
-	  }
-	}
+  table {
+    border-collapse: collapse;
+  }
+  td, th {
+    border: 1px solid black;
+    padding: 5px;
+    background-color: inherit !important;
+  }
+}
 	</style>
 
 <body>
