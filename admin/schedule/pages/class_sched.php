@@ -10,6 +10,26 @@ endif;?>
 <script src="../dist/js/jquery.min.js"></script>
 
 </head>
+<style>
+	table td, table th {
+		border: 1px solid black;
+		padding: 5px;
+	}
+
+	@media print {
+	  table {
+	    border-collapse: collapse;
+	  }
+	  td, th {
+	    border: 1px solid black;
+	    padding: 5px;
+	  }
+	  table td, table th {
+	    background-color: inherit;
+	  }
+	}
+	</style>
+
 <body>
 <?php 
 include('../dist/includes/dbcon.php');
