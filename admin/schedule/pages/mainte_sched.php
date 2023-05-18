@@ -133,7 +133,7 @@ error_reporting(0);
 											<th>T</th>
 											<th>TH</th>
 											<th>S</th>
-											<th>U</th>
+											<th>SU</th>
 										</tr>
 									</thead>				
 									<?php
