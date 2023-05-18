@@ -52,7 +52,7 @@
         <div id="table-carousel" class="carousel carousel-dark slide" data-interval="false">
           <div class="carousel-inner">
             <div class="carousel-item active">
-<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+<table  style="width:100%;float:left;font-size:15px;" class="table table-hover" id="monWedTable">
 							<thead>
 							  <tr>
 								<th class="first">Time</th>
@@ -254,7 +254,7 @@
 		</table>    
 		</div>
             <div class="carousel-item">
-			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover">
+			<table  style="width:100%;float:left;font-size:15px;" class="table table-hover" id="thuSatTable">
 				<thead>
 					<tr>
 					<th class="first"  style="width:25%;">Time</th>

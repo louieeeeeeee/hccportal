@@ -69,3 +69,27 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
  
   </body>
   </html>
+  <button onclick="printSchedule()">Print Schedule</button>
+	
+	<script>
+	function printSchedule() {
+	  var monWedTable = document.getElementById("monWedTable").outerHTML;
+	  var thuSatTable = document.getElementById("thuSatTable").outerHTML;
+
+	  var newWin = window.open('', 'Print-Window');
+	  newWin.document.open();
+	  newWin.document.write('<html><head><style>table, td, th {border: 1px solid black; border-collapse: collapse;} td, th {padding: 5px;}</style></head><body>');
+	  newWin.document.write('<h2>Monday to Wednesday Schedule</h2>');
+	  newWin.document.write(monWedTable);
+	  newWin.document.write('<br>');
+	  newWin.document.write('<h2>Thursday to Saturday Schedule</h2>');
+	  newWin.document.write(thuSatTable);
+	  newWin.document.write('</body></html>');
+	  newWin.document.close();
+
+	  setTimeout(function() {
+	    newWin.print();
+	    newWin.close();
+	  }, 100);
+	}
+	</script>
