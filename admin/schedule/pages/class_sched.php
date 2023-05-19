@@ -12,7 +12,7 @@ endif;?>
 </head>
 <style>
 	@media print {
-		span {
+		.hide-on-print {
     display: none;
   }
   table {

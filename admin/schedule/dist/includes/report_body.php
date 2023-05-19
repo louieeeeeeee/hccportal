@@ -112,9 +112,9 @@
 										$row3=mysqli_fetch_array($query3);
 										//echo $test;
 										echo '
-										<div class="show" style="background-color: '.$row3["subjcolor"].';">
-											<div >
-												<ul>
+										<div class="show">
+											<div style="background-color: '.$row3["subjcolor"].';">
+												<ul class="hide-on-print">
 													<li class="options" style="display:'.$options.'">
 														<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit" onclick="window.print();return false;">Edit</a></span>
 														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete" onclick="window.print();return false;">Remove</a></span>
