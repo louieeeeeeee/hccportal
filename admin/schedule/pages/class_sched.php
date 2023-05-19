@@ -87,8 +87,13 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	
 	<script>
 	function printSchedule() {
-	  var monWedTable = document.getElementById("monWedTable").outerHTML;
-	  var thuSatTable = document.getElementById("thuSatTable").outerHTML;
+	var monWedTable = document.getElementById("monWedTable").outerHTML;
+	var thuSatTable = document.getElementById("thuSatTable").outerHTML;
+
+	var editButton = document.getElementById('btnedit');
+	var deleteButton = document.getElementById('btndelete');
+	editButton.style.display = 'none';
+	deleteButton.style.display = 'none';
 
 	  var newWin = window.open('', 'Print-Window');
 	  newWin.document.open();

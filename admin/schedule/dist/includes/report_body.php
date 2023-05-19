@@ -111,27 +111,25 @@
 										$query3=mysqli_query($con,$test)or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
 										//echo $test;
-										echo '
-										<div class="show">
-											<div style="background-color: '.$row3["subjcolor"].';">
-												<ul>
-													<li class="options" style="display:'.$options.'">
-														<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit" style="display: none;">Edit</a></span>
-														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete" style="display: none;">Remove</a></span>
-													</li>
-												
+											echo '
+											<div class="show">
+												<div style="background-color: '.$row3["subjcolor"].';">
+													<ul>
+														<li class="options" style="display:'.$options.'">
+															<span id="btnedit" style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+															<span id="btndelete" class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
+														</li>
+													</ul>
 													<ul>
 														<li class="showme">
-															<li>'.$row1["subject_code"].'</li>
-															<li class="'.$displayc.'">'.$row1['cys'].'</li>
-															<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>                                      
-															<li class="'.$displayr.'">Room '.$row1['room'].'</li>
-																'.$displayrm.'
-														</ul>
+														<li>'.$row1["subject_code"].'</li>
+														<li class="'.$displayc.'">'.$row1['cys'].'</li>
+														<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
+														<li class="'.$displayr.'">Room '.$row1['room'].'</li>
+															'.$displayrm.'
 													</ul>
 												</div>
 											</div>';
-									
 										}	
 									?>
 								</td>
@@ -173,27 +171,22 @@
 										{
 											$query3=mysqli_query($con,"select * from subjects where subject = '".$row1['subject_code']."'")or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
-										echo '
-										<div class="show">
-											<div style="background-color: '.$row3["subjcolor"].';">
-												<ul>
-													<li class="options" style="display:'.$options.'">
-														'.(isset($_GET['print']) ? '' : '<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>').'
-														'.(isset($_GET['print']) ? '' : '<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>').'
-													</li>
-												
-													<ul>
-														<li class="showme">
-															<li>'.$row1["subject_code"].'</li>
-															<li class="'.$displayc.'">'.$row1['cys'].'</li>
-															<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>                                      
-															<li class="'.$displayr.'">Room '.$row1['room'].'</li>
-																'.$displayrm.'
-														</ul>
-													</ul>
-												</div>
-											</div>';
-									
+											echo '
+											<div class="show">
+											<ul>
+												<li class="options" style="display:'.$options.'">
+													<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
+												</li></ul>
+											
+											<ul style="background-color: '.$row3["subjcolor"].';">
+											<li class="showme">
+												<li>'.$row1["subject_code"].'</li>
+												<li class="'.$displayc.'">'.$row1['cys'].'</li>
+												<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
+												<li class="'.$displayr.'">Room '.$row1['room'].'</li>
+													'.$displayrm.'
+											</ul>';
 										}	
 									?>
 								</td>
@@ -235,27 +228,22 @@
 										{
 											$query3=mysqli_query($con,"select * from subjects where subject = '".$row1['subject_code']."'")or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
-										echo '
-										<div class="show">
-											<div style="background-color: '.$row3["subjcolor"].';">
-												<ul>
-													<li class="options" style="display:'.$options.'">
-														'.(isset($_GET['print']) ? '' : '<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>').'
-														'.(isset($_GET['print']) ? '' : '<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>').'
-													</li>
-												
-													<ul>
-														<li class="showme">
-															<li>'.$row1["subject_code"].'</li>
-															<li class="'.$displayc.'">'.$row1['cys'].'</li>
-															<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>                                      
-															<li class="'.$displayr.'">Room '.$row1['room'].'</li>
-																'.$displayrm.'
-														</ul>
-													</ul>
-												</div>
-											</div>';
-									
+											echo '
+											<div class="show">
+											<ul>
+												<li class="options" style="display:'.$options.'">
+													<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
+												</li></ul>
+											
+											<ul style="background-color: '.$row3["subjcolor"].';">
+											<li class="showme">
+												<li>'.$row1["subject_code"].'</li>
+												<li class="'.$displayc.'">'.$row1['cys'].'</li>
+												<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
+												<li class="'.$displayr.'">Room '.$row1['room'].'</li>
+													'.$displayrm.'
+											</ul>';
 										}	
 									?>
 								</td>
