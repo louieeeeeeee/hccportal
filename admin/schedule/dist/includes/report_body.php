@@ -116,8 +116,8 @@
 												<div style="background-color: '.$row3["subjcolor"].';">
 													<ul>
 														<li class="options" style="display:'.$options.'">
-															<span id="btnedit" style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
-															<span id="btndelete" class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
+															<span  style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+															<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 														</li>
 													</ul>
 													<ul>
