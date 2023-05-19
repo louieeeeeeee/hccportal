@@ -86,43 +86,8 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 
 	
 	<script>
-	function printSchedule() {
-  var monWedTable = document.getElementById("monWedTable").cloneNode(true);
-  var thuSatTable = document.getElementById("thuSatTable").cloneNode(true);
-
-  // Hide "Edit" and "Delete" buttons
-  var editButtons = monWedTable.querySelectorAll('.btnedit');
-  var deleteButtons = monWedTable.querySelectorAll('.btndelete');
-  for (var i = 0; i < editButtons.length; i++) {
-    editButtons[i].style.display = "none";
-  }
-  for (var i = 0; i < deleteButtons.length; i++) {
-    deleteButtons[i].style.display = "none";
-  }
-
-  editButtons = thuSatTable.querySelectorAll('.btnedit');
-  deleteButtons = thuSatTable.querySelectorAll('.btndelete');
-  for (var i = 0; i < editButtons.length; i++) {
-    editButtons[i].style.display = "none";
-  }
-  for (var i = 0; i < deleteButtons.length; i++) {
-    deleteButtons[i].style.display = "none";
-  }
-
-  var newWin = window.open('', 'Print-Window');
-  newWin.document.open();
-  newWin.document.write('<html><head></head><body>');
-  newWin.document.write('<h1>Class Schedule</h1>');
-  newWin.document.write(monWedTable.outerHTML);
-  newWin.document.write('<br>');
-  newWin.document.write(thuSatTable.outerHTML);
-  newWin.document.write('</body></html>');
-  newWin.document.close();
-
-  setTimeout(function() {
-    newWin.print();
-    newWin.close();
-  }, 100);
+	function printPage() {
+  window.print();
 }
 
 	</script>
