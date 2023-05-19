@@ -116,8 +116,8 @@
 											<div style="background-color: '.$row3["subjcolor"].';">
 												<ul>
 													<li class="options" style="display:'.$options.'">
-														'.(isset($_GET['print']) ? '' : '<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>').'
-														'.(isset($_GET['print']) ? '' : '<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>').'
+														<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit" style="display: none;">Edit</a></span>
+														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete" style="display: none;">Remove</a></span>
 													</li>
 												
 													<ul>
@@ -130,7 +130,8 @@
 														</ul>
 													</ul>
 												</div>
-											</div>';									
+											</div>';
+									
 										}	
 									?>
 								</td>
