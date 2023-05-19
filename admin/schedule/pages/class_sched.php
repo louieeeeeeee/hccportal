@@ -10,6 +10,29 @@ endif;?>
 <script src="../dist/js/jquery.min.js"></script>
 
 </head>
+<style>
+	@media print {
+
+		.wrapper_print{
+	width:100%!important;
+}
+.action{
+	display:none;
+}
+.edit{
+	display: none;
+}
+  table {
+    border-collapse: collapse;
+  }
+  td, th {
+    border: 1px solid black;
+    padding: 5px;
+    background-color: inherit !important;
+  }
+}
+	</style>
+
 <body>
 <?php 
 include('../dist/includes/dbcon.php');
@@ -62,6 +85,7 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	$rows=mysqli_fetch_array($settings);
 
 	include('../dist/includes/report_header.php');
+	echo '<br><button onclick="printSchedule()">Print Schedule</button>';
 	include('../dist/includes/report_body.php');
 	include('../dist/includes/report_footer.php');
 ?> 
@@ -69,3 +93,26 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
  
   </body>
   </html>
+
+	
+	<script>
+	function printSchedule() {
+	  var monWedTable = document.getElementById("monWedTable").outerHTML;
+	  var thuSatTable = document.getElementById("thuSatTable").outerHTML;
+
+	  var newWin = window.open('', 'Print-Window');
+	  newWin.document.open();
+	  newWin.document.write('<html><head><style>table, td, th {border: 1px solid black; border-collapse: collapse;} td, th {padding: 5px;}</style></head><body>');
+	  newWin.document.write('<h1>Class Schedule</h1>');
+	  newWin.document.write(monWedTable);
+	  newWin.document.write('<br>');
+	  newWin.document.write(thuSatTable);
+	  newWin.document.write('</body></html>');
+	  newWin.document.close();
+
+	  setTimeout(function() {
+	    newWin.print();
+	    newWin.close();
+	  }, 100);
+	}
+	</script>
