@@ -91,6 +91,7 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 
 	  var newWin = window.open('', 'Print-Window');
 	  newWin.document.open();
+	  newWin.document.write('<h1>MClass Schedule</h1>');
 	  newWin.document.write('<html><head><style>table, td, th {border: 1px solid black; border-collapse: collapse;} td, th {padding: 5px;}</style></head><body>');
 	  newWin.document.write('<h2>Monday to Wednesday Schedule</h2>');
 	  newWin.document.write(monWedTable);
