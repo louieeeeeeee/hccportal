@@ -135,7 +135,7 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	  newWin.document.write('</div>');
 
 	  newWin.document.write(monWedTable.outerHTML);
-	  newWin.document.write('<br>');
+	  newWin.document.write('<br><br><br>');
 	  newWin.document.write(thuSatTable.outerHTML);
 	  newWin.document.write('</body></html>');
 	  newWin.document.close();
