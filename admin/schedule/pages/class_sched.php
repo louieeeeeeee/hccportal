@@ -139,7 +139,7 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	  // Add a page break before the thuSatTable
 	  newWin.document.write('<div style="page-break-before: always;"></div>');
 
-	  newWin.document.write('<h1>Thursday-Saturday Schedule</h1>');
+	  newWin.document.write('<h1>Thursday-Sunday Schedule</h1>');
 	  newWin.document.write(thuSatTable.outerHTML);
 	  newWin.document.write('</body></html>');
 	  newWin.document.close();
