@@ -1,5 +1,10 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style>
+	@media print {
+		.hide-on-print {
+    display: none;
+  }
+}
 	body {
   background: url(../../../../../assets/images/temp.jpg) center/cover no-repeat;
   margin: 0;
