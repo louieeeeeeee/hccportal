@@ -123,6 +123,17 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	  newWin.document.open();
 	  newWin.document.write('<html><head><style>table, td, th {border: 1px solid black; border-collapse: collapse;} td, th {padding: 5px;}</style></head><body>');
 	  newWin.document.write('<h1>Class Schedule</h1>');
+
+	  // Add the custom HTML code at the top of the table
+	  newWin.document.write('<div>');
+	  newWin.document.write('<span style="margin-right: 5px"><?php echo $text;?>: </span>');
+	  newWin.document.write('<span style="color: blue; margin-right: 15px"><?php echo $value;?></span>');
+	  newWin.document.write('<span style="margin-right: 5px;">School Year:</span>');
+	  newWin.document.write('<span style="color: blue; margin-right: 15px"><?php echo $rows['sy']; ?></span>');
+	  newWin.document.write('<span style="margin-right: 5px">Semester: </span>');
+	  newWin.document.write('<span style="color: blue; margin-right: 15px"><?php echo $rows['sem']; ?></span>');
+	  newWin.document.write('</div>');
+
 	  newWin.document.write(monWedTable.outerHTML);
 	  newWin.document.write('<br>');
 	  newWin.document.write(thuSatTable.outerHTML);
@@ -135,4 +146,5 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	  }, 100);
 	}
 </script>
+
 
