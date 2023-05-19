@@ -11,10 +11,7 @@ endif;?>
 
 </head>
 <style>
-	@media print {
-		.hide-on-print {
-    display: none;
-  }
+
   table {
     border-collapse: collapse;
   }

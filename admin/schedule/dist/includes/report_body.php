@@ -1,10 +1,5 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style>
-	@media print {
-		.hide-on-print {
-    display: none;
-  }
-}
 	body {
   background: url(../../../../../assets/images/temp.jpg) center/cover no-repeat;
   margin: 0;
@@ -116,27 +111,25 @@
 										$query3=mysqli_query($con,$test)or die(mysqli_error($con));
 										$row3=mysqli_fetch_array($query3);
 										//echo $test;
-										echo '
-										<div class="show">
-											<div style="background-color: '.$row3["subjcolor"].';">
-												<ul class="hide-on-print">
-													<li class="options" style="display:'.$options.'">
-														<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit" onclick="window.print();return false;">Edit</a></span>
-														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete" onclick="window.print();return false;">Remove</a></span>
-													</li>
-												</ul>
-												<ul>
-													<li class="showme">
+											echo '
+											<div class="show">
+												<div style="background-color: '.$row3["subjcolor"].';">
+													<ul>
+														<li class="options" style="display:'.$options.'">
+															<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+															<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
+														</li>
+													</ul>
+													<ul>
+														<li class="showme">
 														<li>'.$row1["subject_code"].'</li>
 														<li class="'.$displayc.'">'.$row1['cys'].'</li>
-														<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>                                      
+														<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
 														<li class="'.$displayr.'">Room '.$row1['room'].'</li>
 															'.$displayrm.'
-													</li>
-												</ul>
-											</div>
-										</div>';
-									
+													</ul>
+												</div>
+											</div>';
 										}	
 									?>
 								</td>
@@ -183,18 +176,17 @@
 											<div style="background-color: '.$row3["subjcolor"].';">
 												<ul>
 													<li class="options" style="display:'.$options.'">
-														<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit" onclick="window.print();return false;">Edit</a></span>
-														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete" onclick="window.print();return false;">Remove</a></span>
+														<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 													</li>
 												</ul>
 												<ul>
 													<li class="showme">
-														<li>'.$row1["subject_code"].'</li>
-														<li class="'.$displayc.'">'.$row1['cys'].'</li>
-														<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>                                      
-														<li class="'.$displayr.'">Room '.$row1['room'].'</li>
-															'.$displayrm.'
-													</li>
+													<li>'.$row1["subject_code"].'</li>
+													<li class="'.$displayc.'">'.$row1['cys'].'</li>
+													<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
+													<li class="'.$displayr.'">Room '.$row1['room'].'</li>
+														'.$displayrm.'
 												</ul>
 											</div>
 										</div>';
@@ -244,18 +236,17 @@
 											<div style="background-color: '.$row3["subjcolor"].';">
 												<ul>
 													<li class="options" style="display:'.$options.'">
-														<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit" onclick="window.print();return false;">Edit</a></span>
-														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete" onclick="window.print();return false;">Remove</a></span>
+														<span style="float:left;"><a href="mainte_sched_edit.php?id='.$id1.'" class="edit" title="Edit">Edit</a></span>
+														<span class="action"><a href="#" id="'.$id1.'" class="delete" title="Delete">Remove</a></span>
 													</li>
 												</ul>
 												<ul>
 													<li class="showme">
-														<li>'.$row1["subject_code"].'</li>
-														<li class="'.$displayc.'">'.$row1['cys'].'</li>
-														<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>                                      
-														<li class="'.$displayr.'">Room '.$row1['room'].'</li>
-															'.$displayrm.'
-													</li>
+													<li>'.$row1["subject_code"].'</li>
+													<li class="'.$displayc.'">'.$row1['cys'].'</li>
+													<li class="'.$displaym.'">'.$row1['lastname'].', '.$row1['firstname'].'</li>										
+													<li class="'.$displayr.'">Room '.$row1['room'].'</li>
+														'.$displayrm.'
 												</ul>
 											</div>
 										</div>';
