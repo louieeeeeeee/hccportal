@@ -75,6 +75,7 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	$rows=mysqli_fetch_array($settings);
 
 	include('../dist/includes/report_header.php');
+	echo '<br><button onclick="printSchedule()">Print Schedule</button>';
 	include('../dist/includes/report_body.php');
 	include('../dist/includes/report_footer.php');
 ?> 
@@ -82,7 +83,7 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
  
   </body>
   </html>
-  <button onclick="printSchedule()">Print Schedule</button>
+
 	
 	<script>
 	function printSchedule() {
