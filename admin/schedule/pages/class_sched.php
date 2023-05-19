@@ -90,39 +90,28 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
   var monWedTable = document.getElementById("monWedTable").cloneNode(true);
   var thuSatTable = document.getElementById("thuSatTable").cloneNode(true);
 
-  // Remove "btnedit" and "btndelete" elements
-  var btnEditElements = monWedTable.querySelectorAll('.btnedit');
-  for (var i = 0; i < btnEditElements.length; i++) {
-    btnEditElements[i].parentNode.removeChild(btnEditElements[i]);
+  // Hide "Edit" and "Delete" buttons
+  var editButtons = monWedTable.querySelectorAll('.btnedit');
+  var deleteButtons = monWedTable.querySelectorAll('.btndelete');
+  for (var i = 0; i < editButtons.length; i++) {
+    editButtons[i].style.display = "none";
   }
-  
-  var btnDeleteElements = monWedTable.querySelectorAll('.btndelete');
-  for (var i = 0; i < btnDeleteElements.length; i++) {
-    btnDeleteElements[i].parentNode.removeChild(btnDeleteElements[i]);
-  }
-  
-  btnEditElements = thuSatTable.querySelectorAll('.btnedit');
-  for (var i = 0; i < btnEditElements.length; i++) {
-    btnEditElements[i].parentNode.removeChild(btnEditElements[i]);
-  }
-  
-  btnDeleteElements = thuSatTable.querySelectorAll('.btndelete');
-  for (var i = 0; i < btnDeleteElements.length; i++) {
-    btnDeleteElements[i].parentNode.removeChild(btnDeleteElements[i]);
+  for (var i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].style.display = "none";
   }
 
-  // Center text, remove border, and padding
-  monWedTable.style.textAlign = "center";
-  monWedTable.style.border = "none";
-  monWedTable.style.padding = "0";
-
-  thuSatTable.style.textAlign = "center";
-  thuSatTable.style.border = "none";
-  thuSatTable.style.padding = "0";
+  editButtons = thuSatTable.querySelectorAll('.btnedit');
+  deleteButtons = thuSatTable.querySelectorAll('.btndelete');
+  for (var i = 0; i < editButtons.length; i++) {
+    editButtons[i].style.display = "none";
+  }
+  for (var i = 0; i < deleteButtons.length; i++) {
+    deleteButtons[i].style.display = "none";
+  }
 
   var newWin = window.open('', 'Print-Window');
   newWin.document.open();
-  newWin.document.write('<html><head><style>table, td, th {border: none; border-collapse: collapse;} td, th {padding: 0;} td, th, p {text-align: center;}</style></head><body>');
+  newWin.document.write('<html><head></head><body>');
   newWin.document.write('<h1>Class Schedule</h1>');
   newWin.document.write(monWedTable.outerHTML);
   newWin.document.write('<br>');
