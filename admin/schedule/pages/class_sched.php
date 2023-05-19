@@ -95,18 +95,37 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
   </html>
 
 	
-	<script>
+  <script>
 	function printSchedule() {
-	  var monWedTable = document.getElementById("monWedTable").outerHTML;
-	  var thuSatTable = document.getElementById("thuSatTable").outerHTML;
+	  var monWedTable = document.getElementById("monWedTable").cloneNode(true);
+	  var thuSatTable = document.getElementById("thuSatTable").cloneNode(true);
+
+	  // Set display none for elements with class "action" and "edit"
+	  var actionElements = monWedTable.querySelectorAll('.action');
+	  var editElements = monWedTable.querySelectorAll('.edit');
+	  for (var i = 0; i < actionElements.length; i++) {
+	    actionElements[i].style.display = "none";
+	  }
+	  for (var i = 0; i < editElements.length; i++) {
+	    editElements[i].style.display = "none";
+	  }
+
+	  actionElements = thuSatTable.querySelectorAll('.action');
+	  editElements = thuSatTable.querySelectorAll('.edit');
+	  for (var i = 0; i < actionElements.length; i++) {
+	    actionElements[i].style.display = "none";
+	  }
+	  for (var i = 0; i < editElements.length; i++) {
+	    editElements[i].style.display = "none";
+	  }
 
 	  var newWin = window.open('', 'Print-Window');
 	  newWin.document.open();
 	  newWin.document.write('<html><head><style>table, td, th {border: 1px solid black; border-collapse: collapse;} td, th {padding: 5px;}</style></head><body>');
 	  newWin.document.write('<h1>Class Schedule</h1>');
-	  newWin.document.write(monWedTable);
+	  newWin.document.write(monWedTable.outerHTML);
 	  newWin.document.write('<br>');
-	  newWin.document.write(thuSatTable);
+	  newWin.document.write(thuSatTable.outerHTML);
 	  newWin.document.write('</body></html>');
 	  newWin.document.close();
 
@@ -115,4 +134,5 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	    newWin.close();
 	  }, 100);
 	}
-	</script>
+</script>
+
