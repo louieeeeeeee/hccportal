@@ -87,23 +87,53 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	
 	<script>
 	function printSchedule() {
-	  var monWedTable = document.getElementById("monWedTable").outerHTML;
-	  var thuSatTable = document.getElementById("thuSatTable").outerHTML;
+  var monWedTable = document.getElementById("monWedTable").cloneNode(true);
+  var thuSatTable = document.getElementById("thuSatTable").cloneNode(true);
 
-	  
-	  var newWin = window.open('', 'Print-Window');
-	  newWin.document.open();
-	  newWin.document.write('<html><head><style>table, td, th {border: 1px solid black; border-collapse: collapse;} td, th {padding: 5px;}</style></head><body>');
-	  newWin.document.write('<h1>Class Schedule</h1>');
-	  newWin.document.write(monWedTable);
-	  newWin.document.write('<br>');
-	  newWin.document.write(thuSatTable);
-	  newWin.document.write('</body></html>');
-	  newWin.document.close();
+  // Remove "btnedit" and "btndelete" elements
+  var btnEditElements = monWedTable.querySelectorAll('.btnedit');
+  for (var i = 0; i < btnEditElements.length; i++) {
+    btnEditElements[i].parentNode.removeChild(btnEditElements[i]);
+  }
+  
+  var btnDeleteElements = monWedTable.querySelectorAll('.btndelete');
+  for (var i = 0; i < btnDeleteElements.length; i++) {
+    btnDeleteElements[i].parentNode.removeChild(btnDeleteElements[i]);
+  }
+  
+  btnEditElements = thuSatTable.querySelectorAll('.btnedit');
+  for (var i = 0; i < btnEditElements.length; i++) {
+    btnEditElements[i].parentNode.removeChild(btnEditElements[i]);
+  }
+  
+  btnDeleteElements = thuSatTable.querySelectorAll('.btndelete');
+  for (var i = 0; i < btnDeleteElements.length; i++) {
+    btnDeleteElements[i].parentNode.removeChild(btnDeleteElements[i]);
+  }
 
-	  setTimeout(function() {
-	    newWin.print();
-	    newWin.close();
-	  }, 100);
-	}
+  // Center text, remove border, and padding
+  monWedTable.style.textAlign = "center";
+  monWedTable.style.border = "none";
+  monWedTable.style.padding = "0";
+
+  thuSatTable.style.textAlign = "center";
+  thuSatTable.style.border = "none";
+  thuSatTable.style.padding = "0";
+
+  var newWin = window.open('', 'Print-Window');
+  newWin.document.open();
+  newWin.document.write('<html><head><style>table, td, th {border: none; border-collapse: collapse;} td, th {padding: 0;} td, th, p {text-align: center;}</style></head><body>');
+  newWin.document.write('<h1>Class Schedule</h1>');
+  newWin.document.write(monWedTable.outerHTML);
+  newWin.document.write('<br>');
+  newWin.document.write(thuSatTable.outerHTML);
+  newWin.document.write('</body></html>');
+  newWin.document.close();
+
+  setTimeout(function() {
+    newWin.print();
+    newWin.close();
+  }, 100);
+}
+
 	</script>
