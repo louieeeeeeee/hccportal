@@ -135,7 +135,11 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	  newWin.document.write('</div>');
 
 	  newWin.document.write(monWedTable.outerHTML);
-	  newWin.document.write('<br><br><br>');
+
+	  // Add a page break before the thuSatTable
+	  newWin.document.write('<div style="page-break-before: always;"></div>');
+
+	  newWin.document.write('<h1>Thursday-Saturday Schedule</h1>');
 	  newWin.document.write(thuSatTable.outerHTML);
 	  newWin.document.write('</body></html>');
 	  newWin.document.close();
@@ -146,5 +150,6 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 	  }, 100);
 	}
 </script>
+
 
 
