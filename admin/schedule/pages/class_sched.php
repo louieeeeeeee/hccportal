@@ -86,7 +86,7 @@ $settings=mysqli_query($con,"select * from settings where settings_id='$sid'")or
 
 	
 	<script>
-	function printPage() {
+	function printSchedule() {
   window.print();
 }
 
